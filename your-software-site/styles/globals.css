@@ -1,0 +1,16 @@
+:root {
+  --accent-bg: #2f3640;
+  --accent-fg: #f5f6fa;
+}
+
+html, body {
+  font-family: 'InterVariable', Inter, sans-serif;
+  background: #f5f6fa;
+  color: #222;
+  margin: 0; padding: 0;
+}
+*, *:before, *:after { box-sizing: border-box; }
+
+h1, h2, h3 { font-weight: 700; letter-spacing: .03em; }
+section { margin-bottom: 0; padding: 0; }
+/* Removed nav-specific styles */

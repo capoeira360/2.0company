@@ -1,0 +1,33 @@
+.header {
+  position: fixed;
+  right: 50px;
+  top: 50px;
+  z-index: 2000;
+}
+
+.menu {
+  background-color: #c9fd74;
+  border-radius: 25px;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+  will-change: width, height, top, right;
+}
+
+.menuClosed {
+  width: 100px !important;
+  height: 40px !important;
+  top: 0px !important;
+  right: 0px !important;
+  transition: all 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.menuOpen {
+  width: 480px !important;
+  height: 650px !important;
+  top: -25px !important;
+  right: -25px !important;
+  transition: all 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+}
