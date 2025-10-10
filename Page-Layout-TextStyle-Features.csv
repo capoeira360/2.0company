@@ -1,0 +1,6 @@
+"Page","Layout","Text Style","Features"
+"Home","Hero headline, brief intro, CTA button, hero img","Bold, large font for title, neutral subtitle","Perspective section transition, sticky menu"
+"About","Multi-column/team grid, values cards","Slightly smaller headings, paragraph body","Subtle scroll or reveal animations"
+"Services","Grid or cards, each with icon/title/desc","Card titles bold, concise list or description","Animated on scroll, section separators"
+"Case Studies","Logo grid, highlight quote/testimonial sections","Italic, slightly larger quotes, small grid","Parallax or fade-in animations on scroll"
+"Contact","Minimal contact form, company info, sticky footer","Simple, neutral font, generous spacing","Sticky footer with contact/address"

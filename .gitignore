@@ -1,0 +1,27 @@
+# OS
+.DS_Store
+
+# Env
+.env*
+
+# Node/Next.js common
+node_modules/
+.next/
+dist/
+out/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+*.log
+
+# Local build caches
+.turbo/
+.vercel/
+
+# Project-specific
+your-software-site/.next/
+your-software-site/node_modules/
+awwwards-side-menu-main/node_modules/
