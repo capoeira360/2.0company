@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
+import HorizontalSections from "../HorizontalSections/HorizontalSections";
 
 export default function CaseStudiesContent() {
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px" }}>
-      <h2 style={{ fontSize: "2rem" }}>Case Studies</h2>
+      <h2 style={{ fontSize: "2rem" }}>Portfolio</h2>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 12, marginTop: 16, width: "min(900px, 90vw)" }}>
         {["A", "B", "C", "D", "E", "F"].map((logo, i) => (
           <motion.div key={logo}
@@ -21,6 +22,19 @@ export default function CaseStudiesContent() {
         style={{ fontStyle: "italic", fontSize: "1.1rem", color: "#555", maxWidth: 700, textAlign: "center", marginTop: 24 }}>
         "They delivered beyond expectations. Our product velocity doubled."
       </motion.blockquote>
+      <HorizontalSections
+        id="portfolio-horizontal"
+        title="Selected Work"
+        startAtRight
+        items={[
+          { title: "E-commerce revamp", desc: "+22% conversion.", icon: "🛍️" },
+          { title: "Fintech onboarding", desc: "KYC flows.", icon: "🏦" },
+          { title: "Analytics suite", desc: "Signals and cohorts.", icon: "📈" },
+          { title: "Design system", desc: "Cross-platform UI.", icon: "📚" },
+          { title: "Mobile replatform", desc: "Native + web.", icon: "📲" },
+          { title: "Search relevance", desc: "Better ranking.", icon: "🔎" },
+        ]}
+      />
     </div>
   );
 }

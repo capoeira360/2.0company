@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
+import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
 
 export default function HeroContent() {
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [finalOverlayOpen, setFinalOverlayOpen] = useState(false);
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <h1 style={{ fontSize: "3rem", margin: 0, fontWeight: 700 }}>Welcome to Your Software Co.</h1>
       <p style={{ color: "#666", fontSize: "1.25rem", maxWidth: 480, textAlign: "center", marginTop: 16 }}>
         Beautiful, modern web solutions.
@@ -42,6 +47,54 @@ export default function HeroContent() {
         }}
         aria-label="Hero image placeholder"
       />
-    </>
+      {/* Right-side indicator (arc-only styling) */}
+      <button
+        aria-label="Open highlights"
+        onClick={() => setOverlayOpen(true)}
+        style={{
+          position: "fixed",
+          right: 10,
+          top: "50%",
+          transform: "translateY(-50%)",
+          width: 64,
+          height: "4in",
+          background: "transparent",
+          display: "grid",
+          placeItems: "center",
+          cursor: "pointer",
+          border: "none",
+          zIndex: 1000
+        }}
+      >
+        <svg viewBox="0 0 52 160" aria-hidden style={{ height: '100%', width: 56 }} preserveAspectRatio="none">
+          <path d="M50 12 C 30 40, 30 120, 50 148" fill="none" stroke="#ff3b30" strokeWidth="4" />
+          <motion.path d="M38 20 C 22 46, 22 114, 38 140" fill="none" stroke="#ff3b30" strokeWidth="4" strokeDasharray="190" animate={{ strokeDashoffset: [0, 24, 0] }} transition={{ repeat: Infinity, repeatType: 'loop', duration: 2, ease: 'easeInOut' }} />
+          <path d="M26 28 C 14 52, 14 108, 26 132" fill="none" stroke="#ff3b30" strokeWidth="4" />
+        </svg>
+      </button>
+      <HeroHorizontalPage
+        open={overlayOpen}
+        onClose={() => setOverlayOpen(false)}
+        onNextOverlay={() => { setOverlayOpen(false); setFinalOverlayOpen(true); }}
+        title="Highlights"
+        items={[
+          { title: "What we build", desc: "Apps, platforms, systems.", icon: "🧩" },
+          { title: "How we deliver", desc: "Fast, iterative, quality.", icon: "🚀" },
+          { title: "Why us", desc: "Expert team, proven results.", icon: "🏅" },
+          { title: "Get started", desc: "Discovery call today.", icon: "📞" },
+        ]}
+      />
+      <FinalOverlayPage
+        open={finalOverlayOpen}
+        onBack={() => { setFinalOverlayOpen(false); setOverlayOpen(true); }}
+        title="More Highlights"
+        items={[
+          { title: "Case studies", desc: "Selected wins.", icon: "🛍️" },
+          { title: "Tooling", desc: "DX and CI/CD.", icon: "🛠️" },
+          { title: "Security", desc: "Hardening & compliance.", icon: "🔐" },
+          { title: "Performance", desc: "Scale with confidence.", icon: "⚡" },
+        ]}
+      />
+    </div>
   );
 }

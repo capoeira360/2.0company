@@ -8,7 +8,7 @@ const LINKS = [
   { title: "Home", path: "/" },
   { title: "About", path: "/#about" },
   { title: "Services", path: "/#services" },
-  { title: "Case Studies", path: "/#case-studies" },
+  { title: "Portfolio", path: "/#portfolio" },
   { title: "Contact", path: "/#contact" },
 ];
 

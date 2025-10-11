@@ -61,7 +61,7 @@ export default function Home() {
         <Panel id="services" index={2} total={5} bg={PALETTE[2]} scrollYProgress={scrollYProgress}>
           <ServicesContent />
         </Panel>
-        <Panel id="case-studies" index={3} total={5} bg={PALETTE[3]} scrollYProgress={scrollYProgress}>
+        <Panel id="portfolio" index={3} total={5} bg={PALETTE[3]} scrollYProgress={scrollYProgress}>
           <CaseStudiesContent />
         </Panel>
         <Panel id="contact" index={4} total={5} bg={PALETTE[4]} scrollYProgress={scrollYProgress}>
@@ -119,7 +119,7 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
       window.removeEventListener('resize', check);
     };
   }, [atTop]);
-  const delayedRotateIds = new Set(["about", "services", "case-studies"]);
+  const delayedRotateIds = new Set(["about", "services", "portfolio"]);
   const rotateRaw = useTransform([segmentProgress, atTop], ([p, at]) => {
     if (index === total - 1) return 0;
     if (delayedRotateIds.has(id)) {
