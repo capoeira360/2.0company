@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import HorizontalSections from "../HorizontalSections/HorizontalSections";
+// HorizontalSections removed per request
 
 export default function CaseStudiesContent() {
   return (
@@ -22,19 +22,7 @@ export default function CaseStudiesContent() {
         style={{ fontStyle: "italic", fontSize: "1.1rem", color: "#555", maxWidth: 700, textAlign: "center", marginTop: 24 }}>
         "They delivered beyond expectations. Our product velocity doubled."
       </motion.blockquote>
-      <HorizontalSections
-        id="portfolio-horizontal"
-        title="Selected Work"
-        startAtRight
-        items={[
-          { title: "E-commerce revamp", desc: "+22% conversion.", icon: "🛍️" },
-          { title: "Fintech onboarding", desc: "KYC flows.", icon: "🏦" },
-          { title: "Analytics suite", desc: "Signals and cohorts.", icon: "📈" },
-          { title: "Design system", desc: "Cross-platform UI.", icon: "📚" },
-          { title: "Mobile replatform", desc: "Native + web.", icon: "📲" },
-          { title: "Search relevance", desc: "Better ranking.", icon: "🔎" },
-        ]}
-      />
+      {/* Horizontal scroller removed */}
     </div>
   );
 }

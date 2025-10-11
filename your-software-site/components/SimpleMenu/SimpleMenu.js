@@ -33,6 +33,18 @@ export default function SimpleMenu() {
   };
 
   const handleNav = (path) => {
+    try {
+      if (typeof window !== 'undefined') {
+        // Signal overlays to close before navigation
+        window.dispatchEvent(new Event('app:close-overlays'));
+        // Normalize Home to section target
+        if (path === '/' || path === '/#home') {
+          path = '/#home';
+          const el = document.getElementById('home');
+          if (el) requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth' }));
+        }
+      }
+    } catch {}
     router.push(path);
     setOpen(false);
   };

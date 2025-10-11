@@ -8,8 +8,8 @@ import AboutContent from "../components/SectionContent/AboutContent";
 import ServicesContent from "../components/SectionContent/ServicesContent";
 import CaseStudiesContent from "../components/SectionContent/CaseStudiesContent";
 import ContactContent from "../components/SectionContent/ContactContent";
-// Neutral palette used for solid section backgrounds
-const PALETTE = ["#C0CCC2", "#E8E8E8", "#FCF9ED", "#EBDFCC", "#D9CECC", "#A9A8AD"];
+// Sleek Grey and Blue Black Elegance palette for section backgrounds
+const PALETTE = ["#ECF0F1", "#BDC3C7", "#7D7F82", "#34495E", "#2C3E50"];
 // Footer height used for coordinated reveal with the last section (~3 inches)
 const FOOTER_HEIGHT = 288; // 3in ≈ 288px at 96dpi
 // Max rotation angle in degrees
@@ -120,19 +120,26 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
     };
   }, [atTop]);
   const delayedRotateIds = new Set(["about", "services", "portfolio"]);
+  const easeInOut = (t) => {
+    if (t <= 0) return 0;
+    if (t >= 1) return 1;
+    // smoothstep: ease both in and out to remove abruptness
+    return t * t * (3 - 2 * t);
+  };
   const rotateRaw = useTransform([segmentProgress, atTop], ([p, at]) => {
     if (index === total - 1) return 0;
     if (delayedRotateIds.has(id)) {
       if (at < 1) return 0; // only rotate once section is at top
       if (p <= rotationStart) return 0;
       const t = (p - rotationStart) / (1 - rotationStart);
-      return -ROTATE_DEG * t;
+      return -ROTATE_DEG * easeInOut(t);
     }
-    return -ROTATE_DEG * p;
+    return -ROTATE_DEG * easeInOut(p);
   });
-  // Smooth rotation with a spring
-  const rotate = useSpring(rotateRaw, { stiffness: 120, damping: 26, mass: 0.9 });
-  const opacity = isLast ? 1 : useTransform(segmentProgress, [0, 1], [1, 0.96]);
+  // Softer, more damped spring for smoother feel
+  const rotate = useSpring(rotateRaw, { stiffness: 90, damping: 32, mass: 1.0, restDelta: 0.001, restSpeed: 0.001 });
+  // Keep panels fully opaque to ensure solid backgrounds
+  const opacity = 1;
   // Smooth lift of the last section; complete earlier before segment end
   const liftTarget = useTransform(segmentProgress, [0.45, 0.85], [0, -FOOTER_HEIGHT]);
   const liftY = useSpring(isLast ? liftTarget : useTransform(segmentProgress, [0, 1], [0, 0]), {
@@ -184,6 +191,7 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
         position: "sticky",
         top: 0,
         background: bg,
+        color: new Set(["#34495E", "#2C3E50"]).has(bg) ? "#ECF0F1" : "#2C3E50",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

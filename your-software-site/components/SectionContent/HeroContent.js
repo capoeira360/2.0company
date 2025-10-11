@@ -1,11 +1,18 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
 import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
 
 export default function HeroContent() {
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [finalOverlayOpen, setFinalOverlayOpen] = useState(false);
+  // Close overlays when global event is dispatched (e.g., from menu navigation)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const close = () => { setOverlayOpen(false); setFinalOverlayOpen(false); };
+    window.addEventListener('app:close-overlays', close);
+    return () => { window.removeEventListener('app:close-overlays', close); };
+  }, []);
   return (
     <div style={{ position: "relative" }}>
       <h1 style={{ fontSize: "3rem", margin: 0, fontWeight: 700 }}>Welcome to Your Software Co.</h1>

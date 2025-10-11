@@ -1,14 +1,23 @@
 :root {
-  --site-bg: #1F2123; /* palette background revealed behind rotating sections */
-  --accent-bg: #2f3640;
-  --accent-fg: #f5f6fa;
-  --panel-bg: #E8E8E8; /* neutral layout background for panels */
+  /* Sleek Grey and Blue Black Elegance palette */
+  --color-grey: #7D7F82;
+  --color-deep: #2C3E50;
+  --color-light: #BDC3C7;
+  --color-mid: #34495E;
+  --color-ice: #ECF0F1;
+
+  /* Theme mappings */
+  --site-bg: var(--color-deep);        /* background revealed behind rotating sections */
+  --accent-bg: var(--color-mid);       /* primary accent (buttons, toggles) */
+  --accent-fg: var(--color-ice);       /* text on accent */
+  --panel-bg: var(--color-ice);        /* neutral layout background for panels */
+  --text: var(--color-deep);           /* default text color on light panels */
 }
 
 html, body {
   font-family: 'InterVariable', Inter, sans-serif;
   background: var(--site-bg);
-  color: #f5f6fa;
+  color: var(--text);
   margin: 0; padding: 0;
 }
 *, *:before, *:after { box-sizing: border-box; }

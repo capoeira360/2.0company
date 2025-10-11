@@ -15,7 +15,7 @@
   height: 8px;
  }
  .container::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.25);
+  background: var(--color-mid);
   border-radius: 8px;
  }
  .card {
@@ -23,7 +23,7 @@
   scroll-snap-align: start;
   width: min(80vw, 360px);
   border-radius: 12px;
-  background: #e9ecef;
+  background: var(--color-ice);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   padding: 16px;
  }
@@ -33,7 +33,7 @@
  }
  .desc {
   font-size: .95rem;
-  color: #555;
+  color: var(--color-deep);
  }
 .fadeLeft, .fadeRight {
   position: absolute;
@@ -43,9 +43,9 @@
   pointer-events: none;
   z-index: 1;
 }
- .fadeLeft { left: 0; background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);} 
- .fadeRight { right: 0; background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);} 
-.arcIndicator {
+ .fadeLeft { left: 0; background: linear-gradient(90deg, var(--color-ice) 0%, transparent 100%);} 
+ .fadeRight { right: 0; background: linear-gradient(270deg, var(--color-ice) 0%, transparent 100%);} 
+ .arcIndicator {
   position: absolute;
   right: 6px;
   top: 50%;
@@ -54,10 +54,10 @@
   height: 160px;
   display: grid;
   place-items: center;
-  background: rgba(31,33,35,0.35);
+  background: rgba(44,62,80,0.35);
   border-radius: 28px;
   box-shadow: 0 10px 28px rgba(0,0,0,0.25);
   backdrop-filter: blur(6px);
   cursor: pointer;
   z-index: 3;
-}
+ }
