@@ -1,12 +1,14 @@
 :root {
+  --site-bg: #1F2123; /* palette background revealed behind rotating sections */
   --accent-bg: #2f3640;
   --accent-fg: #f5f6fa;
+  --panel-bg: #E8E8E8; /* neutral layout background for panels */
 }
 
 html, body {
   font-family: 'InterVariable', Inter, sans-serif;
-  background: #f5f6fa;
-  color: #222;
+  background: var(--site-bg);
+  color: #f5f6fa;
   margin: 0; padding: 0;
 }
 *, *:before, *:after { box-sizing: border-box; }

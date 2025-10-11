@@ -1,13 +1,14 @@
 "use client";
 import { motion } from "framer-motion";
 import styles from "./Nav.module.css";
+import { useRouter } from "next/router";
 
 const links = [
-  { title: "Home", href: "#home" },
-  { title: "About", href: "#about" },
-  { title: "Services", href: "#services" },
-  { title: "Case Studies", href: "#case-studies" },
-  { title: "Contact", href: "#contact" },
+  { title: "Home", href: "/" },
+  { title: "About", href: "/#about" },
+  { title: "Services", href: "/#services" },
+  { title: "Case Studies", href: "/#case-studies" },
+  { title: "Contact", href: "/#contact" },
 ];
 
 const footerLinks = [
@@ -45,11 +46,10 @@ const slideIn = {
 };
 
 export default function Nav() {
+  const router = useRouter();
   const handleClick = (e, href) => {
     e.preventDefault();
-    const id = href.startsWith('#') ? href.slice(1) : href;
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    router.push(href);
   };
 
   return (
