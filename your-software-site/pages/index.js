@@ -9,7 +9,7 @@ import ServicesContent from "../components/SectionContent/ServicesContent";
 import CaseStudiesContent from "../components/SectionContent/CaseStudiesContent";
 import ContactContent from "../components/SectionContent/ContactContent";
 // Sleek Grey and Blue Black Elegance palette for section backgrounds
-const PALETTE = ["#ECF0F1", "#BDC3C7", "#7D7F82", "#34495E", "#2C3E50"];
+const PALETTE = ["#F0F8FF", "#BDC3C7", "#7D7F82", "#34495E", "#2C3E50"];
 // Footer height used for coordinated reveal with the last section (~3 inches)
 const FOOTER_HEIGHT = 288; // 3in ≈ 288px at 96dpi
 // Max rotation angle in degrees

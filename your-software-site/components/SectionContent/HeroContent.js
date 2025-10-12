@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
 import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
+import CircleChevronButton from "../Indicators/CircleChevronButton";
 
 export default function HeroContent() {
   const [overlayOpen, setOverlayOpen] = useState(false);
@@ -49,36 +50,19 @@ export default function HeroContent() {
           maxWidth: '90vw',
           height: 240,
           borderRadius: 16,
-          background: 'linear-gradient(135deg, #dfe4ea 0%, #c8d6e5 100%)',
+          background: '#F0F8FF',
           boxShadow: '0 12px 30px rgba(47,54,64,0.15)'
         }}
         aria-label="Hero image placeholder"
       />
-      {/* Right-side indicator (arc-only styling) */}
-      <button
-        aria-label="Open highlights"
+      {/* Right-side circular chevron button indicator */}
+      <CircleChevronButton
+        ariaLabel="Open highlights"
+        direction="right"
         onClick={() => setOverlayOpen(true)}
-        style={{
-          position: "fixed",
-          right: 10,
-          top: "50%",
-          transform: "translateY(-50%)",
-          width: 64,
-          height: "4in",
-          background: "transparent",
-          display: "grid",
-          placeItems: "center",
-          cursor: "pointer",
-          border: "none",
-          zIndex: 1000
-        }}
-      >
-        <svg viewBox="0 0 52 160" aria-hidden style={{ height: '100%', width: 56 }} preserveAspectRatio="none">
-          <path d="M50 12 C 30 40, 30 120, 50 148" fill="none" stroke="#ff3b30" strokeWidth="4" />
-          <motion.path d="M38 20 C 22 46, 22 114, 38 140" fill="none" stroke="#ff3b30" strokeWidth="4" strokeDasharray="190" animate={{ strokeDashoffset: [0, 24, 0] }} transition={{ repeat: Infinity, repeatType: 'loop', duration: 2, ease: 'easeInOut' }} />
-          <path d="M26 28 C 14 52, 14 108, 26 132" fill="none" stroke="#ff3b30" strokeWidth="4" />
-        </svg>
-      </button>
+        size={48}
+        style={{ position: "fixed", right: 0, top: "50%", transform: "translateY(-50%)", zIndex: 1000 }}
+      />
       <HeroHorizontalPage
         open={overlayOpen}
         onClose={() => setOverlayOpen(false)}

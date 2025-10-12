@@ -7,6 +7,14 @@ export default function HorizontalSections({ id = "horizontal-section", items = 
   const containerRef = useRef(null);
   const [showIndicator, setShowIndicator] = useState(true);
   const arrowControls = useAnimationControls();
+  // Animate the middle arc subtly to suggest motion
+  useEffect(() => {
+    arrowControls.start({
+      strokeDasharray: 190,
+      strokeDashoffset: [0, 24, 0],
+      transition: { repeat: Infinity, repeatType: 'loop', duration: 2, ease: 'easeInOut' }
+    });
+  }, [arrowControls]);
   const handleIndicatorActivate = (e) => {
     e.stopPropagation();
     const el = containerRef.current;
@@ -56,17 +64,28 @@ export default function HorizontalSections({ id = "horizontal-section", items = 
           className={styles.arcIndicator}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
+          whileHover={{ filter: `brightness(var(--indicator-hover-brightness))` }}
           role="button"
           tabIndex={0}
           aria-label="Reveal next section"
           onClick={handleIndicatorActivate}
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleIndicatorActivate(e); }}
         >
-          <svg width="52" height="160" viewBox="0 0 52 160" aria-hidden>
-            <motion.path d="M50 12 C 30 40, 30 120, 50 148" fill="none" stroke="rgba(245,246,250,0.65)" strokeWidth="4" />
-            <motion.path d="M38 20 C 22 46, 22 114, 38 140" fill="none" stroke="rgba(245,246,250,0.85)" strokeWidth="4" animate={arrowControls} />
-            <motion.path d="M26 28 C 14 52, 14 108, 26 132" fill="none" stroke="rgba(245,246,250,1)" strokeWidth="4" />
-          </svg>
+          <motion.svg width="52" height="160" viewBox="0 0 52 160" aria-hidden
+            style={{ filter: 'drop-shadow(0 0 6px rgba(0,0,0,0.25))' }}
+            // Removed vertical bobbing to prevent perceived downward movement near cursor
+            animate={{}} transition={{}}
+          >
+          <defs>
+            <linearGradient id="horizontalArcGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="var(--indicator-start)" />
+              <stop offset="100%" stopColor="var(--indicator-end)" />
+            </linearGradient>
+          </defs>
+            <motion.path d="M50 12 C 30 40, 30 120, 50 148" fill="none" stroke="url(#horizontalArcGradient)" strokeWidth="4" opacity={0.9} />
+            <motion.path d="M38 20 C 22 46, 22 114, 38 140" fill="none" stroke="url(#horizontalArcGradient)" strokeWidth="4" animate={arrowControls} />
+            <motion.path d="M26 28 C 14 52, 14 108, 26 132" fill="none" stroke="url(#horizontalArcGradient)" strokeWidth="4" opacity={0.9} />
+          </motion.svg>
         </motion.div>
       )}
     </section>

@@ -10,8 +10,13 @@
   --site-bg: var(--color-deep);        /* background revealed behind rotating sections */
   --accent-bg: var(--color-mid);       /* primary accent (buttons, toggles) */
   --accent-fg: var(--color-ice);       /* text on accent */
-  --panel-bg: var(--color-ice);        /* neutral layout background for panels */
+  --panel-bg: #F0F8FF;                 /* neutral layout background for panels */
   --text: var(--color-deep);           /* default text color on light panels */
+
+  /* Indicator theme */
+  --indicator-start: var(--color-deep);
+  --indicator-end: var(--color-light);
+  --indicator-hover-brightness: 1.15;
 }
 
 html, body {
