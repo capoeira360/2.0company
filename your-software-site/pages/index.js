@@ -170,6 +170,7 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
     if (dt < 350 && moved < 16) handleNavigate(e);
   };
 
+  const isHeroPage = id === 'home';
   return (
     <motion.section
       ref={sectionRef}
@@ -190,7 +191,9 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
         height: "100vh",
         position: "sticky",
         top: 0,
-        background: bg,
+        background: isHeroPage
+          ? "url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1920&auto=format&fit=crop') center / cover no-repeat"
+          : bg,
         color: new Set(["#34495E", "#2C3E50"]).has(bg) ? "#ECF0F1" : "#2C3E50",
         display: "flex",
         flexDirection: "column",
@@ -202,6 +205,17 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
         touchAction: "manipulation"
       }}
     >
+      {isHeroPage && (<div className="homeTint" aria-hidden />)}
+      {isHeroPage && (
+        <div className="firstOverlayBottom" aria-hidden>
+          <svg viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden>
+            <path className="firstOverlayMain" d="M0 140 C 260 60, 740 220, 1000 140 V 300 H 0 Z" />
+            <path className="firstOverlayBand1" d="M0 130 C 260 50, 740 210, 1000 130" />
+            <path className="firstOverlayBand2" d="M0 115 C 250 35, 750 195, 1000 115" />
+            <path className="firstOverlayBand3" d="M0 100 C 240 25, 760 180, 1000 100" />
+          </svg>
+        </div>
+      )}
       {children}
     </motion.section>
   );
