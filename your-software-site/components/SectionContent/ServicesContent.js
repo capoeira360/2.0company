@@ -1,9 +1,25 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
+import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
 // HorizontalSections removed per request
 
 export default function ServicesContent() {
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [finalOverlayOpen, setFinalOverlayOpen] = useState(false);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const close = () => { setOverlayOpen(false); setFinalOverlayOpen(false); };
+    window.addEventListener('app:close-overlays', close);
+    const open = (e) => { if (e?.detail?.section === 'services') setOverlayOpen(true); };
+    window.addEventListener('app:open-overlay', open);
+    return () => { 
+      window.removeEventListener('app:close-overlays', close);
+      window.removeEventListener('app:open-overlay', open);
+    };
+  }, []);
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px" }}>
+    <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px" }}>
       <h2 style={{ fontSize: "2.25rem", color: "var(--text)" }}>Our Services</h2>
       <p style={{ color: "var(--color-grey)", fontSize: "1.1rem", maxWidth: 650, textAlign: "center", marginTop: 10 }}>App development, cloud integration, UI/UX design, and more.</p>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16, marginTop: 24, width: "min(900px, 90vw)" }}>
@@ -25,7 +41,36 @@ export default function ServicesContent() {
           </motion.div>
         ))}
       </div>
-      {/* Horizontal scroller removed */}
+
+      {/* Global overlay button handles trigger; removed local chevron */}
+
+      <HeroHorizontalPage
+        open={overlayOpen}
+        onClose={() => { 
+          setOverlayOpen(false); 
+          setFinalOverlayOpen(false);
+          if (typeof window !== 'undefined') window.dispatchEvent(new Event('app:close-overlays'));
+        }}
+        onNextOverlay={() => { setOverlayOpen(false); setFinalOverlayOpen(true); }}
+        title="Services Highlights"
+        items={[
+          { title: "Apps", desc: "Web and mobile.", icon: "📱" },
+          { title: "Cloud", desc: "Scale and reliability.", icon: "☁️" },
+          { title: "Design", desc: "UX/UI craft.", icon: "🎨" },
+          { title: "Consulting", desc: "Architecture and strategy.", icon: "🧠" },
+        ]}
+      />
+      <FinalOverlayPage
+        open={finalOverlayOpen}
+        onBack={() => { setFinalOverlayOpen(false); setOverlayOpen(true); }}
+        title="Services—More"
+        items={[
+          { title: "Security", desc: "Hardening & compliance.", icon: "🔐" },
+          { title: "Performance", desc: "Speed and scale.", icon: "⚡" },
+          { title: "Automation", desc: "CI/CD pipelines.", icon: "🤖" },
+          { title: "Support", desc: "Long-term partnership.", icon: "🤝" },
+        ]}
+      />
     </div>
   );
 }

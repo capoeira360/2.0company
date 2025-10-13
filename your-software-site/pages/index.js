@@ -2,6 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { useScroll, useTransform, useSpring, motion, useMotionValue } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
 import SimpleMenu from "../components/SimpleMenu/SimpleMenu";
+import GlobalOverlayButton from "../components/Indicators/GlobalOverlayButton";
 import { useRouter } from "next/router";
 import HeroContent from "../components/SectionContent/HeroContent";
 import AboutContent from "../components/SectionContent/AboutContent";
@@ -51,6 +52,7 @@ export default function Home() {
   return (
     <>
       <SimpleMenu />
+      <GlobalOverlayButton />
       <main ref={container} style={{ marginLeft: "0", paddingBottom: 0, position: "relative" }}>
         <Panel id="home" index={0} total={5} bg={PALETTE[0]} scrollYProgress={scrollYProgress}>
           <HeroContent />
@@ -78,7 +80,9 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
   const downRef = useRef({ x: 0, y: 0, t: 0 });
   const sectionRef = useRef(null);
   const atTop = useMotionValue(0);
+  const atTopSmooth = useSpring(atTop, { stiffness: 120, damping: 24, mass: 0.9 });
   const [rotationStart, setRotationStart] = useState(0.85);
+  const nextGate = useMotionValue(0);
   // Map global scroll progress to this section's segment
   const start = index / total;
   const end = (index + 1) / total;
@@ -105,11 +109,42 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
       setRotationStart(clamped);
     }
   }, []);
+  // Gate rotation for delayed sections with a smooth ramp as the next section approaches footer threshold
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const order = ["home", "about", "services", "portfolio", "contact"];
+    const nextId = order[index + 1];
+    const updateGate = () => {
+      const nextEl = nextId ? document.getElementById(nextId) : null;
+      if (!nextEl) { nextGate.set(0); return; }
+      const vh = window.innerHeight || 0;
+      const rect = nextEl.getBoundingClientRect();
+      const distFromBottom = Math.max(0, vh - rect.top);
+      // Start ramping a bit before FOOTER_HEIGHT to avoid abrupt start; ramp over ~64px
+      const rampStart = Math.max(0, FOOTER_HEIGHT - 48);
+      const rampRange = 64;
+      const t = Math.max(0, Math.min(1, (distFromBottom - rampStart) / rampRange));
+      nextGate.set(t);
+    };
+    updateGate();
+    window.addEventListener('scroll', updateGate, { passive: true });
+    window.addEventListener('resize', updateGate);
+    return () => {
+      window.removeEventListener('scroll', updateGate);
+      window.removeEventListener('resize', updateGate);
+    };
+  }, [index, nextGate]);
   // Track when this section has reached the top of the viewport
   useEffect(() => {
     const check = () => {
       const rect = sectionRef.current?.getBoundingClientRect();
-      atTop.set(rect && rect.top <= 0 ? 1 : 0);
+      if (!rect) return;
+      const tol = 6; // px tolerance around top to reduce jitter
+      const d = Math.abs(rect.top);
+      // Smooth weight approaching top: 0 → 1 as |top| goes from 60px → 0px
+      const w = Math.max(0, Math.min(1, 1 - Math.min(d, 60) / 60));
+      // Snap to full when within tolerance
+      atTop.set(rect.top <= tol ? 1 : w);
     };
     check();
     window.addEventListener('scroll', check, { passive: true });
@@ -126,18 +161,17 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
     // smoothstep: ease both in and out to remove abruptness
     return t * t * (3 - 2 * t);
   };
-  const rotateRaw = useTransform([segmentProgress, atTop], ([p, at]) => {
+  const rotateRaw = useTransform([segmentProgress, atTopSmooth, nextGate], ([p, at, gate]) => {
     if (index === total - 1) return 0;
     if (delayedRotateIds.has(id)) {
-      if (at < 1) return 0; // only rotate once section is at top
       if (p <= rotationStart) return 0;
       const t = (p - rotationStart) / (1 - rotationStart);
-      return -ROTATE_DEG * easeInOut(t);
+      return -ROTATE_DEG * easeInOut(t) * at * gate;
     }
-    return -ROTATE_DEG * easeInOut(p);
+    return -ROTATE_DEG * easeInOut(p) * at;
   });
   // Softer, more damped spring for smoother feel
-  const rotate = useSpring(rotateRaw, { stiffness: 90, damping: 32, mass: 1.0, restDelta: 0.001, restSpeed: 0.001 });
+  const rotate = useSpring(rotateRaw, { stiffness: 80, damping: 34, mass: 1.0, restDelta: 0.001, restSpeed: 0.001 });
   // Keep panels fully opaque to ensure solid backgrounds
   const opacity = 1;
   // Smooth lift of the last section; complete earlier before segment end

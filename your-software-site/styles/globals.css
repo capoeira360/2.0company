@@ -17,17 +17,22 @@
   --indicator-start: var(--color-deep);
   --indicator-end: var(--color-light);
   --indicator-hover-brightness: 1.15;
+  
+  /* Typography */
+  --small-font: "Modista Pro", Inter, sans-serif;
+  --heading-font: 'Widolte', Inter, sans-serif;
 }
 
 html, body {
-  font-family: 'InterVariable', Inter, sans-serif;
+  font-family: var(--small-font);
+  font-weight: 500;
   background: var(--site-bg);
   color: var(--text);
   margin: 0; padding: 0;
 }
 *, *:before, *:after { box-sizing: border-box; }
 
-h1, h2, h3 { font-weight: 700; letter-spacing: .03em; }
+h1, h2, h3 { font-family: var(--heading-font); font-weight: 700; letter-spacing: .03em; }
 section { margin-bottom: 0; padding: 0; }
 /* Removed nav-specific styles */
 
@@ -57,6 +62,24 @@ section { margin-bottom: 0; padding: 0; }
 
 /* Removed global overlay */
 
+/* Small text font: Modista Pro Medium (use local if available; fallback to hosted) */
+@font-face {
+  font-family: 'Modista Pro';
+  src: local('Modista Pro Medium'), local('ModistaProMedium'),
+       url('/fonts/ModistaProMedium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Modista Pro';
+  src: local('Modista Pro Medium Italic'), local('ModistaProMediumItalic'),
+       url('/fonts/ModistaProMediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* Display font: Maxbeda (regular). Place font files in /public/fonts */
 @font-face {
   font-family: 'Maxbeda';
@@ -67,20 +90,52 @@ section { margin-bottom: 0; padding: 0; }
   font-display: swap;
 }
 
-/* Display serif font: Grayscale (regular and bold) */
+/* Display serif font: Grayscale (bold and bold italic via OTF) */
 @font-face {
   font-family: 'Grayscale';
-  src: url('/fonts/Grayscale-Regular.woff2') format('woff2'),
-       url('/fonts/Grayscale-Regular.woff') format('woff');
+  src: local('Grayscale Bold'), local('Grayscale-Bold'),
+       url('/fonts/GrayscaleBold-6RR0g.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Display font: Sonika (bold + bold italic) */
+@font-face {
+  font-family: 'Sonika';
+  src: url('/fonts/SonikaPersonalUseBold-Vw1e.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sonika';
+  src: url('/fonts/SonikaPersonalUseBoldItalic-JlzK.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Display font: Widolte (regular + bold) */
+@font-face {
+  font-family: 'Widolte';
+  src: url('/fonts/WidolteRegularDemo-14Aj.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'Grayscale';
-  src: url('/fonts/Grayscale-Bold.woff2') format('woff2'),
-       url('/fonts/Grayscale-Bold.woff') format('woff');
+  font-family: 'Widolte';
+  src: url('/fonts/WidolteBoldDemo-lG0Z.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Grayscale';
+  src: local('Grayscale Bold Italic'), local('Grayscale-BoldItalic'),
+       url('/fonts/GrayscaleBoldItalic-yYYOm.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }

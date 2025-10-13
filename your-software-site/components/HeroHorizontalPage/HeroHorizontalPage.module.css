@@ -11,8 +11,8 @@
  .panel {
   position: relative;
   background: var(--panel-bg);
-  width: min(100vw, 1200px);
-  height: min(100vh, 720px);
+  width: calc(100vw - 32px); /* near-full width with 16px margin */
+  height: calc(100vh - 32px); /* near-full height with 16px margin */
   box-shadow: 0 24px 64px rgba(0,0,0,0.35);
   border-radius: 16px;
   overflow: hidden;
@@ -30,9 +30,10 @@
   background: rgba(240,248,255,0.9);
   border-bottom: 1px solid #e9ecef;
  }
- .title {
+.title {
   font-weight: 600;
- }
+  font-family: var(--heading-font);
+}
  .closeBtn {
   border: none;
   background: #2f3640;

@@ -7,7 +7,7 @@
   background: transparent; /* reveal first page background image */
   padding-left: 0;
   padding-right: 8vw;
-  font-family: Inter, system-ui, Arial, sans-serif;
+  font-family: var(--small-font);
   overflow: visible;
 }
 
@@ -28,7 +28,7 @@
   margin: 0 0 12px 0;
 }
 .line {
-  font-family: 'Grayscale', Georgia, serif;
+  font-family: var(--heading-font);
   font-size: clamp(4rem, 10vw, 9.2rem);
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -39,7 +39,7 @@
 .top { display: block; }
 .bottom { display: block; margin-top: .06em; }
 .ampersand {
-  font-family: 'Grayscale', Georgia, serif;
+  font-family: var(--heading-font);
   font-size: clamp(5.2rem, 9.2vw, 9rem);
   font-weight: 700;
   color: #fff;
@@ -95,7 +95,7 @@
   bottom: 0;
   display: flex;
   align-items: center;
-  font-family: Georgia, serif;
+  font-family: var(--heading-font);
   font-weight: 600;
   font-size: clamp(2.2rem, 6.4vw, 5rem);
   color: rgba(255,255,255,0.9);

@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
 import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
-import CircleChevronButton from "../Indicators/CircleChevronButton";
 import styles from "./HeroContent.module.css";
 
 export default function HeroContent() {
@@ -14,7 +13,12 @@ export default function HeroContent() {
     if (typeof window === 'undefined') return;
     const close = () => { setOverlayOpen(false); setFinalOverlayOpen(false); };
     window.addEventListener('app:close-overlays', close);
-    return () => { window.removeEventListener('app:close-overlays', close); };
+    const open = (e) => { if (e?.detail?.section === 'home') setOverlayOpen(true); };
+    window.addEventListener('app:open-overlay', open);
+    return () => { 
+      window.removeEventListener('app:close-overlays', close);
+      window.removeEventListener('app:open-overlay', open);
+    };
   }, []);
   return (
     <section className={styles.heroSection}>
@@ -49,17 +53,14 @@ export default function HeroContent() {
         </div>
       </div>
 
-      {/* Right-side circular chevron button indicator */}
-      <CircleChevronButton
-        ariaLabel="Open highlights"
-        direction="right"
-        onClick={() => setOverlayOpen(true)}
-        size={48}
-        style={{ position: "fixed", right: 0, top: "50%", transform: "translateY(-50%)", zIndex: 1000 }}
-      />
+      {/* Global overlay button handles trigger; removed local chevron */}
       <HeroHorizontalPage
         open={overlayOpen}
-        onClose={() => setOverlayOpen(false)}
+        onClose={() => { 
+          setOverlayOpen(false); 
+          setFinalOverlayOpen(false);
+          if (typeof window !== 'undefined') window.dispatchEvent(new Event('app:close-overlays'));
+        }}
         onNextOverlay={() => { setOverlayOpen(false); setFinalOverlayOpen(true); }}
         title="Highlights"
         items={[
