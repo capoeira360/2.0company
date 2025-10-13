@@ -5,7 +5,7 @@ import styles from "./HeroHorizontalPage.module.css";
 import HorizontalSections from "../HorizontalSections/HorizontalSections";
 import CircleChevronButton from "../Indicators/CircleChevronButton";
 
-export default function FinalOverlayPage({ open, onBack, title = "Deep Dive", items = [] }) {
+export default function FinalOverlayPage({ open, onBack, title = "Deep Dive", items = [], customContent = null }) {
   const [containerEl, setContainerEl] = useState(null);
   const pageStep = () => Math.max(0, (containerEl?.clientWidth || 0) - 64);
   const handleRight = () => {
@@ -30,7 +30,18 @@ export default function FinalOverlayPage({ open, onBack, title = "Deep Dive", it
         >
           <motion.div className={styles.panel}>
             <div className={styles.content}>
-              <HorizontalSections id="hero-final-horizontal" title={title} startAtRight items={items} hideIndicator onReady={setContainerEl} />
+              {customContent ? (
+                customContent
+              ) : (
+                <HorizontalSections
+                  id="hero-final-horizontal"
+                  title={title}
+                  startAtRight
+                  items={items}
+                  hideIndicator
+                  onReady={setContainerEl}
+                />
+              )}
             </div>
             {/* Right circular chevron button indicator */}
             <CircleChevronButton
@@ -38,6 +49,7 @@ export default function FinalOverlayPage({ open, onBack, title = "Deep Dive", it
               direction="right"
               onClick={handleRight}
               size={48}
+              float={false}
               style={{ position: "absolute", right: 0, top: "50%", transform: "translateY(-50%)" }}
             />
             {/* Left circular chevron button indicator */}
@@ -46,6 +58,7 @@ export default function FinalOverlayPage({ open, onBack, title = "Deep Dive", it
               direction="left"
               onClick={handleLeft}
               size={48}
+              float={false}
               style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)" }}
             />
           </motion.div>

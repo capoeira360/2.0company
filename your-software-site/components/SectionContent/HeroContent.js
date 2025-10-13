@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
 import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
 import styles from "./HeroContent.module.css";
+import ServicesOverlayContent from "../HeroHorizontalPage/ServicesOverlayContent";
 
 export default function HeroContent() {
   const [overlayOpen, setOverlayOpen] = useState(false);
@@ -62,13 +63,9 @@ export default function HeroContent() {
           if (typeof window !== 'undefined') window.dispatchEvent(new Event('app:close-overlays'));
         }}
         onNextOverlay={() => { setOverlayOpen(false); setFinalOverlayOpen(true); }}
-        title="Highlights"
-        items={[
-          { title: "What we build", desc: "Apps, platforms, systems.", icon: "🧩" },
-          { title: "How we deliver", desc: "Fast, iterative, quality.", icon: "🚀" },
-          { title: "Why us", desc: "Expert team, proven results.", icon: "🏅" },
-          { title: "Get started", desc: "Discovery call today.", icon: "📞" },
-        ]}
+        title="Our Services"
+        items={[]}
+        customContent={<ServicesOverlayContent />}
       />
       <FinalOverlayPage
         open={finalOverlayOpen}

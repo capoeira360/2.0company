@@ -1,12 +1,13 @@
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
 import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
-// HorizontalSections removed per request
+import styles from "./ServicesContent.module.css";
+import ServicesProcessOverlayContent from "../HeroHorizontalPage/ServicesProcessOverlayContent";
 
 export default function ServicesContent() {
   const [overlayOpen, setOverlayOpen] = useState(false);
   const [finalOverlayOpen, setFinalOverlayOpen] = useState(false);
+  const [isScrolling, setIsScrolling] = useState(false);
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const close = () => { setOverlayOpen(false); setFinalOverlayOpen(false); };
@@ -18,31 +19,81 @@ export default function ServicesContent() {
       window.removeEventListener('app:open-overlay', open);
     };
   }, []);
-  return (
-    <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px" }}>
-      <h2 style={{ fontSize: "2.25rem", color: "var(--text)" }}>Our Services</h2>
-      <p style={{ color: "var(--color-grey)", fontSize: "1.1rem", maxWidth: 650, textAlign: "center", marginTop: 10 }}>App development, cloud integration, UI/UX design, and more.</p>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 16, marginTop: 24, width: "min(900px, 90vw)" }}>
-        {[ 
-          { title: "App Development", desc: "Modern web and mobile apps.", icon: "📱" },
-          { title: "Cloud Integration", desc: "Scalable cloud-native systems.", icon: "☁️" },
-          { title: "UI/UX Design", desc: "Beautiful user experiences.", icon: "🎨" },
-          { title: "Consulting", desc: "Strategy and architecture.", icon: "🧠" }
-        ].map((s, i) => (
-          <motion.div key={s.title}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
-            style={{ background: "var(--color-ice)", borderRadius: 12, padding: 16, boxShadow: "0 4px 12px rgba(0,0,0,0.06)" }}>
-            <div style={{ fontSize: 24 }}>{s.icon}</div>
-            <h3 style={{ fontSize: "1.2rem", margin: "8px 0 4px" }}>{s.title}</h3>
-            <p style={{ color: "var(--color-deep)", fontSize: ".95rem" }}>{s.desc}</p>
-          </motion.div>
-        ))}
-      </div>
 
-      {/* Global overlay button handles trigger; removed local chevron */}
+  // CSS keyframes handle the marquee; we just toggle play state via class.
+
+  const CARDS = [
+    { icon: "🌐", title: "Web Development", desc: "Custom web applications built with modern technologies for optimal performance and user experience.", features: ["Responsive Design", "Progressive Web Apps", "E-commerce Solutions"], tech: ["React", "Next.js", "Vue.js"] },
+    { icon: "📱", title: "Mobile Development", desc: "Native and cross-platform mobile applications that deliver exceptional user experiences across all devices.", features: ["iOS & Android Apps", "Cross-platform Solutions", "App Store Optimization"], tech: ["React Native", "Flutter", "Swift"] },
+    { icon: "🧠", title: "AI & Machine Learning", desc: "Intelligent solutions powered by artificial intelligence to automate processes and enhance decision-making.", features: ["Natural Language Processing", "Computer Vision", "Predictive Analytics"], tech: ["TensorFlow", "PyTorch", "OpenAI"] },
+    { icon: "🧩", title: "Custom Software", desc: "Tailored software solutions designed to meet your specific business requirements and workflows.", features: ["Enterprise Applications", "System Integration", "Legacy System Modernization"], tech: ["Java", "C#", ".NET"] },
+    { icon: "🎨", title: "UI/UX Design", desc: "User-centered design solutions that create intuitive and engaging digital experiences.", features: ["User Research", "Wireframing & Prototyping", "Visual Design"], tech: ["Figma", "Adobe XD", "Sketch"] },
+    { icon: "🗄️", title: "Cloud Solutions", desc: "Scalable cloud infrastructure and services to power your digital transformation.", features: ["Cloud Migration", "DevOps & CI/CD", "Microservices Architecture"], tech: ["AWS", "Azure", "Google Cloud"] },
+    { icon: "🧾", title: "Domain & Hosting", desc: "Comprehensive domain registration and reliable hosting solutions for your web presence.", features: ["Domain Registration", "SSL Certificates", "24/7 Server Monitoring"], tech: ["cPanel", "CloudFlare", "Let's Encrypt"] },
+  ];
+
+  return (
+    <section className={styles.section}>
+      <header className={styles.header}>
+        <h2 className={styles.title}>Our Services</h2>
+        <p className={styles.subtitle}>From concept to deployment, we provide comprehensive solutions tailored to your business needs.</p>
+      </header>
+      <div className={styles.marqueeWrap}>
+        <button
+          className={styles.scrollBtn}
+          aria-label={isScrolling ? "Pause services scroll" : "Start services scroll"}
+          onClick={() => setIsScrolling((s) => !s)}
+        >
+          {isScrolling ? "Pause" : "Scroll"}
+        </button>
+
+        <div className={styles.marquee}>
+          <div className={`${styles.track} ${isScrolling ? styles.running : styles.paused}`}>
+          <div className={styles.pass}>
+            {CARDS.map((c, i) => (
+              <article key={`a-${c.title}-${i}`} className={styles.card}>
+                <div className={styles.icon}>{c.icon}</div>
+                <h3 className={styles.cardTitle}>{c.title}</h3>
+                <p className={styles.cardDesc}>{c.desc}</p>
+                <div className={styles.sectionLabel}><span className={styles.dot} /> KEY FEATURES</div>
+                <ul className={styles.list}>
+                  {c.features.map((f) => (
+                    <li key={f}><span className={styles.check}>✓</span>{f}</li>
+                  ))}
+                </ul>
+                <div className={styles.sectionLabel} style={{ marginTop: 16 }}><span className={styles.dot} /> TECHNOLOGIES</div>
+                <div className={styles.tags}>
+                  {c.tech.map((t) => (<span key={t} className={styles.tag}>{t}</span>))}
+                  <button className={styles.moreBtn}>+2 more</button>
+                </div>
+                <a href="#contact" className={styles.learnLink}>Learn More →</a>
+              </article>
+            ))}
+          </div>
+            <div className={styles.pass}>
+              {CARDS.map((c, i) => (
+                <article key={`b-${c.title}-${i}`} className={styles.card}>
+                <div className={styles.icon}>{c.icon}</div>
+                <h3 className={styles.cardTitle}>{c.title}</h3>
+                <p className={styles.cardDesc}>{c.desc}</p>
+                <div className={styles.sectionLabel}><span className={styles.dot} /> KEY FEATURES</div>
+                <ul className={styles.list}>
+                  {c.features.map((f) => (
+                    <li key={f}><span className={styles.check}>✓</span>{f}</li>
+                  ))}
+                </ul>
+                <div className={styles.sectionLabel} style={{ marginTop: 16 }}><span className={styles.dot} /> TECHNOLOGIES</div>
+                <div className={styles.tags}>
+                  {c.tech.map((t) => (<span key={t} className={styles.tag}>{t}</span>))}
+                  <button className={styles.moreBtn}>+2 more</button>
+                </div>
+                <a href="#contact" className={styles.learnLink}>Learn More →</a>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
 
       <HeroHorizontalPage
         open={overlayOpen}
@@ -52,25 +103,16 @@ export default function ServicesContent() {
           if (typeof window !== 'undefined') window.dispatchEvent(new Event('app:close-overlays'));
         }}
         onNextOverlay={() => { setOverlayOpen(false); setFinalOverlayOpen(true); }}
-        title="Services Highlights"
-        items={[
-          { title: "Apps", desc: "Web and mobile.", icon: "📱" },
-          { title: "Cloud", desc: "Scale and reliability.", icon: "☁️" },
-          { title: "Design", desc: "UX/UI craft.", icon: "🎨" },
-          { title: "Consulting", desc: "Architecture and strategy.", icon: "🧠" },
-        ]}
+        title="Our Process"
+        items={[]}
+        customContent={<ServicesProcessOverlayContent />}
       />
       <FinalOverlayPage
         open={finalOverlayOpen}
         onBack={() => { setFinalOverlayOpen(false); setOverlayOpen(true); }}
-        title="Services—More"
-        items={[
-          { title: "Security", desc: "Hardening & compliance.", icon: "🔐" },
-          { title: "Performance", desc: "Speed and scale.", icon: "⚡" },
-          { title: "Automation", desc: "CI/CD pipelines.", icon: "🤖" },
-          { title: "Support", desc: "Long-term partnership.", icon: "🤝" },
-        ]}
+        title="Deep Dive"
+        items={[{ title: "Case Studies", desc: "Selected wins.", icon: "📚" }]}
       />
-    </div>
+    </section>
   );
 }

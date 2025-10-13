@@ -5,7 +5,7 @@ import styles from "./HeroHorizontalPage.module.css";
 import HorizontalSections from "../HorizontalSections/HorizontalSections";
 import CircleChevronButton from "../Indicators/CircleChevronButton";
 
-export default function HeroHorizontalPage({ open, onClose, onNextOverlay, title = "Highlights", items = [] }) {
+export default function HeroHorizontalPage({ open, onClose, onNextOverlay, title = "Highlights", items = [], customContent = null }) {
   const containerRef = useRef(null);
   const [containerEl, setContainerEl] = useState(null);
   const pageStep = () => {
@@ -15,7 +15,11 @@ export default function HeroHorizontalPage({ open, onClose, onNextOverlay, title
   };
   const handleRight = () => {
     const el = containerEl;
-    if (!el) return;
+    // If no container (e.g., customContent provided), go straight to next overlay
+    if (!el) {
+      onNextOverlay?.();
+      return;
+    }
     const atEnd = el.scrollLeft >= (el.scrollWidth - el.clientWidth - 8);
     if (atEnd) {
       onNextOverlay?.();
@@ -39,7 +43,9 @@ export default function HeroHorizontalPage({ open, onClose, onNextOverlay, title
         >
           <motion.div className={styles.panel}>
             <div className={styles.content}>
-              <HorizontalSections id="hero-overlay-horizontal" title={title} startAtRight items={items} hideIndicator onReady={setContainerEl} />
+              {customContent 
+                ? customContent 
+                : <HorizontalSections id="hero-overlay-horizontal" title={title} startAtRight items={items} hideIndicator onReady={setContainerEl} />}
             </div>
             {/* Right circular chevron button indicator */}
             <CircleChevronButton

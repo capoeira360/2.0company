@@ -1,16 +1,15 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(31,33,35,0.65);
-  backdrop-filter: blur(4px);
+  background: rgba(31,33,35,0.65); /* remove backdrop-filter to avoid GPU flicker */
   z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
- }
+}
  .panel {
   position: relative;
-  background: var(--panel-bg);
+  background: #BDC3C7;
   width: calc(100vw - 32px); /* near-full width with 16px margin */
   height: calc(100vh - 32px); /* near-full height with 16px margin */
   box-shadow: 0 24px 64px rgba(0,0,0,0.35);

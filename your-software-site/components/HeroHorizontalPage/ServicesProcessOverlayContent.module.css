@@ -1,0 +1,69 @@
+/* Services process overlay styles using site color layout */
+
+/* Redesigned to match the attached image: light pill rows with faint titles */
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(16px, 3.5vh, 22px);
+  padding: clamp(12px, 2vh, 20px) 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: clamp(12px, 2vw, 20px);
+  padding: clamp(22px, 3.2vh, 32px) clamp(22px, 3.4vw, 34px);
+  min-height: 1.5in;
+  border-radius: 18px;
+  background: rgba(247, 249, 251, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+}
+
+.iconWrap {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.75);
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.body {
+  display: grid;
+  gap: 6px;
+}
+
+.title {
+  font-weight: 600;
+  color: rgba(44, 62, 80, 0.80);
+}
+
+.desc {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: rgba(44, 62, 80, 0.80);
+}
+
+.arrowBtn {
+  all: unset;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  color: rgba(44, 62, 80, 0.55);
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: auto 1fr;
+  }
+  .arrowBtn { display: none; }
+}

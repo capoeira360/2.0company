@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
 import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
+import AboutOverlayContent from "../HeroHorizontalPage/AboutOverlayContent";
 
 export default function AboutContent() {
   const [overlayOpen, setOverlayOpen] = useState(false);
@@ -19,35 +21,35 @@ export default function AboutContent() {
     };
   }, []);
   return (
-    <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px" }}>
-      <h2 style={{ fontSize: "2rem", marginBottom: 20 }}>About Us</h2>
-      <p style={{ color: "#666", maxWidth: 700, textAlign: "center" }}>We are a team of designers and engineers focused on delivering elegant solutions.</p>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 16, marginTop: 24, width: "min(900px, 90vw)" }}>
-        {["Alex", "Jordan", "Taylor", "Sam"].map((name, i) => (
-          <motion.div key={name}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
-            style={{ background: "#e9ecef", borderRadius: 12, padding: 16, textAlign: "center", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
-            <div style={{ width: 64, height: 64, borderRadius: "50%", background: "#dfe4ea", margin: "0 auto 8px" }} />
-            <strong style={{ fontSize: "1rem" }}>{name}</strong>
-            <div style={{ color: "#888", fontSize: ".9rem" }}>Engineer</div>
-          </motion.div>
-        ))}
-      </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginTop: 28, width: "min(900px, 90vw)" }}>
-        {["Quality", "Transparency", "Innovation"].map((value, i) => (
-          <motion.div key={value}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.05 }}
-            style={{ background: "#e9ecef", borderRadius: 12, padding: 16, boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
-            <h3 style={{ fontSize: "1.1rem", margin: 0 }}>{value}</h3>
-            <p style={{ color: "#666", fontSize: ".95rem", marginTop: 8 }}>We prioritize {value.toLowerCase()} in every project.</p>
-          </motion.div>
-        ))}
+    <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 28, width: "min(1100px, 92vw)", alignItems: "center" }}>
+        {/* Left: Mission copy */}
+        <div>
+          <h2 style={{ fontSize: "2.2rem", margin: 0, fontFamily: "var(--heading-font)", fontWeight: 700 }}>
+            <span style={{ color: "var(--color-deep)", opacity: 0.9 }}>Our </span>
+            <span style={{ color: "#c79211" }}>Mission</span>
+          </h2>
+          <div style={{ marginTop: 16, color: "var(--color-deep)", fontSize: "1.02rem", lineHeight: 1.6, maxWidth: 620 }}>
+            <p>
+              At Tapit, we believe technology should empower businesses to reach their full potential. Our mission is to bridge the gap between innovative ideas and practical solutions, creating digital experiences that drive meaningful growth.
+            </p>
+            <p>
+              We're committed to delivering excellence in every project, fostering long-term partnerships, and contributing to the digital transformation of businesses worldwide.
+            </p>
+          </div>
+        </div>
+        {/* Right: Image card */}
+        <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          style={{ background: "#f7f9fb", borderRadius: 18, boxShadow: "0 24px 64px rgba(0,0,0,0.12)", overflow: "hidden" }}>
+          <Image 
+            src="/turned-gray-laptop-computer.jpg"
+            alt="Mission — modern digital solutions"
+            width={880}
+            height={520}
+            style={{ display: "block", objectFit: "cover" }}
+            priority
+          />
+        </motion.div>
       </div>
 
       {/* Global overlay button handles trigger; removed local chevron */}
@@ -61,12 +63,8 @@ export default function AboutContent() {
         }}
         onNextOverlay={() => { setOverlayOpen(false); setFinalOverlayOpen(true); }}
         title="About Highlights"
-        items={[
-          { title: "Team", desc: "Designers and engineers.", icon: "👥" },
-          { title: "Values", desc: "Quality, transparency, innovation.", icon: "💎" },
-          { title: "Culture", desc: "Curiosity and craft.", icon: "🧭" },
-          { title: "Careers", desc: "Join the crew.", icon: "📣" },
-        ]}
+        items={[]}
+        customContent={<AboutOverlayContent />}
       />
       <FinalOverlayPage
         open={finalOverlayOpen}

@@ -88,7 +88,7 @@ export default function GlobalOverlayButton() {
       bgColor={bg}
       chevronColor={fg}
       float
-      style={{ position: "fixed", right: 0, top: "50%", transform: "translateY(-50%)", zIndex: 1200 }}
+      style={{ position: "fixed", right: 0, top: "50%", transform: "translateY(-50%)", zIndex: 6000 }}
     />
   );
 }
