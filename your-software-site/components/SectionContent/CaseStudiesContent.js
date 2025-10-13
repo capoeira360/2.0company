@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import styles from "./CaseStudiesContent.module.css";
 import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
 import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
 
@@ -18,25 +19,82 @@ export default function CaseStudiesContent() {
     };
   }, []);
   return (
-    <div style={{ position: "relative", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "20px" }}>
-      <h2 style={{ fontSize: "2rem" }}>Portfolio</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 12, marginTop: 16, width: "min(900px, 90vw)" }}>
-        {["A", "B", "C", "D", "E", "F"].map((logo, i) => (
-          <motion.div key={logo}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+    <div className={styles.section}>
+      <header className={styles.header}>
+        <h2 className={styles.title}>Portfolio</h2>
+      </header>
+
+      {/* Case study cards */}
+      <div className={styles.cards}>
+        {[
+          {
+            category: "E-commerce Platform",
+            title: "Tanzanian Handcraft Marketplace",
+            desc:
+              "An Etsy-like marketplace connecting Tanzanian artisans with global customers, featuring handcrafted art, traditional crafts, and unique cultural products with integrated payment systems and seller tools.",
+            tech: ["Next.js", "Node.js", "MongoDB", "Stripe", "AWS"],
+            status: ["In Development", "Q2 2025 Launch", "Pre-launch"],
+            features: [
+              "Artisan Profiles",
+              "Cultural Storytelling",
+              "Multi-currency Support",
+              "Mobile-first Design",
+              "Seller Dashboard",
+              "Global Shipping",
+            ],
+            icon: "🛍️",
+          },
+          {
+            category: "Business Management",
+            title: "SoloPro AI Management Platform",
+            desc:
+              "An AI-driven platform for solopreneurs and early-stage entrepreneurs, providing intelligent business management, automated workflows, and strategic insights without requiring additional staff.",
+            tech: ["React", "Python", "OpenAI", "FastAPI", "PostgreSQL"],
+            status: ["Beta Testing", "Q1 2025 Launch", "50+ Tools"],
+            features: [
+              "AI Task Automation",
+              "Smart Scheduling",
+              "Financial Insights",
+              "Customer Management",
+              "Content Generation",
+              "Performance Analytics",
+            ],
+            icon: "🧠",
+          },
+        ].map((c, i) => (
+          <motion.article
+            key={c.title}
+            className={styles.card}
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.04 }}
-            style={{ background: "#e9ecef", height: 60, borderRadius: 10 }} />
+            transition={{ delay: i * 0.06 }}
+          >
+            <div className={styles.category}>{c.category}</div>
+            <div className={styles.icon}>{c.icon}</div>
+            <h3 className={styles.cardTitle}>{c.title}</h3>
+            <p className={styles.cardDesc}>{c.desc}</p>
+            <div className={styles.metaRow}>
+              <div className={styles.metaBlock}>
+                <div className={styles.metaLabel}>Tech Stack</div>
+                <div className={styles.tags}>{c.tech.map((t) => (<span key={t} className={styles.tag}>{t}</span>))}</div>
+              </div>
+              <div className={styles.metaBlock}>
+                <div className={styles.metaLabel}>Status</div>
+                <div className={styles.tags}>{c.status.map((s) => (<span key={s} className={styles.tag}>{s}</span>))}</div>
+              </div>
+            </div>
+            <div className={styles.featuresWrap}>
+              <div className={styles.metaLabel}>Key Features</div>
+              <ul className={styles.list}>
+                {c.features.map((f) => (
+                  <li key={f}><span className={styles.check}>✓</span>{f}</li>
+                ))}
+              </ul>
+            </div>
+          </motion.article>
         ))}
       </div>
-      <motion.blockquote
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        style={{ fontStyle: "italic", fontSize: "1.1rem", color: "#555", maxWidth: 700, textAlign: "center", marginTop: 24 }}>
-        "They delivered beyond expectations. Our product velocity doubled."
-      </motion.blockquote>
 
       {/* Global overlay button handles trigger; removed local chevron */}
 

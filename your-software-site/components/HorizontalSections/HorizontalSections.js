@@ -9,11 +9,8 @@ export default function HorizontalSections({ id = "horizontal-section", items = 
   const arrowControls = useAnimationControls();
   // Animate the middle arc subtly to suggest motion
   useEffect(() => {
-    arrowControls.start({
-      strokeDasharray: 190,
-      strokeDashoffset: [0, 24, 0],
-      transition: { repeat: Infinity, repeatType: 'loop', duration: 2, ease: 'easeInOut' }
-    });
+    // Keep static stroke to avoid continuous repaint flicker
+    arrowControls.set({ strokeDasharray: 190, strokeDashoffset: 0 });
   }, [arrowControls]);
   const handleIndicatorActivate = (e) => {
     e.stopPropagation();
@@ -36,8 +33,8 @@ export default function HorizontalSections({ id = "horizontal-section", items = 
         // start exactly at the right edge without suppressing indicator
         el.scrollLeft = Math.max(0, el.scrollWidth - el.clientWidth);
       }
-      // Start arrow nudge animation
-      arrowControls.start({ x: [0, -8, 0], transition: { repeat: Infinity, repeatType: "loop", duration: 1.4, ease: "easeInOut" } });
+      // Remove continuous nudge animation to prevent flicker
+      arrowControls.set({ x: 0 });
     };
     // Slight delay to ensure layout computed
     const t = setTimeout(doInit, 50);
@@ -72,7 +69,7 @@ export default function HorizontalSections({ id = "horizontal-section", items = 
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") handleIndicatorActivate(e); }}
         >
           <motion.svg width="52" height="160" viewBox="0 0 52 160" aria-hidden
-            style={{ filter: 'drop-shadow(0 0 6px rgba(0,0,0,0.25))' }}
+            style={{}}
             // Removed vertical bobbing to prevent perceived downward movement near cursor
             animate={{}} transition={{}}
           >
