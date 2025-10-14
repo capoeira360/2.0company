@@ -32,7 +32,7 @@ export default function SiteFooter({ scrollYProgress }) {
               </div>
               <div className={styles.contactRow}>
                 <span>📞</span>
-                <a className={styles.contactLink} href="tel:+255740577877">+255 740 577 877</a>
+                <a className={styles.contactLink} href="tel:+255740577877" style={{color: '#ffffff', fontSize: '16px', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '400'}}>+255 740 577 877</a>
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@ export default function SiteFooter({ scrollYProgress }) {
         </div>
 
         <div className={styles.copyright}>
-          <span>© 2025 Software Company</span>
+          <span style={{fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '400'}}>© 2025 Software Company</span>
           <span>All rights reserved.</span>
         </div>
       </div>

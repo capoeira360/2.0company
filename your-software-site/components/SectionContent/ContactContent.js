@@ -7,7 +7,7 @@ export default function ContactContent() {
         {/* Left: Start Your Project form */}
         <div className={styles.formPanel}>
           <h2 className={styles.heading}>Start Your Project</h2>
-          <p className={styles.subheading}>Fill out the form below and we'll get back to you within 24 hours.</p>
+          <p className={styles.subheading} style={{fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '400'}}>Fill out the form below and we'll get back to you within 24 hours.</p>
           <form className={styles.form} onSubmit={(e) => e.preventDefault()} noValidate>
             <div className={styles.fieldRow}>
               <div className={styles.field}>
@@ -78,8 +78,8 @@ export default function ContactContent() {
               <div className={styles.cardIcon}>📞</div>
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>Call Us</h3>
-                <div className={styles.value}>+255 740 577 877</div>
-                <div className={styles.desc}>Mon–Fri from 8am to 5pm EAT</div>
+                <div className={styles.value} style={{color: '#000000', fontSize: '16px', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '400'}}>+255 740 577 877</div>
+                <div className={styles.desc} style={{color: '#666666', fontSize: '14px', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '400'}}>Mon–Fri from 8am to 5pm EAT</div>
                 <a href="tel:+255740577877" className={styles.link}>Contact Now →</a>
               </div>
             </article>
@@ -99,7 +99,7 @@ export default function ContactContent() {
               <div className={styles.cardBody}>
                 <h3 className={styles.cardTitle}>Business Hours</h3>
                 <div className={styles.value}>Monday – Friday</div>
-                <div className={styles.desc}>8:00 AM – 5:00 PM EAT</div>
+                <div className={styles.desc} style={{color: '#666666', fontSize: '14px', fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '400'}}>8:00 AM – 5:00 PM EAT</div>
               </div>
             </article>
           </div>
@@ -109,7 +109,7 @@ export default function ContactContent() {
             <div className={styles.faqList}>
               <div className={styles.faqItem}>
                 <h4 className={styles.q}>How quickly can you start?</h4>
-                <p className={styles.a}>We typically begin new projects within 1–2 weeks of contract signing.</p>
+                <p className={styles.a} style={{fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif', fontWeight: '400'}}>We typically begin new projects within 1–2 weeks of contract signing.</p>
               </div>
               <div className={styles.faqItem}>
                 <h4 className={styles.q}>Do you offer ongoing support?</h4>
