@@ -9,6 +9,7 @@ import AboutContent from "../components/SectionContent/AboutContent";
 import ServicesContent from "../components/SectionContent/ServicesContent";
 import CaseStudiesContent from "../components/SectionContent/CaseStudiesContent";
 import ContactContent from "../components/SectionContent/ContactContent";
+import SiteFooter from "../components/Footer/SiteFooter";
 // Sleek Grey and Blue Black Elegance palette for section backgrounds
 const PALETTE = ["#F0F8FF", "#BDC3C7", "#7D7F82", "#34495E", "#2C3E50"];
 // Footer height used for coordinated reveal with the last section (~3 inches)
@@ -19,6 +20,7 @@ const ROTATE_DEG = 12;
 
 export default function Home() {
   const container = useRef();
+  const lenisRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"]
@@ -26,11 +28,77 @@ export default function Home() {
 
   useEffect(() => {
     const lenis = new Lenis();
+    lenisRef.current = lenis;
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    // Hold upward scroll only on direction reversal (down -> up)
+    const HOLD_MS = 420;
+    const hold = { until: 0, holding: false, lastWheelSign: 0, lastTouchDir: 0, lastTouchY: 0 };
+
+    const onWheel = (e) => {
+      const sign = Math.sign(e.deltaY); // up: -1, down: +1
+      const now = Date.now();
+      if (hold.holding && now < hold.until) {
+        e.preventDefault();
+        return;
+      }
+      if (hold.holding && now >= hold.until) {
+        hold.holding = false;
+      }
+      const reversedUp = sign < 0 && hold.lastWheelSign > 0;
+      if (reversedUp) {
+        hold.holding = true;
+        hold.until = now + HOLD_MS;
+        // Mark direction as up immediately to avoid re-triggering while still moving up
+        hold.lastWheelSign = -1;
+        e.preventDefault();
+        return;
+      }
+      hold.lastWheelSign = sign;
+    };
+
+    const onTouchStart = (e) => {
+      hold.lastTouchY = e.touches?.[0]?.clientY ?? 0;
+    };
+
+    const onTouchMove = (e) => {
+      const y = e.touches?.[0]?.clientY ?? hold.lastTouchY;
+      const dy = y - hold.lastTouchY;
+      hold.lastTouchY = y;
+      const dir = dy > 2 ? 1 : dy < -2 ? -1 : 0; // up scroll when finger moves down => dir=1
+      const now = Date.now();
+      if (hold.holding && now < hold.until) {
+        e.preventDefault();
+        return;
+      }
+      if (hold.holding && now >= hold.until) {
+        hold.holding = false;
+      }
+      const reversedUp = dir === 1 && hold.lastTouchDir === -1;
+      if (reversedUp) {
+        hold.holding = true;
+        hold.until = now + HOLD_MS;
+        // Mark direction as up immediately to avoid re-triggering while still moving up
+        hold.lastTouchDir = 1;
+        e.preventDefault();
+        return;
+      }
+      hold.lastTouchDir = dir;
+    };
+
+    window.addEventListener('wheel', onWheel, { passive: false });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+    };
   }, []);
 
   // Support deep links like /#contact: on initial load, scroll to hash target.
@@ -83,10 +151,45 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
   const atTopSmooth = useSpring(atTop, { stiffness: 120, damping: 24, mass: 0.9 });
   const [rotationStart, setRotationStart] = useState(0.85);
   const nextGate = useMotionValue(0);
+  const HOLD_MS = 420; // unified per-section upward progress hold
   // Map global scroll progress to this section's segment
   const start = index / total;
   const end = (index + 1) / total;
   const segmentProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
+  // Create a gated progress that holds when direction reverses upward
+  const gatedProgress = useMotionValue(0);
+  useEffect(() => {
+    const initial = typeof segmentProgress.get === 'function' ? segmentProgress.get() : 0;
+    gatedProgress.set(initial);
+    let prev = initial;
+    let lastDir = 0; // -1 up, +1 down, 0 none
+    let holding = false;
+    let until = 0;
+    const unsub = segmentProgress.on("change", (v) => {
+      const now = Date.now();
+      const dir = v < prev ? -1 : v > prev ? +1 : 0;
+      if (holding && now < until) {
+        gatedProgress.set(prev);
+        return;
+      }
+      if (holding && now >= until) {
+        holding = false;
+      }
+      const reversedUp = dir === -1 && lastDir === +1;
+      if (!holding && reversedUp) {
+        holding = true;
+        until = now + HOLD_MS;
+        gatedProgress.set(prev);
+        // Immediately mark direction as up to avoid re-triggering holds during continuous up-motion
+        lastDir = -1;
+        return;
+      }
+      prev = v;
+      lastDir = dir;
+      gatedProgress.set(v);
+    });
+    return () => { if (typeof unsub === 'function') unsub(); };
+  }, [segmentProgress, gatedProgress]);
   const isLast = index === total - 1;
   // Shrink the section behind when the next section is ~halfway through
   const nextStart = (index + 1) / total;
@@ -161,7 +264,7 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
     // smoothstep: ease both in and out to remove abruptness
     return t * t * (3 - 2 * t);
   };
-  const rotateRaw = useTransform([segmentProgress, atTopSmooth, nextGate], ([p, at, gate]) => {
+  const rotateRaw = useTransform([gatedProgress, atTopSmooth, nextGate], ([p, at, gate]) => {
     if (index === total - 1) return 0;
     if (delayedRotateIds.has(id)) {
       if (p <= rotationStart) return 0;
@@ -175,8 +278,8 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
   // Keep panels fully opaque to ensure solid backgrounds
   const opacity = 1;
   // Smooth lift of the last section; complete earlier before segment end
-  const liftTarget = useTransform(segmentProgress, [0.45, 0.85], [0, -FOOTER_HEIGHT]);
-  const liftY = useSpring(isLast ? liftTarget : useTransform(segmentProgress, [0, 1], [0, 0]), {
+  const liftTarget = useTransform(gatedProgress, [0.45, 0.85], [0, -FOOTER_HEIGHT]);
+  const liftY = useSpring(isLast ? liftTarget : useTransform(gatedProgress, [0, 1], [0, 0]), {
     stiffness: 180,
     damping: 24,
     mass: 0.8
@@ -256,39 +359,4 @@ function Panel({ id, index, total, bg, scrollYProgress, children, route }) {
 }
 
 
-function SiteFooter({ scrollYProgress }) {
-  // Footer raises smoothly as we near the end of the last section
-  const start = 4 / 5; // last section start
-  const end = 1.0;     // last section end
-  const segmentProgress = useTransform(scrollYProgress, [start, end], [0, 1]);
-  // Footer raises sooner and completes before the last section ends
-  const raiseTarget = useTransform(segmentProgress, [0.45, 0.85], [FOOTER_HEIGHT, 0]);
-  const footerY = useSpring(raiseTarget, { stiffness: 180, damping: 24, mass: 0.9 });
-
-  return (
-    <motion.footer
-      style={{
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        width: "100%",
-        background: "#2f3640",
-        textAlign: "center",
-        padding: "24px 0 12px",
-        color: "#ffffff",
-        height: FOOTER_HEIGHT,
-        boxSizing: "border-box",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        zIndex: 1500,
-        y: footerY
-      }}
-      aria-label="Site footer"
-    >
-      <strong>Contact us:</strong> hello@yourcompany.com<br />
-      <span>© 2025 Your Company • All rights reserved</span>
-    </motion.footer>
-  );
-}
+// SiteFooter moved to components/Footer/SiteFooter.js

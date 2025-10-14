@@ -21,15 +21,49 @@ export default function GlobalOverlayButton() {
     const threshold = 2; // px tolerance for sticky top
 
     const detectActive = () => {
-      let current = order[0];
+      const vw = window.innerWidth || 0;
+      const vh = window.innerHeight || 0;
+      // Sample left of the floating button to avoid hitting it
+      const sampleX = Math.max(0, vw - 120);
+      const sampleY = Math.max(0, Math.min(vh - 1, vh / 2));
+
+      // Primary: use elementFromPoint to detect which sticky panel is on top at the button's location
+      let node = document.elementFromPoint(sampleX, sampleY);
+      const ids = new Set(order);
+      while (node) {
+        if (node.id && ids.has(node.id)) {
+          if (node.id !== activeSection) setActiveSection(node.id);
+          return;
+        }
+        node = node.parentElement;
+      }
+
+      // Fallback: choose the visible section whose center is closest to viewport center
+      const vpCenter = vh / 2;
+      let best = order[0];
+      let bestDist = Infinity;
       for (const id of order) {
         const el = getEl(id);
         if (!el) continue;
         const rect = el.getBoundingClientRect();
-        // Active sticky section is the LAST one whose top is at or above the viewport top
-        if (rect.top <= threshold) current = id;
+        const top = Math.max(0, rect.top);
+        const bottom = Math.min(vh, rect.bottom);
+        const visible = Math.max(0, bottom - top);
+        // Require a minimum visible area to consider a section active
+        if (visible <= vh * 0.2) continue;
+        const center = (rect.top + rect.bottom) / 2;
+        const dist = Math.abs(center - vpCenter);
+        if (dist < bestDist) { bestDist = dist; best = id; }
       }
-      if (current && current !== activeSection) setActiveSection(current);
+      if (bestDist === Infinity) {
+        for (const id of order) {
+          const el = getEl(id);
+          if (!el) continue;
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= threshold) best = id;
+        }
+      }
+      if (best && best !== activeSection) setActiveSection(best);
     };
 
     // Initialize and track on scroll/resize
@@ -42,6 +76,48 @@ export default function GlobalOverlayButton() {
       window.removeEventListener("resize", detectActive);
     };
   }, [activeSection]);
+
+  // Determine the section currently under the button area (or best fallback)
+  const computeCurrentSection = () => {
+    if (typeof window === 'undefined') return null;
+    const order = ["home", "about", "services", "portfolio", "contact"];
+    const getEl = (id) => document.getElementById(id);
+    const threshold = 2;
+    const vw = window.innerWidth || 0;
+    const vh = window.innerHeight || 0;
+    const sampleX = Math.max(0, vw - 120);
+    const sampleY = Math.max(0, Math.min(vh - 1, vh / 2));
+    let node = document.elementFromPoint(sampleX, sampleY);
+    const ids = new Set(order);
+    while (node) {
+      if (node.id && ids.has(node.id)) return node.id;
+      node = node.parentElement;
+    }
+    const vpCenter = vh / 2;
+    let best = order[0];
+    let bestDist = Infinity;
+    for (const id of order) {
+      const el = getEl(id);
+      if (!el) continue;
+      const rect = el.getBoundingClientRect();
+      const top = Math.max(0, rect.top);
+      const bottom = Math.min(vh, rect.bottom);
+      const visible = Math.max(0, bottom - top);
+      if (visible <= vh * 0.2) continue;
+      const center = (rect.top + rect.bottom) / 2;
+      const dist = Math.abs(center - vpCenter);
+      if (dist < bestDist) { bestDist = dist; best = id; }
+    }
+    if (bestDist === Infinity) {
+      for (const id of order) {
+        const el = getEl(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= threshold) best = id;
+      }
+    }
+    return best;
+  };
 
   const intersectionRatioFor = (el) => {
     const rect = el.getBoundingClientRect();
@@ -65,12 +141,12 @@ export default function GlobalOverlayButton() {
   }, []);
 
   const handleClick = () => {
-    if (!activeSection || activeSection === "contact") return;
+    const id = computeCurrentSection();
+    if (!id || id === "contact") return;
     try {
       window.dispatchEvent(
-        new CustomEvent("app:open-overlay", { detail: { section: activeSection } })
+        new CustomEvent("app:open-overlay", { detail: { section: id } })
       );
-      // Hide button immediately while overlays are active
       setOverlayActive(true);
     } catch {}
   };

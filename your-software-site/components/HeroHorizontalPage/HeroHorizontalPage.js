@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useRef as useRefAlias } from "react";
 import styles from "./HeroHorizontalPage.module.css";
 import HorizontalSections from "../HorizontalSections/HorizontalSections";
 import CircleChevronButton from "../Indicators/CircleChevronButton";
@@ -8,6 +8,7 @@ import CircleChevronButton from "../Indicators/CircleChevronButton";
 export default function HeroHorizontalPage({ open, onClose, onNextOverlay, title = "Highlights", items = [], customContent = null }) {
   const containerRef = useRef(null);
   const [containerEl, setContainerEl] = useState(null);
+  const closingRef = useRefAlias(false);
   const pageStep = () => {
     const el = containerEl;
     if (!el) return 0;
@@ -31,6 +32,31 @@ export default function HeroHorizontalPage({ open, onClose, onNextOverlay, title
     // Immediately close the overlay when tapping the left arc
     onClose?.();
   };
+
+  // Close overlay when user scrolls down (wheel/touch) while open
+  useEffect(() => {
+    if (!open) return;
+    closingRef.current = false;
+    const onWheel = (e) => {
+      if (closingRef.current) return;
+      if (e.deltaY > 6) { closingRef.current = true; onClose?.(); }
+    };
+    let touchStartY = 0;
+    const onTouchStart = (e) => { touchStartY = e.touches?.[0]?.clientY || 0; };
+    const onTouchMove = (e) => {
+      if (closingRef.current) return;
+      const y = e.touches?.[0]?.clientY || 0;
+      if (touchStartY && (touchStartY - y) > 8) { closingRef.current = true; onClose?.(); }
+    };
+    window.addEventListener('wheel', onWheel, { passive: true });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+    };
+  }, [open, onClose]);
   return (
     <AnimatePresence>
       {open && (

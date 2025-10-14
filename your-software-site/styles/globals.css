@@ -19,8 +19,8 @@
   --indicator-hover-brightness: 1.15;
   
   /* Typography */
-  --small-font: "Modista Pro", Inter, sans-serif;
-  --heading-font: 'Widolte', Inter, sans-serif;
+  --small-font: 'Inter Variable', Inter, system-ui, -apple-system, sans-serif;
+  --heading-font: 'Inter Variable', Inter, system-ui, -apple-system, sans-serif;
 }
 
 html, body {
@@ -45,7 +45,7 @@ section { margin-bottom: 0; padding: 0; }
   z-index: 1;
 }
 .firstOverlayBottom svg { width: 100%; height: 100%; display: block; }
-.firstOverlayMain { fill: #468186; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.18)); }
+.firstOverlayMain { fill: #0ABAB5; filter: drop-shadow(0 12px 24px rgba(0,0,0,0.18)); }
 .firstOverlayBand1 { fill: none; stroke: var(--color-ice); stroke-width: 16; opacity: 0.95; }
 .firstOverlayBand2 { fill: none; stroke: #d0d3d6; stroke-width: 20; opacity: 0.9; }
 .firstOverlayBand3 { fill: none; stroke: var(--color-grey); stroke-width: 22; opacity: 0.85; }

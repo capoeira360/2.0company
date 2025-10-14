@@ -1,12 +1,13 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef as useRefAlias } from "react";
 import styles from "./HeroHorizontalPage.module.css";
 import HorizontalSections from "../HorizontalSections/HorizontalSections";
 import CircleChevronButton from "../Indicators/CircleChevronButton";
 
 export default function FinalOverlayPage({ open, onBack, title = "Deep Dive", items = [], customContent = null }) {
   const [containerEl, setContainerEl] = useState(null);
+  const closingRef = useRefAlias(false);
   const pageStep = () => Math.max(0, (containerEl?.clientWidth || 0) - 64);
   const handleRight = () => {
     const el = containerEl;
@@ -17,6 +18,32 @@ export default function FinalOverlayPage({ open, onBack, title = "Deep Dive", it
     // Always go back to previous overlay immediately
     onBack?.();
   };
+
+  // Close all overlays when user scrolls down (wheel/touch) while final overlay is open
+  useEffect(() => {
+    if (!open) return;
+    closingRef.current = false;
+    const closeAll = () => {
+      // Prefer dispatch so section listeners can reset state properly
+      try { window.dispatchEvent(new Event('app:close-overlays')); } catch {}
+    };
+    const onWheel = (e) => { if (!closingRef.current && e.deltaY > 6) { closingRef.current = true; closeAll(); } };
+    let touchStartY = 0;
+    const onTouchStart = (e) => { touchStartY = e.touches?.[0]?.clientY || 0; };
+    const onTouchMove = (e) => {
+      if (closingRef.current) return;
+      const y = e.touches?.[0]?.clientY || 0;
+      if (touchStartY && (touchStartY - y) > 8) { closingRef.current = true; closeAll(); }
+    };
+    window.addEventListener('wheel', onWheel, { passive: true });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    return () => {
+      window.removeEventListener('wheel', onWheel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+    };
+  }, [open]);
 
   return (
     <AnimatePresence>
