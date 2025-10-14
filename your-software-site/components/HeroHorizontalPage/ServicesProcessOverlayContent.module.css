@@ -16,10 +16,13 @@
   gap: clamp(12px, 2vw, 20px);
   padding: clamp(22px, 3.2vh, 32px) clamp(22px, 3.4vw, 34px);
   min-height: 1.5in;
+  width: calc(100% - 72px);
+  margin: 0 auto;
   border-radius: 18px;
   background: rgba(247, 249, 251, 0.92);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+  box-sizing: border-box;
 }
 
 .iconWrap {

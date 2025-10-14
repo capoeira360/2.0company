@@ -1,14 +1,22 @@
 .heroSection {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   height: 100%;
-  position: relative;
   background: transparent; /* reveal first page background image */
   padding-left: 0;
   padding-right: 8vw;
   font-family: var(--small-font);
   overflow: visible;
+}
+
+.logoArea {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  z-index: 3000;
+  transition: all 0.3s ease;
 }
 
 .heroContent {
