@@ -19,8 +19,8 @@
   --indicator-hover-brightness: 1.15;
   
   /* Typography */
-  --small-font: 'Inter Variable', Inter, system-ui, -apple-system, sans-serif;
-  --heading-font: 'Inter Variable', Inter, system-ui, -apple-system, sans-serif;
+  --small-font: 'Modista Pro', system-ui, -apple-system, sans-serif;
+  --heading-font: 'Widolte', system-ui, -apple-system, sans-serif;
 }
 
 html, body {
@@ -81,62 +81,11 @@ section { margin-bottom: 0; padding: 0; }
   font-display: swap;
 }
 
-/* Display font: Maxbeda (regular). Place font files in /public/fonts */
-@font-face {
-  font-family: 'Maxbeda';
-  src: url('/fonts/Maxbeda-Regular.woff2') format('woff2'),
-       url('/fonts/Maxbeda-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Display serif font: Grayscale (bold and bold italic via OTF) */
-@font-face {
-  font-family: 'Grayscale';
-  src: local('Grayscale Bold'), local('Grayscale-Bold'),
-       url('/fonts/GrayscaleBold-6RR0g.otf') format('opentype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Display font: Sonika (bold + bold italic) */
-@font-face {
-  font-family: 'Sonika';
-  src: url('/fonts/SonikaPersonalUseBold-Vw1e.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sonika';
-  src: url('/fonts/SonikaPersonalUseBoldItalic-JlzK.ttf') format('truetype');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Display font: Widolte (regular + bold) */
-@font-face {
-  font-family: 'Widolte';
-  src: url('/fonts/WidolteRegularDemo-14Aj.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+/* Large text font: Widolte Bold Demo */
 @font-face {
   font-family: 'Widolte';
   src: url('/fonts/WidolteBoldDemo-lG0Z.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Grayscale';
-  src: local('Grayscale Bold Italic'), local('Grayscale-BoldItalic'),
-       url('/fonts/GrayscaleBoldItalic-yYYOm.otf') format('opentype');
-  font-weight: 700;
-  font-style: italic;
   font-display: swap;
 }

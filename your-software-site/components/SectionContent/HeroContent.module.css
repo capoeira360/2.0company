@@ -26,6 +26,11 @@
   position: relative;
   display: inline-block;
   margin: 0 0 12px 0;
+  font-family: var(--heading-font);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 .line {
   font-family: var(--heading-font);

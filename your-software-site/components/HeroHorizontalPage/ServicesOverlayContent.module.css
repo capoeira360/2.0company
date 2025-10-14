@@ -1,9 +1,9 @@
 .wrapper { 
   position: absolute;
-  inset: 56px 8px 8px 8px; /* below header spacing from overlay module */
+  inset: 56px 8px 8px 8px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: clamp(16px, 3vw, 20px);
 }
 .header { 
   text-align: center;
@@ -12,38 +12,38 @@
   margin: 0;
   font-family: var(--heading-font);
   font-weight: 700;
-  font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+  font-size: clamp(1.4rem, 3.8vw, 2.2rem);
 }
 .sub { 
   margin: 8px auto 0;
   color: var(--color-grey);
   max-width: 900px;
-  font-size: clamp(0.95rem, 2.4vw, 1.05rem);
+  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(14px, 3vw, 18px);
 }
 .card { 
   background: var(--color-ice);
   border-radius: 14px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.08);
   border: 1px solid rgba(0,0,0,0.06);
-  padding: 20px;
+  padding: clamp(16px, 4vw, 20px);
 }
 .icon { 
-  font-size: 22px;
-  color: #c79211; /* warm accent close to example */
+  font-size: clamp(20px, 4.5vw, 22px);
+  color: #c79211;
 }
 .cardTitle { 
   margin: 8px 0 6px 0;
-  font-size: 1.15rem;
+  font-size: clamp(1.05rem, 2.5vw, 1.15rem);
   font-weight: 600;
 }
 .cardDesc { 
   color: var(--color-deep);
-  font-size: .98rem;
+  font-size: clamp(0.9rem, 2.1vw, 0.98rem);
 }
 .list { 
   margin: 12px 0 0 0;
@@ -72,6 +72,27 @@
 }
 
 @media (max-width: 720px) {
-  .wrapper { inset: 56px 6px 6px 6px; }
-  .card { padding: 16px; }
+  .wrapper { 
+    inset: 56px 6px 6px 6px; 
+    gap: 14px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .card { 
+    padding: clamp(14px, 3.5vw, 16px); 
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    inset: 56px 4px 4px 4px;
+    gap: 12px;
+  }
+  .card {
+    padding: 14px;
+  }
 }

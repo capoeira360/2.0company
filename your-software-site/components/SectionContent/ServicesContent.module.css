@@ -4,29 +4,56 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: clamp(18px, 4vw, 24px);
 }
-.header {
-  text-align: center;
-  margin-bottom: 18px;
+.header { text-align: center; }
+.title { 
+  margin: 0; 
+  font-family: var(--heading-font); 
+  font-weight: 800; 
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem); 
 }
-.title {
-  margin: 0;
-  font-family: var(--heading-font);
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+.sub { 
+  margin: 8px auto 0; 
+  color: var(--color-grey); 
+  max-width: 900px; 
+  font-size: clamp(0.9rem, 2.2vw, 1.05rem); 
 }
-.subtitle {
-  margin: 8px auto 0;
-  color: var(--color-grey);
-  max-width: 800px;
-  font-size: clamp(0.95rem, 2.4vw, 1.05rem);
-}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
+  gap: clamp(16px, 3vw, 20px);
+  margin-top: clamp(20px, 4vw, 24px);
   width: min(1100px, 92vw);
+}
+.card {
+  background: var(--color-ice);
+  border-radius: 18px;
+  box-shadow: 0 20px 46px rgba(0,0,0,0.10);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: clamp(18px, 4vw, 22px);
+}
+.category { 
+  color: #a0aec0; 
+  font-weight: 800; 
+  font-size: clamp(0.8rem, 2vw, 0.9rem); 
+}
+.icon { 
+  font-size: clamp(24px, 5vw, 28px); 
+  color: #c79211; 
+  margin: 6px 0 2px; 
+}
+.cardTitle { 
+  margin: 8px 0 6px; 
+  font-size: clamp(1.1rem, 2.8vw, 1.25rem); 
+  font-weight: 800; 
+  color: #2c3e50; 
+}
+.cardDesc { 
+  color: var(--color-deep); 
+  font-size: clamp(0.9rem, 2.2vw, 1rem); 
+  line-height: 1.6; 
 }
 .marqueeWrap {
   position: relative;
@@ -135,6 +162,23 @@
 }
 
 @media (max-width: 720px) {
-  .grid { gap: 14px; }
-  .card { padding: 18px; width: 80vw; }
+  .grid { 
+    gap: clamp(14px, 3vw, 16px); 
+    grid-template-columns: 1fr;
+  }
+  .card { 
+    padding: clamp(16px, 4vw, 18px); 
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    gap: 12px;
+  }
+  .card {
+    padding: 16px;
+  }
 }

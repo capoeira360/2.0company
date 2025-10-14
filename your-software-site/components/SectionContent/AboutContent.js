@@ -21,15 +21,30 @@ export default function AboutContent() {
     };
   }, []);
   return (
-    <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", padding: "24px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 28, width: "min(1100px, 92vw)", alignItems: "center" }}>
+    <div style={{ position: "relative", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(16px, 4vw, 24px)" }}>
+      <div style={{ 
+        display: "grid", 
+        gridTemplateColumns: "1.1fr 1fr", 
+        gap: "clamp(20px, 4vw, 28px)", 
+        width: "min(1100px, 92vw)", 
+        alignItems: "center" 
+      }}>
+        {/* Add responsive breakpoint */}
+        <style jsx>{`
+          @media (max-width: 768px) {
+            div[style*="gridTemplateColumns"] {
+              grid-template-columns: 1fr !important;
+              gap: 20px !important;
+            }
+          }
+        `}</style>
         {/* Left: Mission copy */}
         <div>
-          <h2 style={{ fontSize: "2.2rem", margin: 0, fontFamily: "var(--heading-font)", fontWeight: 700 }}>
+          <h2 style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.2rem)", margin: 0, fontFamily: "var(--heading-font)", fontWeight: 700 }}>
             <span style={{ color: "var(--color-deep)", opacity: 0.9 }}>Our </span>
             <span style={{ color: "#c79211" }}>Mission</span>
           </h2>
-          <div style={{ marginTop: 16, color: "var(--color-deep)", fontSize: "1.02rem", lineHeight: 1.6, maxWidth: 620 }}>
+          <div style={{ marginTop: 16, color: "var(--color-deep)", fontSize: "clamp(0.95rem, 2.2vw, 1.02rem)", lineHeight: 1.6, maxWidth: 620 }}>
             <p>
               At Tapit, we believe technology should empower businesses to reach their full potential. Our mission is to bridge the gap between innovative ideas and practical solutions, creating digital experiences that drive meaningful growth.
             </p>
@@ -77,6 +92,7 @@ export default function AboutContent() {
           { title: "Contact", desc: "Reach out anytime.", icon: "✉️" },
         ]}
       />
+
     </div>
   );
 }
