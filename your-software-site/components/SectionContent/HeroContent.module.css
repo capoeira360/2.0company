@@ -1,3 +1,27 @@
+.logoPosition {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  width: 360px;
+  height: 144px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  transition: all 0.3s ease;
+}
+
+.logoPosition:hover {
+  transform: translateY(-2px);
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+
 .heroSection {
   position: relative;
   display: flex;

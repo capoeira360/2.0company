@@ -5,6 +5,7 @@ import HeroHorizontalPage from "../HeroHorizontalPage/HeroHorizontalPage";
 import FinalOverlayPage from "../HeroHorizontalPage/FinalOverlayPage";
 import styles from "./HeroContent.module.css";
 import ServicesOverlayContent from "../HeroHorizontalPage/ServicesOverlayContent";
+import LogoSplash from "../Logo/LogoSplash";
 
 export default function HeroContent() {
   const [overlayOpen, setOverlayOpen] = useState(false);
@@ -23,6 +24,8 @@ export default function HeroContent() {
   }, []);
   return (
     <section className={styles.heroSection}>
+      {/* Logo now handled globally - removed from here */}
+      
       {/* Typography-led hero content */}
       <div className={styles.heroContent}>
         <h1 className={styles.headline}>

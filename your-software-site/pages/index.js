@@ -10,7 +10,9 @@ import ServicesContent from "../components/SectionContent/ServicesContent";
 import CaseStudiesContent from "../components/SectionContent/CaseStudiesContent";
 import ContactContent from "../components/SectionContent/ContactContent";
 import SiteFooter from "../components/Footer/SiteFooter";
-import Logo from "../components/Logo/Logo";
+import LogoSplash from "../components/Logo/LogoSplash";
+
+
 // Sleek Grey and Blue Black Elegance palette for section backgrounds
 const PALETTE = ["#F0F8FF", "#BDC3C7", "#7D7F82", "#34495E", "#2C3E50"];
 // Footer height used for coordinated reveal with the last section (~3 inches)
@@ -125,12 +127,17 @@ export default function Home() {
       {/* Global Logo - visible on all sections and pages */}
       <div style={{
         position: 'fixed',
-        top: '50px',
-        left: '50px',
+        top: '20px',
+        left: '-76px',
+        width: '360px',
+        height: '144px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         zIndex: 3000,
         transition: 'all 0.3s ease'
       }}>
-        <Logo width={180} height={81} />
+        <LogoSplash width={360} height={144} fill="#000000" />
       </div>
       <main ref={container} style={{ marginLeft: "0", paddingBottom: 0, position: "relative" }}>
         <Panel id="home" index={0} total={5} bg={PALETTE[0]} scrollYProgress={scrollYProgress}>
