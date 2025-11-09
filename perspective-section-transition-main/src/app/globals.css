@@ -2,13 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Regular';
-  src: url('../../public/font/PPAcma-Book.ttf');
-}
-
 body{
-  font-family: 'Regular';
   /* Page backgrounds: White (#FFFEFE) across Home/About/Contact */
   background-color: #FFFEFE;
 }
@@ -17,7 +11,7 @@ body{
 .container { width: min(1100px, 92vw); margin: 0 auto; }
 /* Shared section spacing */
 .section { padding: 96px 0; position: relative; }
-h1, h2, h3 { letter-spacing: 0.02em; }
+h1, h2, h3 { font-family: var(--font-montalban), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; letter-spacing: 0.02em; }
 h2 { margin-bottom: 24px; }
 
 /* Footer styling to match requested color */
@@ -71,7 +65,7 @@ main.elevate-footer::after { content: ""; display: block; height: 7in; backgroun
 
 /* Footer banner */
 .footer-wide .footer-logo { display: grid; place-items: center; padding: 24px 0 12px; }
-.footer-wide .footer-logo span { width: 100%; text-align: center; font-weight: 700; letter-spacing: 0.06em; font-size: clamp(2.4rem, 12vw, 8rem); line-height: 1; background: linear-gradient(90deg, #111317, #0ea5e9); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.footer-wide .footer-logo span { width: 100%; text-align: center; font-family: var(--font-montalban), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 700; letter-spacing: 0.06em; font-size: clamp(2.4rem, 12vw, 8rem); line-height: 1; background: linear-gradient(90deg, #111317, #0ea5e9); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 :root {
   --foreground-rgb: 0, 0, 0;

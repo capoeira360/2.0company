@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   observeSVGDraw();
   setupPageTransitions();
   markActiveNav();
+  setupWorkSlider();
 });
 
 function setupScrollReveal() {
@@ -155,4 +156,36 @@ function markActiveNav() {
       link.style.color = 'var(--accent)';
     }
   });
+}
+
+function setupWorkSlider() {
+  const slider = document.querySelector('[data-slider]');
+  if (!slider) return;
+  const track = slider.querySelector('.slider-track');
+  const slides = Array.from(slider.querySelectorAll('.slide'));
+  const prev = slider.querySelector('.slider-btn.prev');
+  const next = slider.querySelector('.slider-btn.next');
+  let idx = 0;
+
+  const update = () => {
+    track.style.transition = prefersReduced ? 'none' : 'transform .5s cubic-bezier(.22,1,.36,1)';
+    track.style.transform = `translateX(-${idx * 100}%)`;
+  };
+
+  const go = (direction) => {
+    idx = Math.max(0, Math.min(slides.length - 1, idx + direction));
+    update();
+  };
+
+  prev?.addEventListener('click', () => go(-1));
+  next?.addEventListener('click', () => go(1));
+
+  // Keyboard support
+  slider.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') go(-1);
+    if (e.key === 'ArrowRight') go(1);
+  });
+
+  // Initialize
+  update();
 }

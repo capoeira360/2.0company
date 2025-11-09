@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 // Rotation removed per request; keep scale-only parallax
 
-export default function Section({ id, full = false }) {
+export default function Section({ id, full = false, children }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -27,7 +27,11 @@ export default function Section({ id, full = false }) {
       style={{ scale: full ? 1 : scaleMotion, rotate, transformStyle: "preserve-3d", background }}
       className={`sticky top-0 h-screen flex items-center justify-center ${bg}`}
     >
-      <h1 className="text-6xl font-bold">Section {id}</h1>
+      {children ? (
+        children
+      ) : (
+        <h1 className="text-6xl font-bold">Section {id}</h1>
+      )}
     </motion.section>
   );
 }

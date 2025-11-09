@@ -1,0 +1,148 @@
+/* Scoped slider styles adapted from original */
+.workSlider {
+  position: relative;
+}
+
+.carousel {
+  height: 80vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 0 14px 40px rgba(17, 19, 23, 0.08);
+  background-color: #f6f8fb;
+}
+
+.list { position: relative; height: 100%; }
+.list .item {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0 0 0 0;
+}
+.list .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.list .item .content {
+  position: absolute;
+  top: 20%;
+  width: min(1140px, 80%);
+  left: 50%;
+  transform: translateX(-50%);
+  padding-right: 30%;
+  box-sizing: border-box;
+  color: #111317;
+  text-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.list .item .author {
+  font-weight: 700;
+  letter-spacing: 0.3em;
+}
+.list .item .title,
+.list .item .topic {
+  font-size: clamp(2rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.list .item .topic { color: #0ea5e9; }
+.list .item .buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  grid-template-rows: 40px;
+  gap: 8px;
+  margin-top: 20px;
+}
+.list .item .buttons button {
+  border: 1px solid rgba(0,0,0,0.08);
+  background-color: #fff;
+  color: #111317;
+  border-radius: 12px;
+}
+.list .item .buttons button:nth-child(2) {
+  background-color: transparent;
+}
+
+.thumbnail {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  width: max-content;
+  z-index: 100;
+  display: flex;
+  gap: 16px;
+  transform: translateX(-50%);
+}
+.thumbnail .item { width: 120px; height: 160px; flex-shrink: 0; position: relative; }
+.thumbnail .item img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
+.thumbnail .item .content { color: #111317; position: absolute; bottom: 8px; left: 8px; right: 8px; }
+.thumbnail .item .content .title { font-weight: 600; }
+.thumbnail .item .content .description { font-weight: 400; }
+
+.arrows {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 300px;
+  max-width: 60%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.arrows button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(17,19,23,0.08);
+  border: none;
+  color: #111317;
+  font-family: monospace;
+  font-weight: bold;
+  transition: .2s ease;
+}
+.arrows button:hover { background-color: #111317; color: #fff; }
+
+.list .item:nth-child(1) { z-index: 1; }
+
+/* Text entrance animation on first item */
+.list .item:nth-child(1) .content .author,
+.list .item:nth-child(1) .content .title,
+.list .item:nth-child(1) .content .topic,
+.list .item:nth-child(1) .content .des,
+.list .item:nth-child(1) .content .buttons {
+  transform: translateY(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent .5s 1s linear 1 forwards;
+}
+@keyframes showContent { to { transform: translateY(0); filter: blur(0); opacity: 1; } }
+.list .item:nth-child(1) .content .title { animation-delay: 1.2s !important; }
+.list .item:nth-child(1) .content .topic { animation-delay: 1.4s !important; }
+.list .item:nth-child(1) .content .des { animation-delay: 1.6s !important; }
+.list .item:nth-child(1) .content .buttons { animation-delay: 1.8s !important; }
+
+/* Image morph to thumbnail when next */
+.next .list .item:nth-child(1) img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  border-radius: 16px;
+  animation: showImage .5s linear 1 forwards;
+}
+@keyframes showImage { to { bottom: 0; left: 0; width: 100%; height: 100%; border-radius: 0; } }
+
+.next .thumbnail .item:nth-last-child(1) { overflow: hidden; animation: showThumbnail .5s linear 1 forwards; }
+.prev .list .item img { z-index: 100; }
+@keyframes showThumbnail { from { width: 0; opacity: 0; } }
+.next .thumbnail { animation: effectNext .5s linear 1 forwards; }
+@keyframes effectNext { from { transform: translateX(150px); } }
+
+.time { position: absolute; z-index: 1000; width: 0%; height: 3px; background-color: #0ea5e9; left: 0; top: 0; }
+.next .time,
+.prev .time { animation: runningTime 3s linear 1 forwards; }
+@keyframes runningTime { from { width: 100% } to { width: 0 } }

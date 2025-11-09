@@ -7,8 +7,8 @@ import Nav from "./Nav";
 
 const menuVariants = {
   open: {
-    width: "480px",
-    height: "650px",
+    width: "768px",
+    height: "794px",
     top: "-25px",
     right: "-25px",
     backgroundColor: "#c9fd74",

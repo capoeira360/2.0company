@@ -118,8 +118,21 @@ p { font-size: 1rem; color: var(--text-1); line-height: 1.7 }
 .xp-list li { background: var(--panel); padding: 16px 18px; border-radius: 12px; box-shadow: 0 6px 20px var(--shadow) }
 
 /* Footer */
-.site-footer { padding: 36px 0; border-top: 1px solid rgba(0,0,0,0.06) }
-.site-footer small { color: var(--muted) }
+.site-footer { padding: 36px 0; border-top: 1px solid rgba(0,0,0,0.06); background: #CFCDC2; color: var(--text-0) }
+.site-footer small { color: var(--text-1) }
+/* Elevate footer on static pages (Home/About/Contact) without fixing position */
+body[data-page] { min-height: 100vh; display: flex; flex-direction: column }
+body[data-page] main { flex: 1 0 auto }
+/* Home-only: elevate footer ~7 inches without fixing position */
+body[data-page="home"] main::after { content: ""; display: block; height: 7in; background: #CFCDC2 }
+body[data-page="home"] .site-footer { position: relative; transform: translateY(-7in) }
+/* About-only: elevate footer ~7 inches and color elevated section Pastel Gray */
+body[data-page="about"] main::after { content: ""; display: block; height: 7in; background: #CFCDC2 }
+body[data-page="about"] .site-footer { position: relative; transform: translateY(-7in) }
+/* Contact-only: elevate footer ~7 inches and color elevated section Pastel Gray */
+body[data-page="contact"] main::after { content: ""; display: block; height: 7in; background: #CFCDC2 }
+body[data-page="contact"] .site-footer { position: relative; transform: translateY(-7in) }
+/* Footer sits at the bottom of the document flow on static pages */
 
 /* Divider SVG line drawing */
 .divider { margin-top: 40px }
@@ -181,6 +194,35 @@ body.page-out .site-header, body.page-out .section, body.page-out .site-footer {
 .infinity-logo { color: var(--muted) }
 @keyframes infinityScroll { from { transform: translateX(0) } to { transform: translateX(-50%) } }
 
+/* --- Work page: Image slider --- */
+.work-slider .slider { position: relative; width: min(1100px, 92vw); margin: 0 auto; overflow: hidden; border-radius: 16px; box-shadow: 0 12px 36px var(--shadow) }
+.work-slider .slider-track { display: flex; transition: transform .5s cubic-bezier(.22,1,.36,1) }
+.work-slider .slide { flex: 0 0 100%; display: grid; place-items: center; aspect-ratio: 16 / 9; background:
+  linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.6)),
+  radial-gradient(1200px 400px at 40% 20%, #e9eefc, transparent 60%),
+  radial-gradient(900px 300px at 70% 60%, #e7e2fb, transparent 60%);
+}
+.work-slider .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--panel); color: var(--text-0); border: 1px solid rgba(0,0,0,0.08); box-shadow: 0 8px 24px var(--shadow); border-radius: 12px; width: 40px; height: 40px; display: grid; place-items: center; cursor: pointer; transition: transform .18s ease, box-shadow .18s ease }
+.work-slider .slider-btn:hover { transform: translateY(-50%) scale(1.04); box-shadow: 0 12px 32px var(--shadow-strong) }
+.work-slider .slider-btn.prev { left: 10px }
+.work-slider .slider-btn.next { right: 10px }
+
+/* --- Work page: Overlay stack --- */
+.work-overlays .overlay-stack { position: relative; width: min(1100px, 92vw); margin: 14px auto 0; height: 520px; border-radius: 20px; background:
+  linear-gradient(180deg, var(--bg-1), var(--bg-0));
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+}
+.overlay-item { position: absolute; background: var(--panel); border-radius: 16px; box-shadow: 0 10px 28px var(--shadow); padding: 16px 18px; width: 300px; transition: transform .2s ease, box-shadow .2s ease }
+.overlay-item:hover { transform: translateY(-2px) scale(1.02); box-shadow: 0 16px 40px var(--shadow-strong) }
+.overlay-item h3 { margin: 0 0 8px }
+.overlay-item p { margin: 0 }
+.overlay-item.i1 { top: 7%; left: 6% }
+.overlay-item.i2 { top: 18%; right: 6% }
+.overlay-item.i3 { top: 40%; left: 22% }
+.overlay-item.i4 { top: 52%; right: 18% }
+.overlay-item.i5 { bottom: 6%; left: 50%; transform: translateX(-50%) }
+
+
 /* --- Services cards --- */
 .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px }
 .service-card { background: var(--panel); border-radius: 16px; box-shadow: 0 10px 32px var(--shadow); padding: 20px; transition: transform .2s ease, box-shadow .2s ease }
@@ -213,10 +255,27 @@ body.page-out .site-header, body.page-out .section, body.page-out .site-footer {
   .hero-media { order: -1 }
   .projects { grid-template-columns: 1fr 1fr }
   .services-grid { grid-template-columns: 1fr 1fr }
+  .work-overlays .overlay-stack { height: auto; padding: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+  .overlay-item { position: relative; width: 100% }
 }
 @media (max-width: 640px) {
   .projects { grid-template-columns: 1fr }
   .nav-wrap { padding: 14px 0 }
   .services-grid { grid-template-columns: 1fr }
   .infinity-run { gap: 28px }
+  .work-overlays .overlay-stack { grid-template-columns: 1fr }
+}
+/* --- Work page: About summary two-column --- */
+.work-about .two-col { display: grid; grid-template-columns: 1.2fr .8fr; gap: 24px; align-items: start }
+.work-about .about-aside { background: var(--panel); border-radius: 16px; box-shadow: 0 10px 32px var(--shadow); padding: 18px }
+
+/* --- Work page: Process list pills --- */
+.work-process .process-list { display: grid; grid-template-columns: 1fr; gap: 16px }
+.work-process .process-pill { display: flex; align-items: center; gap: 14px; background: var(--panel); border-radius: 999px; padding: 12px 16px; box-shadow: 0 8px 26px var(--shadow) }
+.work-process .pill-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 18px; flex: 0 0 34px }
+.work-process .pill-body h3 { margin: 0 0 4px 0; font-size: 16px }
+.work-process .pill-body p { margin: 0; font-size: 14px; color: var(--text-2) }
+
+@media (max-width: 768px) {
+  .work-about .two-col { grid-template-columns: 1fr }
 }
