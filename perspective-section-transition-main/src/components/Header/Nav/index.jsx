@@ -5,7 +5,7 @@ import Link from "next/link";
 import { links, footerLinks } from "./data";
 import { perspective, slideIn } from "./anim";
 
-export default function Nav() {
+export default function Nav({ onNavigate }) {
   return (
     <div className={styles.nav}>
       <div className={styles.body}>
@@ -20,7 +20,7 @@ export default function Nav() {
                 animate="enter"
                 exit="exit"
               >
-                <Link href={href}>{title}</Link>
+                <Link href={href} onClick={onNavigate}>{title}</Link>
               </motion.div>
             </div>
           );
@@ -40,6 +40,7 @@ export default function Nav() {
               href={href}
               target="_blank"
               rel="noreferrer"
+              onClick={onNavigate}
             >
               {title}
             </motion.a>

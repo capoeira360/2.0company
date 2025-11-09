@@ -1,0 +1,43 @@
+.wrapper {
+  padding: 40px 0 0;
+}
+
+.mega {
+  display: grid;
+  gap: 0.06em;
+  margin: 0;
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  font-size: clamp(3rem, 10vw, 12rem);
+}
+
+.row { display: block; }
+
+.montalban {
+  font-family: var(--font-montalban), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  color: #111317;
+}
+
+.montalbanDim {
+  font-family: var(--font-montalban), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  color: #1f2937; /* slate-800 */
+}
+
+.artineAccent {
+  font-family: var(--font-artine), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(90deg, #111317, #0ea5e9);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.sub {
+  margin-top: 18px;
+  font-size: clamp(1rem, 2.6vw, 1.35rem);
+  color: #374151; /* slate-700 */
+  max-width: 60ch;
+}

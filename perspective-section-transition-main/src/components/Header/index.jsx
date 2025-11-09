@@ -40,7 +40,9 @@ export default function Header() {
         initial="closed"
         style={{ pointerEvents: isActive ? "auto" : "none" }}
       >
-        <AnimatePresence>{isActive && <Nav />}</AnimatePresence>
+        <AnimatePresence>
+          {isActive && <Nav onNavigate={() => setIsActive(false)} />}
+        </AnimatePresence>
       </motion.div>
       <Button isActive={isActive} toggleMenu={() => setIsActive(!isActive)} />
     </div>

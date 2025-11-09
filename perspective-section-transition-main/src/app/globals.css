@@ -48,15 +48,43 @@ main.elevate-footer::after { content: ""; display: block; height: 7in; backgroun
 .infinity { padding-top: 40px; padding-bottom: 40px; }
 .infinity .container { margin-bottom: 12px; }
 .infinity-track { position: relative; overflow: hidden; width: 100%; }
-.infinity-run { display: inline-flex; align-items: center; gap: 48px; padding: 18px 0; min-width: 200%; animation: infinityScroll 24s linear infinite; }
+.infinity-run { display: inline-flex; align-items: center; gap: 48px; padding: calc(18px + 0.25in) 0; min-width: 200%; animation: infinityScroll 24s linear infinite; }
 .infinity-logo { color: #6b7280; }
 /* Start off-screen to the right, then scroll left across viewport */
 @keyframes infinityScroll { from { transform: translateX(50%) } to { transform: translateX(-50%) } }
 
+/* Full-bleed thin lines above and below the infinity track */
+.infinity-track::before,
+.infinity-track::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(0px, calc(100vw - 4in), 100vw); /* cut ~2in from both sides */
+  height: 1px;
+  background: rgba(17, 19, 23, 0.12);
+  pointer-events: none;
+  z-index: 2;
+}
+.infinity-track::before { top: 0; }
+.infinity-track::after { bottom: 0; width: clamp(0px, calc(100vw - 6in), 100vw); }
+
 /* Services */
-.services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.service-card { background: white; border-radius: 16px; box-shadow: 0 10px 32px rgba(17, 19, 23, 0.08); padding: 20px; transition: transform .2s ease, box-shadow .2s ease; }
-.service-card:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(17, 19, 23, 0.15); }
+.services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.service-card { background: white; border-radius: 20px; box-shadow: 0 14px 40px rgba(17, 19, 23, 0.1); padding: 40px; min-height: 220px; transition: transform .2s ease, box-shadow .2s ease; }
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 22px 56px rgba(17, 19, 23, 0.16); }
+.service-card h3 { font-size: 1.5rem; line-height: 1.25; margin: 0 0 12px; }
+.service-card p { font-size: 1rem; color: #4b5563; }
+.service-card ul { margin: 16px 0 0; padding-left: 18px; color: #374151; }
+.service-card li { margin: 6px 0; }
+@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } .service-card { padding: 28px; } }
+
+/* Giant logo section */
+.giant-logo { padding: 40px 0; }
+.giant-logo .giant-logo-wrap { width: 100%; }
+.giant-logo svg { display: block; width: min(1400px, 95vw); height: auto; margin: 0 auto; }
+@media (max-width: 640px) { .giant-logo svg { width: 96vw; } }
 
 /* Social */
 .social { display: flex; gap: 14px; margin-top: 16px; }
@@ -64,8 +92,36 @@ main.elevate-footer::after { content: ""; display: block; height: 7in; backgroun
 .icon-link:hover { transform: translateY(-2px) scale(1.04); color: #0ea5e9; box-shadow: 0 10px 26px rgba(17, 19, 23, 0.15); }
 
 /* Footer banner */
-.footer-wide .footer-logo { display: grid; place-items: center; padding: 24px 0 12px; }
+.footer-wide { position: relative; }
+.footer-right { position: absolute; top: 0; right: clamp(12px, 2vw, 24px); z-index: 2; display: grid; gap: clamp(10px, 1.6vw, 18px); justify-items: end; }
+.footer-nav { position: static; z-index: 2; }
+.footer-nav ul { display: flex; flex-direction: column; align-items: flex-end; gap: clamp(10px, 1.6vw, 18px); list-style: none; margin: 0; padding: 0; }
+.footer-nav a { display: inline-block; padding: 6px 8px; font-weight: 500; font-size: clamp(0.9rem, 1.4vw, 1rem); color: #111317; opacity: 0.9; text-align: right; position: relative; white-space: nowrap; transition: transform .25s cubic-bezier(0.76, 0, 0.24, 1), color .25s cubic-bezier(0.76, 0, 0.24, 1), opacity .2s ease; }
+.footer-nav a::after { content: ""; position: absolute; right: 0; bottom: -2px; height: 2px; width: 0; background: #111317; transition: width .25s cubic-bezier(0.76, 0, 0.24, 1), background .25s cubic-bezier(0.76, 0, 0.24, 1); transform-origin: 100% 50%; }
+.footer-nav a:hover { opacity: 1; color: #0ea5e9; transform: translateY(-2px); }
+.footer-nav a:hover::after { width: 100%; background: #0ea5e9; }
+.footer-nav li { display: contents; }
+.footer-divider { width: min(220px, 22vw); height: 1px; background: linear-gradient(90deg, rgba(17,19,23,0), rgba(17,19,23,0.2), rgba(17,19,23,0)); }
+.footer-contact { position: static; display: grid; gap: 10px; justify-items: end; text-align: right; }
+.footer-contact-details { display: grid; gap: 6px; font-weight: 500; font-size: clamp(0.85rem, 1.2vw, 0.95rem); color: #111317; opacity: 0.85; }
+.footer-contact-details a { color: inherit; text-decoration: none; position: relative; white-space: nowrap; transition: transform .25s cubic-bezier(0.76, 0, 0.24, 1), color .25s cubic-bezier(0.76, 0, 0.24, 1), opacity .2s ease; }
+.footer-contact-details a::after { content: ""; position: absolute; right: 0; bottom: -2px; height: 2px; width: 0; background: #111317; transition: width .25s cubic-bezier(0.76, 0, 0.24, 1), background .25s cubic-bezier(0.76, 0, 0.24, 1); transform-origin: 100% 50%; }
+.footer-contact-details a:hover { opacity: 1; color: #0ea5e9; transform: translateY(-2px); }
+.footer-contact-details a:hover::after { width: 100%; background: #0ea5e9; }
+.footer-social { display: flex; gap: 10px; }
+.footer-wide .footer-logo { display: grid; justify-items: start; align-items: center; padding: 24px 0 12px; }
+.footer-wide .footer-logo { display: grid; justify-items: start; align-items: center; padding: 24px 0 12px; }
 .footer-wide .footer-logo span { width: 100%; text-align: center; font-family: var(--font-montalban), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 700; letter-spacing: 0.06em; font-size: clamp(2.4rem, 12vw, 8rem); line-height: 1; background: linear-gradient(90deg, #111317, #0ea5e9); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.footer-wide .footer-logo svg { display: block; width: min(1400px, 96vw); height: auto; margin: 0; }
+.footer-wide .footer-logo::after { content: ""; display: block; width: 100%; height: 1px; margin-top: 12px; background: linear-gradient(90deg, rgba(17,19,23,0.15), rgba(14,165,233,0.3), rgba(17,19,23,0.15)); }
+
+@media (max-width: 640px) {
+  .footer-right { position: static; margin-bottom: 8px; }
+  .footer-nav { position: static; }
+  .footer-nav ul { gap: 12px; }
+  .footer-contact { position: static; }
+  .footer-social { justify-content: flex-end; }
+}
 
 :root {
   --foreground-rgb: 0, 0, 0;
