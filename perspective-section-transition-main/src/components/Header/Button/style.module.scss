@@ -1,0 +1,30 @@
+.button{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
+  height: 40px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: none;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.icon{
+  position: relative;
+  width: 44px;
+  height: 22px;
+}
+
+.line{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  border-radius: 1px;
+  transform-origin: center;
+}

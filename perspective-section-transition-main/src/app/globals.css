@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Regular';
+  src: url('../../public/font/PPAcma-Book.ttf');
+}
+
+body{
+  font-family: 'Regular';
+  /* Page backgrounds: White (#FFFEFE) across Home/About/Contact */
+  background-color: #FFFEFE;
+}
+
+/* Shared container width to match static pages */
+.container { width: min(1100px, 92vw); margin: 0 auto; }
+/* Shared section spacing */
+.section { padding: 96px 0; position: relative; }
+h1, h2, h3 { letter-spacing: 0.02em; }
+h2 { margin-bottom: 24px; }
+
+/* Footer styling to match requested color */
+.site-footer { padding: 36px 0; border-top: 1px solid rgba(0,0,0,0.06); background: #CFCDC2; color: #111317; }
+.site-footer small { color: #3a3d42; }
+/* Elevated footer: color the raised area and lift the footer */
+main.elevate-footer::after { content: ""; display: block; height: 7in; background: #CFCDC2; }
+/* Pull footer into the elevated spacer without leaving a gap below */
+.site-footer.elevated { margin-top: -7in; }
+
+/* Home hero basics */
+.home-hero { padding-top: 120px; }
+.hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 32px; }
+.hero-copy .headline { margin: 0 0 8px; }
+.hero-media { display: grid; }
+.hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.5)),
+    repeating-linear-gradient(45deg, #eaeaea 0 18px, #dedede 18px 36px);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 14px 40px rgba(17, 19, 23, 0.08);
+}
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.08); background: white; color: #111317; transition: transform .16s ease, box-shadow .16s ease, color .16s ease, background .16s ease; }
+.btn.primary { background: #111317; color: #fff; border-color: transparent; }
+.btn.ghost { background: transparent; }
+.btn:hover { transform: translateY(-1px) scale(1.02); box-shadow: 0 8px 24px rgba(17, 19, 23, 0.08); }
+
+/* Infinity slider */
+.infinity { padding-top: 40px; padding-bottom: 40px; }
+.infinity .container { margin-bottom: 12px; }
+.infinity-track { position: relative; overflow: hidden; width: 100%; }
+.infinity-run { display: inline-flex; align-items: center; gap: 48px; padding: 18px 0; min-width: 200%; animation: infinityScroll 24s linear infinite; }
+.infinity-logo { color: #6b7280; }
+/* Start off-screen to the right, then scroll left across viewport */
+@keyframes infinityScroll { from { transform: translateX(50%) } to { transform: translateX(-50%) } }
+
+/* Services */
+.services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.service-card { background: white; border-radius: 16px; box-shadow: 0 10px 32px rgba(17, 19, 23, 0.08); padding: 20px; transition: transform .2s ease, box-shadow .2s ease; }
+.service-card:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(17, 19, 23, 0.15); }
+
+/* Social */
+.social { display: flex; gap: 14px; margin-top: 16px; }
+.icon-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 12px; background: white; box-shadow: 0 6px 20px rgba(17, 19, 23, 0.08); transition: transform .16s ease, box-shadow .16s ease, color .16s ease; }
+.icon-link:hover { transform: translateY(-2px) scale(1.04); color: #0ea5e9; box-shadow: 0 10px 26px rgba(17, 19, 23, 0.15); }
+
+/* Footer banner */
+.footer-wide .footer-logo { display: grid; place-items: center; padding: 24px 0 12px; }
+.footer-wide .footer-logo span { width: 100%; text-align: center; font-weight: 700; letter-spacing: 0.06em; font-size: clamp(2.4rem, 12vw, 8rem); line-height: 1; background: linear-gradient(90deg, #111317, #0ea5e9); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
