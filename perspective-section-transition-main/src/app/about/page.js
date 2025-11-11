@@ -140,40 +140,53 @@ export default function AboutPage() {
             className="grid gap-6 items-stretch grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
             style={{ marginTop: 12 }}
           >
-            {/* Craft & Clarity */}
+            {/* Innovation */}
             <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
               <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(40px,5vw,56px)', height: 'clamp(40px,5vw,56px)' }}>
-                <path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8L12 2z" fill="none" stroke="#111317" strokeWidth="2" />
+                {/* Lightbulb icon to reflect innovation */}
+                <path d="M12 3a7 7 0 0 0-7 7c0 3 1.9 5.6 4.5 6.7V18a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-1.3C17.1 15.6 19 13 19 10a7 7 0 0 0-7-7z" fill="none" stroke="#111317" strokeWidth="2" />
+                <path d="M9 21h6M9 18h6" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" />
+                <path d="M10 11l2 2 2-2" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <h3 className="text-[clamp(1.2rem,2vw,1.5rem)]">Craft & Clarity</h3>
-              <p className="text-[#374151] text-[clamp(0.95rem,1.4vw,1.1rem)]">Design and engineering aligned to ship premium, clear experiences.</p>
+              <h3 className="text-[clamp(1.2rem,2vw,1.5rem)]">Innovation</h3>
+              <p className="text-[#374151] text-[clamp(0.95rem,1.4vw,1.1rem)]">We push boundaries and embrace cutting-edge technologies to deliver groundbreaking solutions...</p>
             </div>
 
-            {/* Performance by Default */}
+            {/* Passion */}
             <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
               <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(40px,5vw,56px)', height: 'clamp(40px,5vw,56px)' }}>
-                <path d="M4 13h10M4 6h16M4 20h7" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" />
+                {/* Heart icon to reflect passion */}
+                <path d="M12 21s-6.5-4.2-9.2-7C1 12.2 1 9.4 3 7.6a4.8 4.8 0 0 1 6.8.2L12 9l2.2-1.2a4.8 4.8 0 0 1 6.8-.2c2 1.8 2 4.6 0 6.4-2.7 2.8-9 7-9 7z" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              <h3 className="text-[clamp(1.2rem,2vw,1.5rem)]">Performance by Default</h3>
-              <p className="text-[#374151] text-[clamp(0.95rem,1.4vw,1.1rem)]">Fast loads, smooth interactions, and measurable improvements baked in.</p>
+              <h3 className="text-[clamp(1.2rem,2vw,1.5rem)]">Passion</h3>
+              <p className="text-[#374151] text-[clamp(0.95rem,1.4vw,1.1rem)]">We&#39;re passionate about what we do and committed to exceeding client expectations...</p>
             </div>
 
-            {/* Human-Centered Motion */}
+            {/* Collaboration */}
             <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
               <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(40px,5vw,56px)', height: 'clamp(40px,5vw,56px)' }}>
-                <path d="M12 21c-4.97-3.5-8-6.5-8-10a5 5 0 0 1 9-2 5 5 0 0 1 9 2c0 3.5-3.03 6.5-8 10z" fill="none" stroke="#111317" strokeWidth="2" />
+                <circle cx="8" cy="8" r="3" fill="none" stroke="#111317" strokeWidth="2" />
+                <circle cx="16" cy="7" r="2.5" fill="none" stroke="#111317" strokeWidth="2" />
+                <path d="M4 16c0-2.5 2.5-4.5 5.5-4.5S15 13.5 15 16" fill="none" stroke="#111317" strokeWidth="2" />
+                <path d="M12 16c0-2.2 2-4 4.5-4s4.5 1.8 4.5 4" fill="none" stroke="#111317" strokeWidth="2" />
               </svg>
-              <h3 className="text-[clamp(1.2rem,2vw,1.5rem)]">Human‑Centered Motion</h3>
-              <p className="text-[#374151] text-[clamp(0.95rem,1.4vw,1.1rem)]">Motion guides attention and improves flow without distraction.</p>
+              <h3 className="text-[clamp(1.2rem,2vw,1.5rem)]">Collaboration</h3>
+              <p className="text-[#374151] text-[clamp(0.95rem,1.4vw,1.1rem)]">We believe in the power of teamwork and close partnership with our clients..</p>
             </div>
 
-            {/* Reliability */}
+            {/* Excellence */}
             <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
               <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(40px,5vw,56px)', height: 'clamp(40px,5vw,56px)' }}>
-                <path d="M4 14l6 6L20 6" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Trophy icon to reflect excellence */}
+                <path d="M6 5h12v2a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V5z" fill="none" stroke="#111317" strokeWidth="2" />
+                <path d="M6 7H4a3 3 0 0 0 3 3" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" />
+                <path d="M18 7h2a3 3 0 0 1-3 3" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" />
+                <path d="M12 11v5" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" />
+                <path d="M9 20h6" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" />
+                <path d="M10 18h4" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" />
               </svg>
-              <h3 className="text-[clamp(1.2rem,2vw,1.5rem)]">Reliability</h3>
-              <p className="text-[#374151] text-[clamp(0.95rem,1.4vw,1.1rem)]">Maintainable systems with predictable behavior and strong foundations.</p>
+              <h3 className="text-[clamp(1.2rem,2vw,1.5rem)]">Excellence</h3>
+              <p className="text-[#374151] text-[clamp(0.95rem,1.4vw,1.1rem)]">We strive for perfection in every project, delivering quality that stands the test of time..</p>
             </div>
           </div>
         </div>
