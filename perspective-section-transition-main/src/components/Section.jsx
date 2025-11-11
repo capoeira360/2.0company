@@ -14,17 +14,14 @@ export default function Section({ id, full = false, children }) {
   const scaleMotion = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 0]);
 
-  const bg = id % 2 === 0 ? "bg-white" : "bg-[#FCFBF9]";
-  const FOOTER_BG = "#CFCDC2"; // Pastel Gray
-  const baseBgHex = id % 2 === 0 ? "#ffffff" : "#FCFBF9";
-  const background = id === 5
-    ? `linear-gradient(to bottom, ${baseBgHex} 0%, ${baseBgHex} 50%, ${FOOTER_BG} 50%, ${FOOTER_BG} 100%)`
-    : undefined;
+  // Use Chinese White (#E0E5DE) as background for all sections
+  const bg = "bg-[#E0E5DE]";
+  // Remove special gradient for section 5; keep plain background like other sections
 
   return (
     <motion.section
       ref={ref}
-      style={{ scale: full ? 1 : scaleMotion, rotate, transformStyle: "preserve-3d", background }}
+      style={{ scale: full ? 1 : scaleMotion, rotate, transformStyle: "preserve-3d" }}
       className={`sticky top-0 h-screen flex items-center justify-center ${bg}`}
     >
       {children ? (

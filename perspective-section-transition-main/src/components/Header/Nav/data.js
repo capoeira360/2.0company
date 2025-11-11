@@ -11,3 +11,4 @@ export const footerLinks = [
   { title: "Instagram", href: "https://www.instagram.com/" },
   { title: "Twitter", href: "https://twitter.com/" },
 ];
+

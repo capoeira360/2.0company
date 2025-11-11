@@ -42,3 +42,4 @@ export const slideIn = {
     transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
   },
 };
+
