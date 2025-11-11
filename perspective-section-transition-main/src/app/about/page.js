@@ -53,7 +53,7 @@ export default function AboutPage() {
         >
           <div className="grid gap-10 md:grid-cols-2 items-start">
             {/* Mission card */}
-            <div className="grid gap-6 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)] text-center mt-[2in]">
+        <div className="grid gap-6 rounded-3xl border border-black/10 bg-[#FDFDFD] shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)] text-center mt-[2in]">
               <h2 className="leading-tight text-[clamp(2.4rem,7vw,5rem)]">
                 <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }}>Our</span>{' '}
                 <span style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>Mission</span>
@@ -89,7 +89,7 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <div
-            className="grid gap-6 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)]"
+        className="grid gap-6 rounded-3xl border border-black/10 bg-[#FDFDFD] shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)]"
             style={{ width: 'calc(100% + 2in)', marginLeft: '-1in', marginRight: '-1in' }}
           >
             <div className="flex items-center gap-4">
@@ -141,7 +141,7 @@ export default function AboutPage() {
             style={{ marginTop: 12 }}
           >
             {/* Innovation */}
-            <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
+        <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-[#FDFDFD] shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
               <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(40px,5vw,56px)', height: 'clamp(40px,5vw,56px)' }}>
                 {/* Lightbulb icon to reflect innovation */}
                 <path d="M12 3a7 7 0 0 0-7 7c0 3 1.9 5.6 4.5 6.7V18a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-1.3C17.1 15.6 19 13 19 10a7 7 0 0 0-7-7z" fill="none" stroke="#111317" strokeWidth="2" />
@@ -153,7 +153,7 @@ export default function AboutPage() {
             </div>
 
             {/* Passion */}
-            <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
+        <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-[#FDFDFD] shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
               <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(40px,5vw,56px)', height: 'clamp(40px,5vw,56px)' }}>
                 {/* Heart icon to reflect passion */}
                 <path d="M12 21s-6.5-4.2-9.2-7C1 12.2 1 9.4 3 7.6a4.8 4.8 0 0 1 6.8.2L12 9l2.2-1.2a4.8 4.8 0 0 1 6.8-.2c2 1.8 2 4.6 0 6.4-2.7 2.8-9 7-9 7z" fill="none" stroke="#111317" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -163,7 +163,7 @@ export default function AboutPage() {
             </div>
 
             {/* Collaboration */}
-            <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
+        <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-[#FDFDFD] shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
               <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(40px,5vw,56px)', height: 'clamp(40px,5vw,56px)' }}>
                 <circle cx="8" cy="8" r="3" fill="none" stroke="#111317" strokeWidth="2" />
                 <circle cx="16" cy="7" r="2.5" fill="none" stroke="#111317" strokeWidth="2" />
@@ -175,7 +175,7 @@ export default function AboutPage() {
             </div>
 
             {/* Excellence */}
-            <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
+        <div className="grid gap-3 h-full rounded-3xl border border-black/10 bg-[#FDFDFD] shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)]">
               <svg viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(40px,5vw,56px)', height: 'clamp(40px,5vw,56px)' }}>
                 {/* Trophy icon to reflect excellence */}
                 <path d="M6 5h12v2a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V5z" fill="none" stroke="#111317" strokeWidth="2" />

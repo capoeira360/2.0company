@@ -10,7 +10,7 @@
   position: relative;
   border-radius: 20px;
   box-shadow: 0 14px 40px rgba(17, 19, 23, 0.08);
-  background-color: #f6f8fb;
+  background-color: #ffffff;
 }
 
 .list { position: relative; height: 100%; }
@@ -56,7 +56,7 @@
 }
 .list .item .buttons button {
   border: 1px solid rgba(0,0,0,0.08);
-  background-color: #fff;
+background-color: #ffffff;
   color: #111317;
   border-radius: 12px;
 }

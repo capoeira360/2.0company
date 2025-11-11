@@ -5,17 +5,17 @@ import Link from "next/link";
 
 export default function Work() {
   return (
-    <main className="relative h-[500vh]">
+  <main className="relative h-[500vh] bg-[#EEEEE8]">
       {/* First section: mount the image slider */}
-      <Section id={1} full>
+      <Section id={1} full bgClass="bg-[#EEEEE8]">
         <div className="w-full px-4">
           <WorkSlider />
         </div>
       </Section>
       {/* Section 2: Web Design Service Card */}
-      <Section id={2}>
+      <Section id={2} bgClass="bg-[#EEEEE8]">
         <div className="mx-auto w-[min(95vw,1496px)]">
-          <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
+  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
               {/* Simple monitor icon */}
@@ -72,9 +72,9 @@ export default function Work() {
       </Section>
 
       {/* Section 3: Mobile App Design Service Card */}
-      <Section id={3}>
+      <Section id={3} bgClass="bg-[#EEEEE8]">
         <div className="mx-auto w-[min(95vw,1496px)]">
-          <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
+  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
               {/* Smartphone icon */}
@@ -131,9 +131,9 @@ export default function Work() {
       </Section>
 
       {/* Section 4: AI Systems Development Service Card */}
-      <Section id={4}>
+      <Section id={4} bgClass="bg-[#EEEEE8]">
         <div className="mx-auto w-[min(95vw,1496px)]">
-          <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
+  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
               {/* Robot head icon */}
@@ -191,7 +191,7 @@ export default function Work() {
       </Section>
 
       {/* Section 5: Performance & Accessibility */}
-      <Section id={5}>
+      <Section id={5} bgClass="bg-[#EEEEE8]">
         <div className="w-full px-6 max-w-4xl mx-auto grid gap-6">
           <h2 className="leading-tight text-[clamp(2.4rem,8vw,6rem)]">
             <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }}>Performance</span>{' '}

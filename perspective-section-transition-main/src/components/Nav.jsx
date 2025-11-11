@@ -7,7 +7,7 @@ export default function Nav() {
   const isWork = pathname?.startsWith("/work");
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+    <header className="sticky top-0 z-50 bg-[#FDFDFD] border-b">
       <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
         <Link href="/" className="font-semibold text-lg">TAPit</Link>
         <nav aria-label="Primary" className="flex gap-6">
