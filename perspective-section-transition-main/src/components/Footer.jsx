@@ -10,9 +10,6 @@ export default function Footer() {
   return (
     <footer className={`site-footer ${elevate ? "elevated" : ""}`}>
       <div className="footer-wide">
-      <div className="footer-right">
-        <FooterRightClient />
-      </div>
         <div className="footer-logo" aria-hidden="true">
           <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="300.000000pt" height="131.000000pt" viewBox="0 0 300.000000 131.000000" preserveAspectRatio="xMidYMid meet">
             <g transform="translate(0.000000,131.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
@@ -21,6 +18,9 @@ export default function Footer() {
               <path d="M2102 624 c-27 -19 -27 -67 0 -72 23 -4 70 43 66 66 -4 23 -38 26 -66 6z"/>
             </g>
           </svg>
+        </div>
+        <div className="footer-right">
+          <FooterRightClient />
         </div>
       </div>
       <div className="container">
