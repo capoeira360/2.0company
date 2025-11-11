@@ -5,6 +5,7 @@ export default function FooterRightClient() {
   return (
     <>
       <nav className="footer-nav" aria-label="Footer navigation">
+        <h4 className="footer-section-title">Navigation</h4>
         <ul>
           <li><Link href="/">Home</Link></li>
           <li><Link href="/work">Work</Link></li>
@@ -14,10 +15,12 @@ export default function FooterRightClient() {
       </nav>
       <div className="footer-divider" aria-hidden="true" />
       <div className="footer-contact" aria-label="Contact information">
+        <h4 className="footer-section-title">Contact</h4>
         <address className="footer-contact-details">
           <a href="mailto:hello@tapit.studio">hello@tapit.studio</a>
           <a href="tel:+11234567890">+1 123 456 7890</a>
         </address>
+        <h4 className="footer-section-title">Links</h4>
         <div className="footer-social" aria-label="Social media links">
           <a className="icon-link" href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69a4.27 4.27 0 0 0 1.87-2.36 8.5 8.5 0 0 1-2.7 1.03 4.24 4.24 0 0 0-7.23 3.86A12.03 12.03 0 0 1 3.1 4.8a4.23 4.23 0 0 0 1.31 5.66c-.67-.02-1.31-.2-1.86-.5v.05a4.25 4.25 0 0 0 3.4 4.16c-.59.16-1.22.19-1.83.07a4.25 4.25 0 0 0 3.97 2.95A8.51 8.51 0 0 1 2 19.54a12.02 12.02 0 0 0 6.51 1.91c7.82 0 12.1-6.48 12.1-12.1v-.55c.83-.6 1.55-1.34 2.12-2.19z"/></svg>
