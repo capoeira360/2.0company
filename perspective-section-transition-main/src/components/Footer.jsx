@@ -22,6 +22,23 @@ export default function Footer() {
         <div className="footer-right">
           <FooterRightClient />
         </div>
+        <div className="footer-extra">
+          <div className="footer-blurb">
+            <p>
+              TAPit Studio blends design and code to craft thoughtful digital experiences.
+              We partner with teams to ship elegant interfaces, performant systems, and joyful interactions.
+            </p>
+          </div>
+          <div className="footer-policies">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/cookies">Cookies</a>
+          </div>
+          <div className="footer-cta">
+            <span>Want updates from the studio?</span>
+            <a className="btn" href="/newsletter">Join our newsletter</a>
+          </div>
+        </div>
       </div>
       <div className="container">
         <small>© TAPit Studio. Crafted with design and code.</small>
