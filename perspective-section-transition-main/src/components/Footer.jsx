@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FooterTextSocial from "./FooterTextSocial";
 
 export default function Footer() {
   return (
@@ -26,6 +27,7 @@ export default function Footer() {
                 <li><Link href="/contact">Contact</Link></li>
               </ul>
             </nav>
+            <FooterTextSocial />
             <div className="new-footer-social" aria-label="Social media links">
               <a className="icon-link" href="https://twitter.com" target="_blank" rel="noreferrer" aria-label="Twitter">
                 <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69a4.27 4.27 0 0 0 1.87-2.36 8.5 8.5 0 0 1-2.7 1.03 4.24 4.24 0 0 0-7.23 3.86A12.03 12.03 0 0 1 3.1 4.8a4.23 4.23 0 0 0 1.31 5.66c-.67-.02-1.31-.2-1.86-.5v.05a4.25 4.25 0 0 0 3.4 4.16c-.59.16-1.22.19-1.83.07a4.25 4.25 0 0 0 3.97 2.95A8.51 8.51 0  0 1 2 19.54a12.02 12.02 0  0 0 6.51 1.91c7.82 0 12.1-6.48 12.1-12.1v-.55c.83-.6 1.55-1.34 2.12-2.19z"/></svg>
@@ -64,13 +66,6 @@ export default function Footer() {
             </section>
           </div>
 
-          
-
-          <div className="new-footer-policies">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
-            <a href="/cookies">Cookies</a>
-          </div>
         </div>
         
         {/* Contact block placed below the logo in the left column */}
@@ -78,9 +73,14 @@ export default function Footer() {
           <a href="mailto:hello@tapit.studio">hello@tapit.studio</a>
           <a href="tel:+11234567890">+1 123 456 7890</a>
         </div>
+        <div className="new-footer-contact-divider" aria-hidden="true"></div>
+        <div className="new-footer-policies">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+          <a href="/cookies">Cookies</a>
+        </div>
+        <div className="new-footer-note">© TAPit Studio. Crafted with design and code.</div>
       </div>
-
-      <div className="new-footer-note">© TAPit Studio. Crafted with design and code.</div>
     </footer>
   );
 }

@@ -2,7 +2,7 @@ export const metadata = {
   title: "TAPit — Contact",
 };
 
-export default function ContactPage() {
+export default function ContactPage({ searchParams }) {
   return (
     <main className="relative bg-[#FDFDFD]">
       <section className="py-[clamp(24px,4vw,48px)]">
@@ -11,6 +11,12 @@ export default function ContactPage() {
             <h2 className="leading-tight text-[clamp(2.2rem,7vw,4rem)]">contact us</h2>
             <div className="h-[2px] w-full bg-black/25"></div>
             <p className="text-[#374151] text-[clamp(1rem,1.6vw,1.15rem)]">Have a project in mind? Let’s collaborate. We respond within 24 hours.</p>
+            {searchParams?.submitted === "1" && (
+              <p className="text-[#0f5132] bg-[#d1e7dd] border border-[#badbcc] rounded-md px-3 py-2 text-[clamp(0.95rem,1.5vw,1.05rem)]">Thanks for reaching out — we’ll get back to you shortly.</p>
+            )}
+            {searchParams?.submitted === "0" && (
+              <p className="text-[#842029] bg-[#f8d7da] border border-[#f5c2c7] rounded-md px-3 py-2 text-[clamp(0.95rem,1.5vw,1.05rem)]">Please fill in your name, email, and message.</p>
+            )}
           </header>
 
           {/* Submission form (lined, non-interactive) – headers left, content right */}
@@ -18,25 +24,38 @@ export default function ContactPage() {
             <div>
               <h3 className="text-[clamp(1.4rem,3.5vw,2rem)]">share your mind</h3>
             </div>
-            <div className="grid gap-[clamp(20px,3vw,32px)] md:pl-[320px] md:ml-0">
+            <form className="grid gap-[clamp(20px,3vw,32px)] md:pl-[320px] md:ml-0" method="POST" action="/api/contact">
+              {/* Honeypot field (bots may fill; humans won't see) */}
+              <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
               <div className="grid gap-3">
-                <label className="text-[#3a3d42]">Name</label>
-                <div className="h-[28px] border-b border-black/20"></div>
+                <label htmlFor="name" className="text-[#3a3d42]">Name</label>
+                <div className="border-b border-black/20">
+                  <input id="name" name="name" type="text" required maxLength={120} autoComplete="name" className="h-[28px] w-full bg-transparent outline-none" />
+                </div>
               </div>
               <div className="grid gap-3">
-                <label className="text-[#3a3d42]">Email</label>
-                <div className="h-[28px] border-b border-black/20"></div>
+                <label htmlFor="email" className="text-[#3a3d42]">Email</label>
+                <div className="border-b border-black/20">
+                  <input id="email" name="email" type="email" required autoComplete="email" className="h-[28px] w-full bg-transparent outline-none" />
+                </div>
               </div>
               <div className="grid gap-3">
-                <label className="text-[#3a3d42]">Subject</label>
-                <div className="h-[28px] border-b border-black/20"></div>
+                <label htmlFor="subject" className="text-[#3a3d42]">Subject</label>
+                <div className="border-b border-black/20">
+                  <input id="subject" name="subject" type="text" maxLength={200} autoComplete="off" className="h-[28px] w-full bg-transparent outline-none" />
+                </div>
               </div>
               <div className="grid gap-3">
-                <label className="text-[#3a3d42]">Message</label>
-                <div className="h-[96px] border-b border-black/20"></div>
+                <label htmlFor="message" className="text-[#3a3d42]">Message</label>
+                <div className="border-b border-black/20">
+                  <textarea id="message" name="message" required maxLength={5000} className="w-full h-[96px] bg-transparent outline-none resize-none" />
+                </div>
+              </div>
+              <div>
+                <button type="submit" className="inline-flex items-center gap-2 text-[#111] underline">Send</button>
               </div>
               <p className="text-[#6b7280] text-[clamp(0.9rem,1.4vw,1rem)]">Tip: Email <a href="mailto:hello@tapit.studio" className="underline">hello@tapit.studio</a> — replies within 24h.</p>
-            </div>
+            </form>
           </div>
 
           {/* Address – headers left, content right */}

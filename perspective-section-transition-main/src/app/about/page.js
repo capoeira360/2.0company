@@ -24,16 +24,8 @@ export default function AboutPage() {
           <h1 className="leading-tight text-[clamp(2.6rem,8vw,5.5rem)]">
             <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }}>about</span>
           </h1>
-          {/* Thin underline extending beyond header text */}
-          <div
-            style={{
-              marginTop: 'clamp(6px,1.2vw,12px)',
-              height: '1px',
-              backgroundColor: 'rgba(14,165,233,0.65)',
-              borderRadius: '9999px',
-              width: 'clamp(240px,40vw,720px)'
-            }}
-          />
+          {/* Match Contact header divider */}
+          <div className="h-[2px] w-full bg-black/25"></div>
         </div>
       </section>
       <section className="section" style={{ marginTop: 0, paddingTop: 0 }}>

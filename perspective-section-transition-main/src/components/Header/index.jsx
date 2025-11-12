@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Button from "./Button";
 import styles from "./style.module.scss";
@@ -30,6 +31,12 @@ const menuVariants = {
 
 export default function Header() {
   const [isActive, setIsActive] = useState(false);
+  const pathname = usePathname();
+
+  // Auto-close the menu on route change so it never overlays inputs
+  useEffect(() => {
+    setIsActive(false);
+  }, [pathname]);
 
   return (
     <div className={styles.header}>
