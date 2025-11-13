@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
@@ -9,42 +9,84 @@ import Nav from "./Header/Nav";
 const barVariants = {
   open: {
     width: "768px",
-    height: "794px",
+    height: "820px",
     backgroundColor: "#c9fd74",
-    borderRadius: "24px",
+    borderRadius: "0px",
     boxShadow: "0 20px 60px rgba(17,19,23,0.15)",
-    transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
+    transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.35 },
   },
   closed: {
     width: "4in",
-    height: "0.7in",
+    height: "0.75in",
     backgroundColor: "rgba(253,253,253,0.85)",
-    borderRadius: "999px",
+    borderRadius: "0px",
     boxShadow: "0 10px 30px rgba(17,19,23,0.12)",
-    transition: { duration: 0.6, type: "tween", ease: [0.76, 0, 0.24, 1] },
+    transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.3 },
   },
+};
+
+// Header stabilized via layout-tween to avoid bounce
+
+const contentVariants = {
+  open: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 200, damping: 24 } },
+  closed: { opacity: 0, y: -6, transition: { type: "spring", stiffness: 200, damping: 24 } },
 };
 
 export default function FloatingTopBar() {
   const [isActive, setIsActive] = useState(false);
+  const [isRecentlyScrolling, setIsRecentlyScrolling] = useState(true);
+  const idleTimer = useRef(null);
   const pathname = usePathname();
 
   useEffect(() => {
     setIsActive(false);
+    setIsRecentlyScrolling(true);
   }, [pathname]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsRecentlyScrolling(true);
+      if (idleTimer.current) clearTimeout(idleTimer.current);
+      idleTimer.current = setTimeout(() => {
+        setIsRecentlyScrolling(false);
+      }, 3000); // hide after 3s of no scroll
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (idleTimer.current) {
+        clearTimeout(idleTimer.current);
+        idleTimer.current = null;
+      }
+    };
+  }, []);
+
+  const visibilityVariants = {
+    visible: { opacity: 1, y: 0, transition: { type: "tween", duration: 0.2, ease: [0.4, 0, 0.2, 1] } },
+    hidden: { opacity: 0, y: 8, transition: { type: "tween", duration: 0.2, ease: [0.4, 0, 0.2, 1] } },
+  };
+
+  const isBarVisible = isActive || isRecentlyScrolling;
 
   return (
     <motion.div
-      className={`floating-top-bar ${isActive ? "open" : ""}`}
       role="banner"
       aria-label="Site utility bar"
-      variants={barVariants}
-      animate={isActive ? "open" : "closed"}
-      initial="closed"
-      style={{ position: "fixed", top: 12, left: "50%", transform: "translateX(-50%)", zIndex: 1000, display: "flex", flexDirection: "column" }}
+      variants={visibilityVariants}
+      initial="visible"
+      animate={isBarVisible ? "visible" : "hidden"}
+      style={{ position: "fixed", top: 12, left: 0, right: 0, marginLeft: "auto", marginRight: "auto", zIndex: 1000, display: "flex", justifyContent: "center" }}
     >
-      <div className="floating-top-bar-header">
-        <Link href="/" className="floating-top-bar-logo" aria-label="Go to Home">
+      <motion.div
+        className={`floating-top-bar ${isActive ? "open" : ""}`}
+        variants={barVariants}
+        animate={isActive ? "open" : "closed"}
+        initial="closed"
+        style={{ display: "flex", flexDirection: "column" }}
+      >
+        <div className="floating-top-bar-header">
+          <Link href="/" className="floating-top-bar-logo" aria-label="Go to Home">
           {/* Exact footer logo SVG, scaled for the floating bar */}
           <svg
             version="1.0"
@@ -62,18 +104,25 @@ export default function FloatingTopBar() {
           </svg>
         </Link>
 
-        <div className="floating-top-bar-button-slot">
-          <Button isActive={isActive} toggleMenu={() => setIsActive(!isActive)} />
-        </div>
-      </div>
-
-      <AnimatePresence>
-        {isActive && (
-          <div className="floating-top-bar-content">
-            <Nav onNavigate={() => setIsActive(false)} />
+            <div className="floating-top-bar-button-slot">
+              <Button isActive={isActive} toggleMenu={() => setIsActive(!isActive)} />
+            </div>
           </div>
-        )}
-      </AnimatePresence>
+
+          <AnimatePresence>
+            {isActive && (
+              <motion.div
+                className="floating-top-bar-content"
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={contentVariants}
+              >
+                <Nav onNavigate={() => setIsActive(false)} />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
     </motion.div>
   );
 }

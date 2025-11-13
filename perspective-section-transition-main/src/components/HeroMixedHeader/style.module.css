@@ -1,5 +1,12 @@
 .wrapper {
   padding: 40px 0 0;
+  position: relative; /* host absolute Vanta canvas behind content */
+}
+
+/* ensure content stays above the Vanta canvas */
+.wrapper :global(.container) {
+  position: relative;
+  z-index: 1;
 }
 
 .mega {
@@ -16,20 +23,20 @@
 .montalban {
   font-family: var(--font-montalban), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 800;
-  color: #111317;
+  color: #f9fafb; /* bright near-white for dark background */
 }
 
 .montalbanDim {
   font-family: var(--font-montalban), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 800;
-  color: #1f2937; /* slate-800 */
+  color: #e5e7eb; /* light gray for secondary line */
 }
 
 .artineAccent {
   font-family: var(--font-artine), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
   font-style: italic;
-  background: linear-gradient(90deg, #111317, #0ea5e9);
+  background: linear-gradient(90deg, #3b82f6, #22d3ee, #a78bfa); /* bright blue→cyan→violet */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -38,7 +45,6 @@
 .sub {
   margin-top: 18px;
   font-size: clamp(1rem, 2.6vw, 1.35rem);
-  color: #374151; /* slate-700 */
+  color: #d1d5db; /* lighter for readability on dark background */
   max-width: 60ch;
 }
-

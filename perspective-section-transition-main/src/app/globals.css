@@ -255,14 +255,14 @@ h2 { margin-bottom: 24px; }
   /* layout is now column so header stays and content sits below */
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   padding: 8px 12px;
   backdrop-filter: saturate(140%) blur(6px);
   border: 1px solid rgba(17,19,23,0.12);
+  overflow: hidden;
+  will-change: width, height, border-radius, box-shadow, background-color;
 }
-.floating-top-bar:not(.open) { justify-content: center; }
-.floating-top-bar-header { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 4in; margin: 12px auto 0; }
-.floating-top-bar.open .floating-top-bar-header { margin-top: 12px; }
-.floating-top-bar:not(.open) .floating-top-bar-header { margin: 0 auto; }
+.floating-top-bar-header { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 4in; margin: 0 auto; height: calc(0.75in - 16px); }
 .floating-top-bar-logo {
   display: inline-flex;
   align-items: center;
@@ -284,7 +284,5 @@ h2 { margin-bottom: 24px; }
     padding: 6px 10px;
   }
   .floating-top-bar-logo svg { width: 100px; }
-  .floating-top-bar-header { max-width: 3.2in; }
-  .floating-top-bar.open .floating-top-bar-header { margin-top: 10px; }
-  .floating-top-bar:not(.open) .floating-top-bar-header { margin-top: 0; }
+  .floating-top-bar-header { max-width: 3.2in; margin: 0 auto; height: calc(0.75in - 12px); }
 }
