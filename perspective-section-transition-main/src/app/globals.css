@@ -229,3 +229,23 @@ h2 { margin-bottom: 24px; }
   }
 }
 .new-footer-contact-divider { grid-column: 1 / -1; height: 1px; background: rgba(17, 19, 23, 0.12); margin-bottom: 6px; }
+.new-footer .footer-section-title {
+  border-bottom: 1px solid rgba(17, 19, 23, 0.12);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+/* Right-align Social header with its links in the text block */
+.new-footer-social-text .footer-section-title {
+  text-align: right;
+}
+/* Footer bottom row: policies on left, copyright on right */
+.new-footer-bottom { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.new-footer-bottom .new-footer-policies { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-left: 1rem; }
+.new-footer-bottom .new-footer-note { margin: 0; padding: 0; text-align: right; margin-right: 1rem; }
+
+@media (max-width: 768px) {
+  .new-footer-bottom { gap: 8px; }
+  .new-footer-bottom .new-footer-policies { margin-left: 0; }
+  .new-footer-bottom .new-footer-note { margin-right: 0; }
+}

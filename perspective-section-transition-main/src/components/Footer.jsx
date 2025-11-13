@@ -74,12 +74,14 @@ export default function Footer() {
           <a href="tel:+11234567890">+1 123 456 7890</a>
         </div>
         <div className="new-footer-contact-divider" aria-hidden="true"></div>
-        <div className="new-footer-policies">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/cookies">Cookies</a>
+        <div className="new-footer-bottom">
+          <div className="new-footer-policies">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/cookies">Cookies</a>
+          </div>
+          <div className="new-footer-note">© TAPit Studio. Crafted with design and code.</div>
         </div>
-        <div className="new-footer-note">© TAPit Studio. Crafted with design and code.</div>
       </div>
     </footer>
   );
