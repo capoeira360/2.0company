@@ -1,7 +1,7 @@
 import "./globals.css";
 import localFont from "next/font/local";
 import LenisRoot from "./lenis-root";
-import Header from "@/components/Header";
+import FloatingTopBar from "@/components/FloatingTopBar";
 import Footer from "@/components/Footer";
 
 export const metadata = {
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${artine.className} ${montalban.variable} ${artine.variable}`}>
         <LenisRoot>
-          <Header />
+          <FloatingTopBar />
           {children}
           <Footer />
         </LenisRoot>
