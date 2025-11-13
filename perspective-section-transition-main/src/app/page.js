@@ -1,4 +1,6 @@
 import HeroMixedHeader from "../components/HeroMixedHeader";
+import TechHover from "../components/TechHover";
+import PaintReveal from "../components/PaintReveal";
 
 export const metadata = {
   title: "TAPit — Software Product Studio",
@@ -178,6 +180,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <section className="section" id="tech">
+        <div className="container">
+          <TechHover />
+        </div>
+      </section>
+
+      <PaintReveal />
 
       {/* Services */}
       <section className="section services" id="services">

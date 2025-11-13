@@ -10,7 +10,7 @@ const barVariants = {
   open: {
     width: "768px",
     height: "820px",
-    backgroundColor: "#c9fd74",
+    backgroundColor: "#E0E5DE",
     borderRadius: "0px",
     boxShadow: "0 20px 60px rgba(17,19,23,0.15)",
     transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.35 },
@@ -18,7 +18,7 @@ const barVariants = {
   closed: {
     width: "4in",
     height: "0.75in",
-    backgroundColor: "rgba(253,253,253,0.85)",
+    backgroundColor: "#E0E5DE",
     borderRadius: "0px",
     boxShadow: "0 10px 30px rgba(17,19,23,0.12)",
     transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.3 },
@@ -35,6 +35,7 @@ const contentVariants = {
 export default function FloatingTopBar() {
   const [isActive, setIsActive] = useState(false);
   const [isRecentlyScrolling, setIsRecentlyScrolling] = useState(true);
+  const [isAtTopOrHero, setIsAtTopOrHero] = useState(true);
   const idleTimer = useRef(null);
   const pathname = usePathname();
 
@@ -62,12 +63,34 @@ export default function FloatingTopBar() {
     };
   }, []);
 
+  useEffect(() => {
+    const heroEl = typeof document !== "undefined" ? document.getElementById("hero") : null;
+    let observer = null;
+    if (typeof window !== "undefined" && heroEl && "IntersectionObserver" in window) {
+      observer = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        setIsAtTopOrHero(!!entry?.isIntersecting);
+      }, { root: null, threshold: 0.2 });
+      observer.observe(heroEl);
+    } else {
+      const checkTop = () => setIsAtTopOrHero(window.scrollY <= 24);
+      checkTop();
+      window.addEventListener("scroll", checkTop, { passive: true });
+      return () => {
+        window.removeEventListener("scroll", checkTop);
+      };
+    }
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, [pathname]);
+
   const visibilityVariants = {
     visible: { opacity: 1, y: 0, transition: { type: "tween", duration: 0.2, ease: [0.4, 0, 0.2, 1] } },
     hidden: { opacity: 0, y: 8, transition: { type: "tween", duration: 0.2, ease: [0.4, 0, 0.2, 1] } },
   };
 
-  const isBarVisible = isActive || isRecentlyScrolling;
+  const isBarVisible = isActive || isRecentlyScrolling || isAtTopOrHero;
 
   return (
     <motion.div

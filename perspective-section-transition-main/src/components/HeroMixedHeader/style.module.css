@@ -7,6 +7,9 @@
 .wrapper :global(.container) {
   position: relative;
   z-index: 1;
+  width: 100%;
+  margin: 0;
+  padding-left: 48px;
 }
 
 .mega {
@@ -16,6 +19,7 @@
   line-height: 0.92;
   letter-spacing: 0.02em;
   font-size: clamp(3rem, 10vw, 12rem);
+  text-align: left;
 }
 
 .row { display: block; }
