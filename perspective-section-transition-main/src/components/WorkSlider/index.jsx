@@ -9,6 +9,12 @@ export default function WorkSlider() {
   const timeRef = useRef(null);
   const nextBtnRef = useRef(null);
   const prevBtnRef = useRef(null);
+  const assets = [
+    "/images/slider/slider-main-1.gif",
+    "/images/slider/slider-main-2.jpg",
+    "/images/slider/slider-main-3.gif",
+    "/images/slider/slider-main-4.jpg",
+  ];
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -75,13 +81,13 @@ export default function WorkSlider() {
     <div className={styles.workSlider}>
       <div className={styles.carousel} ref={carouselRef}>
         <div className={styles.list} ref={listRef}>
-          {[1, 2, 3, 4].map((i) => (
-            <div className={styles.item} key={`slide-${i}`}>
-              <img src={`/images/slider/img${i}.jpg`} alt={`Slide ${i}`} />
+          {assets.map((src, idx) => (
+            <div className={`${styles.item} ${idx === 1 || idx === 2 ? styles.bright : ""}`} key={`slide-${idx}`}>
+              <img src={src} alt={`Slide ${idx + 1}`} />
               <div className={styles.content}>
                 <div className={styles.author}>TAPit Studio</div>
                 <div className={styles.title}>Featured Work</div>
-                <div className={styles.topic}>Project {i}</div>
+                <div className={styles.topic}>Project {idx + 1}</div>
                 <div className={styles.des}>
                   We craft performant interfaces with thoughtful motion. This is a placeholder description.
                 </div>
@@ -95,11 +101,11 @@ export default function WorkSlider() {
         </div>
 
         <div className={styles.thumbnail} ref={thumbRef}>
-          {[1, 2, 3, 4].map((i) => (
-            <div className={styles.item} key={`thumb-${i}`}>
-              <img src={`/images/slider/img${i}.jpg`} alt={`Thumb ${i}`} />
+          {assets.map((src, idx) => (
+            <div className={`${styles.item} ${idx === 1 || idx === 2 ? styles.bright : ""}`} key={`thumb-${idx}`}>
+              <img src={src} alt={`Thumb ${idx + 1}`} />
               <div className={styles.content}>
-                <div className={styles.title}>Project {i}</div>
+                <div className={styles.title}>Project {idx + 1}</div>
                 <div className={styles.description}>Description</div>
               </div>
             </div>

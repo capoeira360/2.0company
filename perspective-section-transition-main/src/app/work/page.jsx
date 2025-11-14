@@ -190,22 +190,63 @@ export default function Work() {
         </div>
       </Section>
 
-      {/* Section 5: Performance & Accessibility */}
+      {/* Section 5 */}
       <Section id={5} bgClass="bg-[#EEEEE8]">
-        <div className="w-full px-6 max-w-4xl mx-auto grid gap-6">
-          <h2 className="leading-tight text-[clamp(2.4rem,8vw,6rem)]">
-            <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }}>Performance</span>{' '}
-            <span style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>&amp; Accessibility</span>
-          </h2>
-          <p className="text-[clamp(1rem,1.6vw,1.15rem)] text-[#3a3d42] max-w-3xl">
-            Fast, inclusive experiences that serve everyone. We measure, diagnose, and improve Core Web Vitals while ensuring
-            WCAG-aligned interactions, semantics, and focus management.
-          </p>
-          <ul className="grid gap-3 text-[#374151] text-[clamp(0.95rem,1.4vw,1.05rem)]">
-            <li>Core Web Vitals audits and action plans</li>
-            <li>Semantic structure, keyboard support, and focus flows</li>
-            <li>Motion and reduced-motion strategies that respect preferences</li>
-          </ul>
+
+        
+        <div className="mx-auto w-[min(95vw,1496px)]">
+          <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
+            <div className="flex items-center gap-4">
+              <svg className="shrink-0" viewBox="0 0 64 64" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
+                <path d="M20 36c0-6.627 5.373-12 12-12 5.024 0 9.34 3.09 10.965 7.429C44.31 31.152 46.045 31 47.82 31 53.465 31 58 35.477 58 41s-4.535 10-10.18 10H22.5C16.701 51 12 46.299 12 40.5 12 34.701 16.701 30 22.5 30c.867 0 1.716.09 2.535.263A11.936 11.936 0 0 1 32 24c-6.627 0-12 5.373-12 12z" fill="#0ea5e9" opacity="0.25" />
+                <rect x="12" y="18" width="40" height="10" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
+                <rect x="12" y="32" width="40" height="10" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
+                <circle cx="52" cy="23" r="1.5" fill="#0ea5e9" />
+                <circle cx="52" cy="37" r="1.5" fill="#0ea5e9" />
+              </svg>
+              <h2 className="leading-tight text-[clamp(2.4rem,7vw,6rem)]">
+                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em', textTransform: 'lowercase' }}>domain</span>
+                <span style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>/hosting</span>
+              </h2>
+            </div>
+
+            {/* Subtitle */}
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#3a3d42]">Your website’s home on the internet.</p>
+
+            {/* Description */}
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#374151] max-w-none">
+              Simple, reliable, and secure hosting with your custom domain—everything managed from one dashboard.
+            </p>
+
+            {/* Features */}
+            <ul className="grid gap-3 text-[#374151] text-[clamp(1.05rem,1.8vw,1.25rem)]">
+              <li>• Custom Domain Registration</li>
+              <li>• Blazing-Fast Web Hosting</li>
+              <li>• Free SSL Protection</li>
+              <li>• Simple, All-in-One Dashboard</li>
+              <li>• 24/7 Expert Support</li>
+            </ul>
+
+            {/* Pricing blurb */}
+
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-8 pt-2">
+              <Link className="btn primary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/contact">Get Started</Link>
+              <Link className="btn secondary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/work#plans">See Plans</Link>
+            </div>
+
+            {/* Tagline + Badge */}
+            <div className="flex flex-wrap items-center gap-10">
+              <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
+                <span>Perfect for websites, blogs, startups, and businesses.</span>
+              </div>
+              <span className="inline-flex items-center gap-2 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)] font-semibold bg-[#E0E5DE] px-3 py-2 rounded-md">
+                {/* Badge icon */}
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z" fill="#0ea5e9"/></svg>
+                99.9% Uptime Guarantee
+              </span>
+            </div>
+          </div>
         </div>
       </Section>
     </main>
