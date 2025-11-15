@@ -2,6 +2,7 @@
 import Section from "@/components/Section";
 import ImageGallery from "@/components/ImageGallery";
 import Link from "next/link";
+import HyperText from "@/components/HyperText";
 
 export default function Work() {
   return (
@@ -13,20 +14,19 @@ export default function Work() {
         </div>
       </Section>
       {/* Section 2: Web Design Service Card */}
-      <Section id={2} bgClass="bg-[#EEEEE8]">
-        <div className="mx-auto w-[min(95vw,1496px)]">
+      <Section id={2} bgClass="bg-[#86AF7F]">
+        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)]">
   <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
-              {/* Simple monitor icon */}
               <svg className="shrink-0" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
                 <rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
                 <rect x="9" y="18" width="6" height="2" rx="1" fill="#111317" />
               </svg>
-              <h2 className="leading-tight text-[clamp(3rem,9vw,8rem)]">
-                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }}>Web</span>{' '}
-                <span style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>Design</span>
-              </h2>
+              <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
+                <HyperText text="Web" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
+                <HyperText text="Design" className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }} />
+              </div>
             </div>
 
             {/* Subtitle */}
@@ -72,20 +72,19 @@ export default function Work() {
       </Section>
 
       {/* Section 3: Mobile App Design Service Card */}
-      <Section id={3} bgClass="bg-[#EEEEE8]">
-        <div className="mx-auto w-[min(95vw,1496px)]">
+      <Section id={3} bgClass="bg-[#8A6742]">
+        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)]">
   <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
-              {/* Smartphone icon */}
               <svg className="shrink-0" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
                 <rect x="6" y="2" width="12" height="20" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
                 <circle cx="12" cy="19" r="1" fill="#111317" />
               </svg>
-              <h2 className="leading-tight whitespace-nowrap text-[clamp(3rem,9vw,8rem)]">
-                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }}>Mobile</span>{' '}
-                <span style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>Apps</span>
-              </h2>
+              <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
+                <HyperText text="Mobile" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
+                <HyperText text="Apps" className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }} />
+              </div>
             </div>
 
             {/* Subtitle */}
@@ -131,12 +130,11 @@ export default function Work() {
       </Section>
 
       {/* Section 4: AI Systems Development Service Card */}
-      <Section id={4} bgClass="bg-[#EEEEE8]">
-        <div className="mx-auto w-[min(95vw,1496px)]">
+      <Section id={4} bgClass="bg-[#BB4B32]">
+        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)]">
   <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
-              {/* Robot head icon */}
               <svg className="shrink-0" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
                 <circle cx="12" cy="3" r="1" fill="#111317" />
                 <path d="M12 6 V4" stroke="#111317" strokeWidth="2" />
@@ -145,10 +143,10 @@ export default function Work() {
                 <circle cx="15" cy="12" r="1.5" fill="#0ea5e9" />
                 <rect x="9" y="16" width="6" height="2" rx="1" fill="#111317" />
               </svg>
-              <h2 className="leading-tight text-[clamp(3rem,9vw,8rem)]">
-                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }}>AI</span>{' '}
-                <span style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>Systems</span>
-              </h2>
+              <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
+                <HyperText text="AI" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
+                <HyperText text="Systems" className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }} />
+              </div>
             </div>
 
             {/* Subtitle */}
@@ -191,10 +189,10 @@ export default function Work() {
       </Section>
 
       {/* Section 5 */}
-      <Section id={5} bgClass="bg-[#EEEEE8]">
+      <Section id={5} bgClass="bg-[#6F8A4D]">
 
         
-        <div className="mx-auto w-[min(95vw,1496px)]">
+        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)]">
           <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             <div className="flex items-center gap-4">
               <svg className="shrink-0" viewBox="0 0 64 64" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
@@ -204,10 +202,11 @@ export default function Work() {
                 <circle cx="52" cy="23" r="1.5" fill="#0ea5e9" />
                 <circle cx="52" cy="37" r="1.5" fill="#0ea5e9" />
               </svg>
-              <h2 className="leading-tight text-[clamp(2.4rem,7vw,6rem)]">
-                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em', textTransform: 'lowercase' }}>domain</span>
-                <span style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>/hosting</span>
-              </h2>
+              <div className="leading-tight whitespace-nowrap text-[clamp(2.4rem,7vw,6rem)]">
+                <HyperText text="domain" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
+                <span className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>/</span>
+                <HyperText text="hosting" className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }} />
+              </div>
             </div>
 
             {/* Subtitle */}

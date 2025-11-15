@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FooterTextSocial from "./FooterTextSocial";
 import { FlipLink, FlipAnchor } from "@/components/FlipLink";
+import InteractiveHoverButton from "@/components/InteractiveHoverButton";
 
 export default function Footer() {
   return (
@@ -62,7 +63,7 @@ export default function Footer() {
                 <span>Mon–Fri, 9am–6pm PT</span>
               </address>
               <div className="new-footer-cta">
-                <Link className="btn primary" href="/contact">Start a project</Link>
+                <InteractiveHoverButton text="Start a project" href="/contact" />
               </div>
             </section>
           </div>
