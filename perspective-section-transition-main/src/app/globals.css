@@ -46,7 +46,9 @@ h2 { margin-bottom: 24px; }
 .infinity { padding-top: 40px; padding-bottom: 40px; }
 .infinity .container { margin-bottom: 12px; }
 .infinity-track { position: relative; overflow: hidden; width: 100%; }
-.infinity-run { display: inline-flex; align-items: center; gap: 48px; padding: calc(18px + 0.25in) 0; min-width: 200%; animation: infinityScroll 16s linear infinite; }
+.infinity-strip { display: inline-flex; width: max-content; animation: infinityScroll 16s linear infinite; will-change: transform; }
+.infinity-run { display: inline-flex; align-items: center; gap: 48px; padding: calc(18px + 0.25in) 0; width: max-content; }
+.infinity-run + .infinity-run .infinity-logo:first-child { margin-left: 48px; }
 .infinity-logo { color: #6b7280; }
 /* Start off-screen to the right, then scroll left across viewport */
 @keyframes infinityScroll { from { transform: translateX(0) } to { transform: translateX(-50%) } }
