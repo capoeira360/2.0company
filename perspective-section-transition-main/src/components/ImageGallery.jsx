@@ -3,30 +3,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 
 const images = [
-  {
-    title: "Mini canine",
-    url: "https://images.unsplash.com/photo-1583551536442-0fc55ac443f6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=600&h=600&fit=min&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-  },
-  {
-    title: "Wheely tent",
-    url: "https://images.unsplash.com/photo-1583797227225-4233106c5a2a?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=600&h=600&fit=min&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-  },
-  {
-    title: "Red food things",
-    url: "https://images.unsplash.com/photo-1561626450-730502dba332?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=600&h=600&fit=min&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-  },
-  {
-    title: "Sand boat",
-    url: "https://images.unsplash.com/photo-1585221454166-ce690e60465f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=600&h=600&fit=min&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-  },
-  {
-    title: "Screen thing",
-    url: "https://images.unsplash.com/photo-1585427795543-33cf23ea2853?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=600&h=600&fit=min&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-  },
-  {
-    title: "Horse tornado",
-    url: "https://images.unsplash.com/photo-1507160874687-6fe86a78b22e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=600&h=600&fit=min&ixid=eyJhcHBfaWQiOjE0NTg5fQ",
-  },
+  { title: "Featured 1", url: "/images/slider/slider-main-1.gif" },
+  { title: "Featured 2", url: "/images/slider/slider-main-2.jpg" },
+  { title: "Featured 3", url: "/images/slider/slider-main-3.gif" },
+  { title: "Featured 4", url: "/images/slider/slider-main-4.jpg" },
 ];
 
 export function ImageGallery() {
@@ -100,8 +80,20 @@ export function ImageGallery() {
   }, [opened, gsapReady, next]);
 
   return (
-    <div className="flex items-center justify-center bg-primary min-h-[60vh] font-sans">
-      <div className="relative h-[80vmin] w-[80vmin] max-h-[600px] max-w-[600px] overflow-hidden rounded-[20px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.02),0_6.7px_5.3px_rgba(0,0,0,0.028),0_12.5px_10px_rgba(0,0,0,0.035),0_22.3px_17.9px_rgba(0,0,0,0.042),0_41.8px_33.4px_rgba(0,0,0,0.05),0_100px_80px_rgba(0,0,0,0.07)]">
+    <div className="flex items-center justify-center min-h-[60vh] font-sans">
+      <div className="mt-8 flex items-center">
+        <button
+          className="mr-[0.5in] z-[101] flex h-14 w-14 sm:h-16 sm:w-16 cursor-pointer items-center justify-center rounded-full border-2 border-white/20 bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.12)] outline-none transition-all duration-300 ease-out hover:scale-110 hover:bg-white hover:border-white/40 hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] active:scale-95 focus-visible:ring-4 focus-visible:ring-white/50 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+          onClick={prev}
+          disabled={disabled}
+          aria-label="Previous Image"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-800 transition-transform duration-300">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+
+        <div className="relative h-[88vmin] w-[88vmin] max-h-[720px] max-w-[720px] overflow-hidden rounded-[20px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.02),0_6.7px_5.3px_rgba(0,0,0,0.028),0_12.5px_10px_rgba(0,0,0,0.035),0_22.3px_17.9px_rgba(0,0,0,0.042),0_41.8px_33.4px_rgba(0,0,0,0.05),0_100px_80px_rgba(0,0,0,0.07)]">
         {gsapReady &&
           images.map((image, i) => (
             <div key={image.url} className="absolute left-0 top-0 h-full w-full" style={{ zIndex: inPlace === i ? i : images.length + 1 }}>
@@ -111,29 +103,19 @@ export function ImageGallery() {
         <div className="absolute left-0 top-0 z-[100] h-full w-full pointer-events-none">
           <Tabs images={images} onSelect={onClick} />
         </div>
+        </div>
+
+        <button
+          className="ml-[0.5in] z-[101] flex h-14 w-14 sm:h-16 sm:w-16 cursor-pointer items-center justify-center rounded-full border-2 border-white/20 bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.12)] outline-none transition-all duration-300 ease-out hover:scale-110 hover:bg-white hover:border-white/40 hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] active:scale-95 focus-visible:ring-4 focus-visible:ring-white/50 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+          onClick={next}
+          disabled={disabled}
+          aria-label="Next Image"
+        >
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-800 transition-transform duration-300">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
       </div>
-
-      <button
-        className="absolute left-[calc(50%-40vmin-40px)] sm:left-[calc(50%-300px-50px)] top-1/2 z-[101] flex h-14 w-14 sm:h-16 sm:w-16 -translate-y-1/2 -translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-white/20 bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.12)] outline-none transition-all duration-300 ease-out hover:scale-110 hover:bg-white hover:border-white/40 hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] active:scale-95 focus-visible:ring-4 focus-visible:ring-white/50 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
-        onClick={prev}
-        disabled={disabled}
-        aria-label="Previous Image"
-      >
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-800 transition-transform duration-300">
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
-      </button>
-
-      <button
-        className="absolute right-[calc(50%-40vmin-40px)] sm:right-[calc(50%-300px-50px)] top-1/2 z-[101] flex h-14 w-14 sm:h-16 sm:w-16 -translate-y-1/2 translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-2 border-white/20 bg-white/95 backdrop-blur-sm shadow-[0_8px_32px_rgba(0,0,0,0.12)] outline-none transition-all duration-300 ease-out hover:scale-110 hover:bg-white hover:border-white/40 hover:shadow-[0_12px_48px_rgba(0,0,0,0.18)] active:scale-95 focus-visible:ring-4 focus-visible:ring-white/50 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
-        onClick={next}
-        disabled={disabled}
-        aria-label="Next Image"
-      >
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-800 transition-transform duration-300">
-          <path d="M9 18l6-6-6-6" />
-        </svg>
-      </button>
     </div>
   );
 }
@@ -228,4 +210,3 @@ function Tabs({ images, onSelect }) {
 }
 
 export default ImageGallery;
-

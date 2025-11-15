@@ -1,9 +1,7 @@
 "use client";
 import styles from "./style.module.scss";
-import { motion } from "framer-motion";
-import Link from "next/link";
 import { links, footerLinks } from "./data";
-import { perspective, slideIn } from "./anim";
+import { FlipLink, FlipAnchor } from "@/components/FlipLink";
 
 export default function Nav({ onNavigate }) {
   return (
@@ -13,40 +11,19 @@ export default function Nav({ onNavigate }) {
           const { title, href } = link;
           return (
             <div key={`b_${i}`} className={styles.linkContainer}>
-              <motion.div
-                custom={i}
-                variants={perspective}
-                initial="initial"
-                animate="enter"
-                exit="exit"
-              >
-                <Link href={href} onClick={onNavigate}>{title}</Link>
-              </motion.div>
+              <FlipLink href={href} onClick={onNavigate}>{title}</FlipLink>
             </div>
           );
         })}
       </div>
-      <motion.div className={styles.footer}>
+      <div className={styles.footer}>
         {footerLinks.map((link, i) => {
           const { title, href } = link;
           return (
-            <motion.a
-              variants={slideIn}
-              custom={i}
-              initial="initial"
-              animate="enter"
-              exit="exit"
-              key={`f_${i}`}
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              onClick={onNavigate}
-            >
-              {title}
-            </motion.a>
+            <FlipAnchor key={`f_${i}`} href={href} onClick={onNavigate}>{title}</FlipAnchor>
           );
         })}
-      </motion.div>
+      </div>
     </div>
   );
 }

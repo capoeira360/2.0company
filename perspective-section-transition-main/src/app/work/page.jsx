@@ -7,7 +7,7 @@ export default function Work() {
   return (
   <main className="relative h-[500vh] bg-[#EEEEE8]">
       {/* First section: mount the image slider */}
-      <Section id={1} full bgClass="bg-[#EEEEE8]">
+      <Section id={1} full bgClass="bg-[#393939]">
         <div className="w-full px-4">
           <ImageGallery />
         </div>
