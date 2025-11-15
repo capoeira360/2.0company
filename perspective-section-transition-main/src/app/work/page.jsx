@@ -1,6 +1,6 @@
 "use client";
 import Section from "@/components/Section";
-import WorkSlider from "@/components/WorkSlider";
+import ImageGallery from "@/components/ImageGallery";
 import Link from "next/link";
 
 export default function Work() {
@@ -9,7 +9,7 @@ export default function Work() {
       {/* First section: mount the image slider */}
       <Section id={1} full bgClass="bg-[#EEEEE8]">
         <div className="w-full px-4">
-          <WorkSlider />
+          <ImageGallery />
         </div>
       </Section>
       {/* Section 2: Web Design Service Card */}
