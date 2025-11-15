@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FooterTextSocial from "./FooterTextSocial";
+import { FlipLink, FlipAnchor } from "@/components/FlipLink";
 
 export default function Footer() {
   return (
@@ -21,10 +22,10 @@ export default function Footer() {
             <nav className="new-footer-nav" aria-label="Footer navigation">
               <h4 className="footer-section-title">Site</h4>
               <ul>
-                <li><Link href="/">Home</Link></li>
-                <li><Link href="/work">Work</Link></li>
-                <li><Link href="/about">About</Link></li>
-                <li><Link href="/contact">Contact</Link></li>
+                <li><FlipLink href="/">Home</FlipLink></li>
+                <li><FlipLink href="/work">Work</FlipLink></li>
+                <li><FlipLink href="/about">About</FlipLink></li>
+                <li><FlipLink href="/contact">Contact</FlipLink></li>
               </ul>
             </nav>
             <FooterTextSocial />
@@ -76,9 +77,9 @@ export default function Footer() {
         <div className="new-footer-contact-divider" aria-hidden="true"></div>
         <div className="new-footer-bottom">
           <div className="new-footer-policies">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
-            <a href="/cookies">Cookies</a>
+            <FlipAnchor href="/privacy">Privacy Policy</FlipAnchor>
+            <FlipAnchor href="/terms">Terms of Service</FlipAnchor>
+            <FlipAnchor href="/cookies">Cookies</FlipAnchor>
           </div>
           <div className="new-footer-note">© TAPit Studio. Crafted with design and code.</div>
         </div>

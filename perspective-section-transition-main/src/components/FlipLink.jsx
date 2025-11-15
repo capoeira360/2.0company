@@ -31,28 +31,28 @@ function Letters({ text }) {
   );
 }
 
-export function FlipLink({ children, href, onClick }) {
+export function FlipLink({ children, href, onClick, className = "", style }) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className="group relative inline-block overflow-hidden whitespace-nowrap text-4xl font-black uppercase sm:text-6xl"
-      style={{ lineHeight: 1 }}
+      className={`group relative inline-block overflow-hidden whitespace-nowrap ${className}`}
+      style={{ lineHeight: 1, ...style }}
     >
       <Letters text={children} />
     </Link>
   );
 }
 
-export function FlipAnchor({ children, href, onClick }) {
+export function FlipAnchor({ children, href, onClick, className = "", style }) {
   return (
     <a
       href={href}
       onClick={onClick}
       target="_blank"
       rel="noreferrer"
-      className="group relative inline-block overflow-hidden whitespace-nowrap text-3xl font-black uppercase sm:text-4xl"
-      style={{ lineHeight: 1 }}
+      className={`group relative inline-block overflow-hidden whitespace-nowrap ${className}`}
+      style={{ lineHeight: 1, ...style }}
     >
       <Letters text={children} />
     </a>
