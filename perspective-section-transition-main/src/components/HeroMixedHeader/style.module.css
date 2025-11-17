@@ -55,3 +55,9 @@
   color: #d1d5db; /* lighter for readability on dark background */
   max-width: 60ch;
 }
+
+@media (max-width: 1024px) {
+  .wrapper :global(.container) { padding-left: 24px; }
+  .mega { font-size: clamp(2.6rem, 8vw, 8rem); line-height: 0.98; }
+  .sub { font-size: clamp(1rem, 2.8vw, 1.25rem); max-width: 52ch; }
+}

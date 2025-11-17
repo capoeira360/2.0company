@@ -12,6 +12,10 @@ body{
   background-color: #FDFDFD;
 }
 
+/* About page: force pure white background */
+.about-page { background-color: #ffffff !important; }
+.about-page .section { background-color: #ffffff !important; }
+
 /* Shared container width to match static pages */
 .container { width: min(1100px, 92vw); margin: 0 auto; }
 /* Shared section spacing */
@@ -57,6 +61,15 @@ h2 { margin-bottom: 24px; }
 .infinity-logo { color: #6b7280; }
 /* Start off-screen to the right, then scroll left across viewport */
 @keyframes infinityScroll { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+
+@media (max-width: 1024px) {
+  .infinity-run { gap: 32px; padding: calc(16px + 0.15in) 0; }
+}
+
+/* Medium devices (tablet/ipad): Services header sizing */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .services-header { font-size: clamp(2.2rem, 6.5vw, 4.4rem) !important; line-height: 0.98; }
+}
 
 /* Full-bleed thin lines above and below the infinity track */
 .infinity-track::before,
@@ -161,6 +174,21 @@ h2 { margin-bottom: 24px; }
 /* New footer redesign */
 .new-footer { padding: 36px 0 calc(36px + 1in) 0; background: #E0E5DE; color: #111317; }
 
+.footer-card { width: min(1100px, 92vw); margin: 0 auto; background: #ffffff; border-radius: 20px; box-shadow: 0 14px 40px rgba(17, 19, 23, 0.08); border: 1px solid rgba(0,0,0,0.06); overflow: hidden; padding: 24px; }
+
+.footer-card .new-footer-grid { grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.footer-card .new-footer-logo { margin-top: 12px; margin-left: 0; transform: none; }
+.footer-card .new-footer-logo svg { width: min(300px, 50vw); }
+.footer-card .new-footer-top { justify-content: flex-start; gap: 12px; min-height: auto; }
+.footer-card .new-footer-nav { min-width: 0; margin-left: 0; transform: none; }
+.footer-card .new-footer-sections { grid-template-columns: 1fr 1fr; gap: 16px; }
+.footer-card .new-footer-sections .new-footer-section:first-child { margin-left: 0; transform: none; }
+.footer-card .new-footer-sections .new-footer-section:nth-child(2) { justify-items: start; text-align: left; transform: none; }
+.footer-card .new-footer-social-text { transform: none; margin: 0; align-items: flex-start; text-align: left; }
+.footer-card .new-footer-contact { transform: none; }
+.footer-card .new-footer-bottom { justify-content: space-between; }
+.footer-card .new-footer-cta::after { display: none; }
+
 
 .new-footer-grid { display: grid; grid-template-columns: auto 1fr; align-items: start; gap: 0; width: 100%; margin: 0; padding-left: 0; }
 .new-footer-logo svg { display: block; width: min(640px, 96vw); height: auto; margin: 0; }
@@ -220,6 +248,28 @@ h2 { margin-bottom: 24px; }
     transform: translateY(1in) translateX(0);
   }
   .new-footer-policies { justify-content: flex-start; margin-left: 0; }
+}
+
+/* Medium devices footer adjustments */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .new-footer-grid { width: 100%; margin: 0; padding-left: 0; padding-right: 0; }
+  .new-footer-logo svg { width: min(420px, 80vw); }
+  .new-footer-logo { margin-top: 1in; margin-left: 0; transform: translateX(0); }
+  .new-footer-bottom { justify-content: flex-start; gap: 10px; }
+  .new-footer-bottom .new-footer-note { text-align: left; margin-right: 0; margin-left: 0; transform: translateX(0); }
+  .new-footer-contact-divider { margin-top: 48px; margin-bottom: 4px; }
+  .new-footer-contact-divider { display: none; }
+  .new-footer-bottom { padding-top: 4px; margin-top: 0; }
+  .new-footer-cta { margin-top: 0; }
+  .new-footer-cta .start-project-btn { transform: translateY(10px); }
+  /* remove extra line under CTA to avoid misalignment */
+  .new-footer-nav { margin-left: 0; }
+  .new-footer-nav .footer-section-title { margin-right: 0; }
+  .new-footer-sections .new-footer-section:first-child { margin-left: 0; transform: translateY(1in); }
+  .new-footer-sections { gap: 20px; }
+  .new-footer-social-text { margin-left: auto; transform: translateY(1in); padding-right: 0; text-align: right; align-items: flex-end; }
+  .new-footer-sections .new-footer-section:nth-child(2) { justify-items: end; text-align: right; transform: translateY(1in) translateX(0); padding-right: 0; }
+  .new-footer-contact { transform: translateX(0); }
 }
 
 :root {

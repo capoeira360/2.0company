@@ -16,7 +16,6 @@ const techs = [
 export default function TechHover() {
   const [hovered, setHovered] = useState(null);
   const [current, setCurrent] = useState(techs[0]);
-  const swapTimer = useRef(null);
   const [supportsSvg, setSupportsSvg] = useState(false);
   useEffect(() => {
     try {
@@ -31,14 +30,7 @@ export default function TechHover() {
   }, []);
   const onEnter = (t) => {
     setHovered(t);
-    if (swapTimer.current) {
-      clearTimeout(swapTimer.current);
-      swapTimer.current = null;
-    }
-    swapTimer.current = setTimeout(() => {
-      setCurrent(t);
-      swapTimer.current = null;
-    }, 8000);
+    setCurrent(t);
   };
   return (
     <div className={styles.wrap}>
@@ -51,6 +43,9 @@ export default function TechHover() {
               type="button"
               className={`${styles.item} ${hovered && hovered.name !== t.name ? styles.dim : ""}`}
               onMouseEnter={() => onEnter(t)}
+              onPointerEnter={() => onEnter(t)}
+              onPointerDown={() => onEnter(t)}
+              onClick={() => onEnter(t)}
               onFocus={() => onEnter(t)}
               onMouseLeave={() => setHovered(null)}
               onBlur={() => setHovered(null)}
@@ -66,13 +61,13 @@ export default function TechHover() {
           supportsSvg ? (
             <DissolvePreview key={`${current.image}|${hovered.image}`} currentSrc={current.image} nextSrc={hovered.image} />
           ) : (
-            <CrossfadePreview key={`${current.image}|${hovered.image}`} currentSrc={current.image} nextSrc={hovered.image} durationMs={8000} />
+            <CrossfadePreview key={`${current.image}|${hovered.image}`} currentSrc={current.image} nextSrc={hovered.image} durationMs={1200} />
           )
         ) : current ? (
           supportsSvg ? (
             <DissolvePreview key={`${current.image}|${current.image}`} currentSrc={current.image} nextSrc={current.image} />
           ) : (
-            <CrossfadePreview key={`${current.image}|${current.image}`} currentSrc={current.image} nextSrc={current.image} durationMs={8000} />
+            <CrossfadePreview key={`${current.image}|${current.image}`} currentSrc={current.image} nextSrc={current.image} durationMs={1200} />
           )
         ) : (
           <span className={styles.placeholder}>Hover to preview</span>

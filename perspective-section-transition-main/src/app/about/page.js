@@ -4,9 +4,10 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="elevate-footer">
+    <main className="about-page elevate-footer relative" style={{ backgroundColor: '#ffffff' }}>
+      <div className="absolute inset-0 bg-white" aria-hidden="true"></div>
       {/* Page Header */}
-      <section className="section" style={{ marginBottom: '0.5in', paddingBottom: 0 }}>
+      <section className="section" style={{ marginBottom: '0.5in', paddingBottom: 0, backgroundColor: '#ffffff' }}>
         <div
           className="container"
           style={{
@@ -28,7 +29,7 @@ export default function AboutPage() {
           <div className="h-[2px] w-full bg-black/25"></div>
         </div>
       </section>
-      <section className="section" style={{ marginTop: 0, paddingTop: 0 }}>
+      <section className="section" style={{ marginTop: 0, paddingTop: 0, backgroundColor: '#ffffff' }}>
         <div
           className="container"
           style={{
@@ -45,7 +46,7 @@ export default function AboutPage() {
         >
           <div className="grid gap-2 md:grid-cols-2 items-start">
             {/* Mission card */}
-        <div className="relative grid gap-6 rounded-3xl border border-black/10 bg-[#FDFDFD] shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)] text-center mt-[2in] overflow-hidden">
+        <div className="relative grid gap-6 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)] text-center mt-[2in] overflow-hidden">
               <img src="/images/slider/slider-main-2.jpg" alt="Our Mission" className="absolute inset-0 z-0 h-full w-full object-cover opacity-60" />
               <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/10 to-black/30" aria-hidden="true"></div>
               <div className="relative z-20 grid gap-0">
@@ -80,10 +81,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" style={{ backgroundColor: '#ffffff' }}>
         <div className="container">
           <div
-        className="grid gap-1 rounded-3xl border border-black/10 bg-[#FDFDFD] shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)]"
+        className="grid gap-1 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)]"
             style={{ width: 'calc(100% + 2in)', marginLeft: '-1in', marginRight: '-1in' }}
           >
             <div className="flex items-center gap-4">
@@ -110,7 +111,7 @@ export default function AboutPage() {
 
 
       {/* Values cards section (replaces CTA contents) */}
-      <section className="section">
+      <section className="section" style={{ backgroundColor: '#ffffff' }}>
         <div
           className="container"
           style={{

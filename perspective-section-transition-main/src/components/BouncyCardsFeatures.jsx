@@ -7,18 +7,11 @@ export default function BouncyCardsFeatures() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 text-slate-800">
       <div className="mb-8 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end md:px-8">
-        <h2 className="flex-1 leading-[0.95] text-[clamp(2.8rem,8vw,5.6rem)]">
+        <h2 className="services-header flex-1 leading-[0.95] text-[clamp(2.8rem,8vw,5.6rem)]">
           <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Grow faster</span>
           <br />
-          <span style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', marginLeft: '-0.12em', whiteSpace: 'nowrap', fontSize: '1.12em', letterSpacing: '0em', wordSpacing: '-0.04em', display: 'inline-block', marginTop: '-0.16em' }}>with our all in one solution</span>
+          <span className="services-accent" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', marginLeft: '-0.12em', whiteSpace: 'nowrap', fontSize: '1.12em', letterSpacing: '0em', wordSpacing: '-0.04em', display: 'inline-block', marginTop: '-0.16em' }}>with our all in one solution</span>
         </h2>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="whitespace-nowrap rounded-lg bg-slate-900 px-4 py-2 font-medium text-white shadow-xl transition-colors hover:bg-slate-700"
-        >
-          Learn more
-        </motion.button>
       </div>
 
       <div className="mb-4 grid grid-cols-12 gap-4">
