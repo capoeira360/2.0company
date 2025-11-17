@@ -46,7 +46,7 @@
   font-weight: 700;
   line-height: 1.2;
 }
-.list .item .topic { color: #0ea5e9; }
+.list .item .topic { color: #f36e4b; }
 .list .item .buttons {
   display: grid;
   grid-template-columns: repeat(2, 130px);
@@ -144,7 +144,7 @@ background-color: #ffffff;
 .next .thumbnail { animation: effectNext .5s linear 1 forwards; }
 @keyframes effectNext { from { transform: translateX(150px); } }
 
-.time { position: absolute; z-index: 1000; width: 0%; height: 3px; background-color: #0ea5e9; left: 0; top: 0; }
+.time { position: absolute; z-index: 1000; width: 0%; height: 3px; background-color: #f36e4b; left: 0; top: 0; }
 .next .time,
 .prev .time { animation: runningTime 3s linear 1 forwards; }
 @keyframes runningTime { from { width: 100% } to { width: 0 } }

@@ -163,7 +163,10 @@ export default function HomePage() {
       {/* Infinity logo slider */}
       <section className="section infinity" id="infinity">
         <div className="container">
-          <h2>Our Loop of Innovation</h2>
+          <h2 className="leading-tight text-[clamp(1.8rem,4.5vw,3rem)]">
+            <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.02em' }}>Our</span>
+            <span style={{ fontFamily: 'var(--font-pfennig)', fontWeight: 700, fontStyle: 'italic', color: '#f36e4b', marginLeft: '-0.06em' }}> Loop of Innovation</span>
+          </h2>
         </div>
         {false && (<div className="infinity-track" aria-hidden="true" style={{ display: 'none' }}>
           <div className="infinity-run">

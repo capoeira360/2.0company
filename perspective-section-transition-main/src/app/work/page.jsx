@@ -3,8 +3,14 @@ import Section from "@/components/Section";
 import ImageGallery from "@/components/ImageGallery";
 import Link from "next/link";
 import HyperText from "@/components/HyperText";
+import InteractiveHoverButton from "@/components/InteractiveHoverButton";
+import ProjectFormModal from "@/components/ProjectFormModal";
+import { useState } from "react";
 
 export default function Work() {
+  const [openForm, setOpenForm] = useState(false);
+  const openModal = () => setOpenForm(true);
+  const closeModal = () => setOpenForm(false);
   return (
   <main className="relative h-[500vh] bg-[#EEEEE8]">
       {/* First section: mount the image slider */}
@@ -25,7 +31,7 @@ export default function Work() {
               </svg>
               <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="Web" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
-                <HyperText text="Design" className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }} />
+                <HyperText text="Design" className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }} />
               </div>
             </div>
 
@@ -53,7 +59,7 @@ export default function Work() {
               <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
                 <span className="inline-flex items-center gap-2">
                   {/* Figma icon */}
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#0ea5e9"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#f36e4b"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
                   Figma
                 </span>
                 <span>[XD]</span>
@@ -62,10 +68,9 @@ export default function Work() {
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-8 pt-2">
-              <Link className="btn secondary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/work">See Portfolio</Link>
-              <Link className="btn primary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/contact">Get Started</Link>
+            {/* CTA */}
+            <div className="flex items-center gap-8 pt-2">
+              <InteractiveHoverButton text="Get Started" onClick={openModal} />
             </div>
           </div>
         </div>
@@ -83,7 +88,7 @@ export default function Work() {
               </svg>
               <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="Mobile" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
-                <HyperText text="Apps" className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }} />
+                <HyperText text="Apps" className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }} />
               </div>
             </div>
 
@@ -111,7 +116,7 @@ export default function Work() {
               <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
                 <span className="inline-flex items-center gap-2">
                   {/* Figma icon */}
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#0ea5e9"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#f36e4b"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
                   Figma
                 </span>
                 <span>[Flutter]</span>
@@ -120,10 +125,9 @@ export default function Work() {
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-8 pt-2">
-              <Link className="btn secondary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/work">See Portfolio</Link>
-              <Link className="btn primary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/contact">Get Started</Link>
+            {/* CTA */}
+            <div className="flex items-center gap-8 pt-2">
+              <InteractiveHoverButton text="Get Started" onClick={openModal} />
             </div>
           </div>
         </div>
@@ -139,13 +143,13 @@ export default function Work() {
                 <circle cx="12" cy="3" r="1" fill="#111317" />
                 <path d="M12 6 V4" stroke="#111317" strokeWidth="2" />
                 <rect x="5" y="6" width="14" height="12" rx="3" fill="none" stroke="#111317" strokeWidth="2" />
-                <circle cx="9" cy="12" r="1.5" fill="#0ea5e9" />
-                <circle cx="15" cy="12" r="1.5" fill="#0ea5e9" />
+                <circle cx="9" cy="12" r="1.5" fill="#f36e4b" />
+                <circle cx="15" cy="12" r="1.5" fill="#f36e4b" />
                 <rect x="9" y="16" width="6" height="2" rx="1" fill="#111317" />
               </svg>
               <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="AI" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
-                <HyperText text="Systems" className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }} />
+                <HyperText text="Systems" className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }} />
               </div>
             </div>
 
@@ -179,10 +183,9 @@ export default function Work() {
               </div>
             </div>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-8 pt-2">
-              <Link className="btn secondary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/work">Explore AI Projects</Link>
-              <Link className="btn primary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/contact">Get a Consultation</Link>
+            {/* CTA */}
+            <div className="flex items-center gap-8 pt-2">
+              <InteractiveHoverButton text="Get Started" onClick={openModal} />
             </div>
           </div>
         </div>
@@ -196,16 +199,16 @@ export default function Work() {
           <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             <div className="flex items-center gap-4">
               <svg className="shrink-0" viewBox="0 0 64 64" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
-                <path d="M20 36c0-6.627 5.373-12 12-12 5.024 0 9.34 3.09 10.965 7.429C44.31 31.152 46.045 31 47.82 31 53.465 31 58 35.477 58 41s-4.535 10-10.18 10H22.5C16.701 51 12 46.299 12 40.5 12 34.701 16.701 30 22.5 30c.867 0 1.716.09 2.535.263A11.936 11.936 0 0 1 32 24c-6.627 0-12 5.373-12 12z" fill="#0ea5e9" opacity="0.25" />
+                <path d="M20 36c0-6.627 5.373-12 12-12 5.024 0 9.34 3.09 10.965 7.429C44.31 31.152 46.045 31 47.82 31 53.465 31 58 35.477 58 41s-4.535 10-10.18 10H22.5C16.701 51 12 46.299 12 40.5 12 34.701 16.701 30 22.5 30c.867 0 1.716.09 2.535.263A11.936 11.936 0 0 1 32 24c-6.627 0-12 5.373-12 12z" fill="#f36e4b" opacity="0.25" />
                 <rect x="12" y="18" width="40" height="10" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
                 <rect x="12" y="32" width="40" height="10" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
-                <circle cx="52" cy="23" r="1.5" fill="#0ea5e9" />
-                <circle cx="52" cy="37" r="1.5" fill="#0ea5e9" />
+                <circle cx="52" cy="23" r="1.5" fill="#f36e4b" />
+                <circle cx="52" cy="37" r="1.5" fill="#f36e4b" />
               </svg>
               <div className="leading-tight whitespace-nowrap text-[clamp(2.4rem,7vw,6rem)]">
                 <HyperText text="domain" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
-                <span className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }}>/</span>
-                <HyperText text="hosting" className="inline-block" style={{ fontFamily: 'var(--font-artine)', color: '#0ea5e9' }} />
+                <span className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }}>/</span>
+                <HyperText text="hosting" className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }} />
               </div>
             </div>
 
@@ -228,10 +231,9 @@ export default function Work() {
 
             {/* Pricing blurb */}
 
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-8 pt-2">
-              <Link className="btn primary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/contact">Get Started</Link>
-              <Link className="btn secondary text-[clamp(1rem,1.6vw,1.25rem)] px-[clamp(16px,2vw,28px)] py-[clamp(10px,1.4vw,16px)]" href="/work#plans">See Plans</Link>
+            {/* CTA */}
+            <div className="flex items-center gap-8 pt-2">
+              <InteractiveHoverButton text="Get Started" onClick={openModal} />
             </div>
 
             {/* Tagline + Badge */}
@@ -241,13 +243,14 @@ export default function Work() {
               </div>
               <span className="inline-flex items-center gap-2 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)] font-semibold bg-[#E0E5DE] px-3 py-2 rounded-md">
                 {/* Badge icon */}
-                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z" fill="#0ea5e9"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z" fill="#f36e4b"/></svg>
                 99.9% Uptime Guarantee
               </span>
             </div>
           </div>
         </div>
       </Section>
+      <ProjectFormModal open={openForm} onClose={closeModal} />
     </main>
   );
 }

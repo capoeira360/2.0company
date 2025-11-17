@@ -28,10 +28,18 @@ const artine = localFont({
   display: "swap",
 });
 
+const pfennig = localFont({
+  src: [
+    { path: "../../public/font/PPAcma-Book.ttf", weight: "400", style: "normal" },
+  ],
+  variable: "--font-pfennig",
+  display: "swap",
+});
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${artine.className} ${montalban.variable} ${artine.variable}`}>
+      <body className={`${artine.className} ${montalban.variable} ${artine.variable} ${pfennig.variable}`}>
         <LenisRoot>
           <FloatingTopBar />
           {children}

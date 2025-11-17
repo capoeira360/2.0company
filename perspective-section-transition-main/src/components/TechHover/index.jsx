@@ -44,7 +44,6 @@ export default function TechHover() {
     <div className={styles.wrap}>
       <div>
         <h2 className={styles.title}>Technologies</h2>
-        <p className={styles.note}>Hover a name to preview an image.</p>
         <div className={styles.list}>
           {techs.map((t) => (
             <button

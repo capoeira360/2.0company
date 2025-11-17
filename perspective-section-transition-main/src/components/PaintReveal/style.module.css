@@ -6,7 +6,7 @@
 .title { width: min(1100px, 92vw); margin: 0 auto 12px; }
 .stage { position: relative; width: 100%; margin: 0; box-sizing: border-box; height: clamp(360px, 48vw, 640px); border-radius: 0; overflow: hidden; border: 0; box-shadow: none; }
 .underlay { position: absolute; inset: 0; background:
-  radial-gradient(1200px 600px at 10% 10%, #0ea5e9 0%, transparent 60%),
+  radial-gradient(1200px 600px at 10% 10%, #f36e4b 0%, transparent 60%),
   radial-gradient(1200px 600px at 90% 90%, #a78bfa 0%, transparent 60%),
   linear-gradient(180deg, rgba(253,253,253,0.4), rgba(253,253,253,0.8)); }
 .copy { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-montalban), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 800; letter-spacing: 0.02em; font-size: clamp(1.6rem, 6vw, 4rem); color: #111317; mix-blend-mode: multiply; }

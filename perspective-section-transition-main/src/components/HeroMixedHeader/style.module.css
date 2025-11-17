@@ -37,10 +37,10 @@
 }
 
 .artineAccent {
-  font-family: var(--font-artine), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-pfennig), system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
   font-style: italic;
-  background: linear-gradient(90deg, #3b82f6, #22d3ee, #a78bfa); /* bright blue→cyan→violet */
+  background: linear-gradient(90deg, #f36e4b, #22d3ee, #a78bfa); /* orange→cyan→violet */
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
