@@ -4,13 +4,13 @@ export const metadata = {
 
 export default function ContactPage({ searchParams }) {
   return (
-    <main className="relative bg-[#FDFDFD]">
+    <main className="relative bg-[#ffffff]">
       <section className="py-[clamp(24px,4vw,48px)]">
         <div className="mx-auto w-[min(94vw,1600px)] grid gap-[clamp(32px,4vw,64px)]">
           <header className="grid gap-2">
             <h2 className="leading-tight text-[clamp(2.2rem,7vw,4rem)]">contact us</h2>
             <div className="h-[2px] w-full bg-black/25"></div>
-            <p className="text-[#374151] text-[clamp(1rem,1.6vw,1.15rem)]">Have a project in mind? Let’s collaborate. We respond within 24 hours.</p>
+            <p className="text-[#111317] text-[clamp(1rem,1.6vw,1.15rem)]">Have a project in mind? Let’s collaborate. We respond within 24 hours.</p>
             {searchParams?.submitted === "1" && (
               <p className="text-[#0f5132] bg-[#d1e7dd] border border-[#badbcc] rounded-md px-3 py-2 text-[clamp(0.95rem,1.5vw,1.05rem)]">Thanks for reaching out — we’ll get back to you shortly.</p>
             )}
@@ -28,25 +28,25 @@ export default function ContactPage({ searchParams }) {
               {/* Honeypot field (bots may fill; humans won't see) */}
               <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
               <div className="grid gap-3">
-                <label htmlFor="name" className="text-[#3a3d42]">Name</label>
+                <label htmlFor="name" className="text-[#111317]">Name</label>
                 <div className="border-b border-black/20">
                   <input id="name" name="name" type="text" required maxLength={120} autoComplete="name" className="h-[28px] w-full bg-transparent outline-none" />
                 </div>
               </div>
               <div className="grid gap-3">
-                <label htmlFor="email" className="text-[#3a3d42]">Email</label>
+                <label htmlFor="email" className="text-[#111317]">Email</label>
                 <div className="border-b border-black/20">
                   <input id="email" name="email" type="email" required autoComplete="email" className="h-[28px] w-full bg-transparent outline-none" />
                 </div>
               </div>
               <div className="grid gap-3">
-                <label htmlFor="subject" className="text-[#3a3d42]">Subject</label>
+                <label htmlFor="subject" className="text-[#111317]">Subject</label>
                 <div className="border-b border-black/20">
                   <input id="subject" name="subject" type="text" maxLength={200} autoComplete="off" className="h-[28px] w-full bg-transparent outline-none" />
                 </div>
               </div>
               <div className="grid gap-3">
-                <label htmlFor="message" className="text-[#3a3d42]">Message</label>
+                <label htmlFor="message" className="text-[#111317]">Message</label>
                 <div className="border-b border-black/20">
                   <textarea id="message" name="message" required maxLength={5000} className="w-full h-[96px] bg-transparent outline-none resize-none" />
                 </div>
@@ -64,7 +64,7 @@ export default function ContactPage({ searchParams }) {
               <h3 className="text-[clamp(1.2rem,3vw,1.6rem)]">Address</h3>
             </div>
             <div className="md:pl-[320px] md:ml-0 grid gap-[clamp(16px,2.5vw,28px)]">
-              <address className="not-italic text-[#374151] text-[clamp(1rem,1.6vw,1.15rem)] grid gap-[clamp(6px,1.2vw,12px)]">
+              <address className="not-italic text-[#111317] text-[clamp(1rem,1.6vw,1.15rem)] grid gap-[clamp(6px,1.2vw,12px)]">
                 <div>TAPit Studio</div>
                 <div>123 Market Street</div>
                 <div>San Francisco, CA 94103</div>
@@ -79,8 +79,8 @@ export default function ContactPage({ searchParams }) {
               <h3 className="text-[clamp(1.2rem,3vw,1.6rem)]">Location</h3>
             </div>
             <div className="md:pl-[320px] md:ml-0 grid gap-[clamp(20px,3vw,32px)]">
-              <p className="text-[#374151] text-[clamp(1rem,1.6vw,1.15rem)]">San Francisco, CA</p>
-              <div className="mt-2 h-[140px] rounded-xl bg-[#EEEEE8] border border-black/10 grid place-items-center text-[#6b7280] text-sm">Map placeholder</div>
+              <p className="text-[#111317] text-[clamp(1rem,1.6vw,1.15rem)]">San Francisco, CA</p>
+              <div className="mt-2 h-[140px] rounded-xl bg-[#ffffff] border border-black/10 grid place-items-center text-[#6b7280] text-sm">Map placeholder</div>
             </div>
           </div>
 
@@ -90,7 +90,7 @@ export default function ContactPage({ searchParams }) {
               <h3 className="text-[clamp(1.2rem,3vw,1.6rem)]">Work Hours</h3>
             </div>
             <div className="md:pl-[320px] md:ml-0 grid gap-[clamp(16px,2.5vw,28px)]">
-              <ul className="text-[#374151] text-[clamp(1rem,1.6vw,1.15rem)] grid gap-[clamp(10px,1.8vw,18px)]">
+              <ul className="text-[#111317] text-[clamp(1rem,1.6vw,1.15rem)] grid gap-[clamp(10px,1.8vw,18px)]">
                 <li>Mon–Fri: 9:00am – 6:00pm PT</li>
                 <li>Sat: By appointment</li>
                 <li>Sun: Closed</li>

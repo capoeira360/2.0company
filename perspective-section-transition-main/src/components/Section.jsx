@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 // Rotation removed per request; keep scale-only parallax
 
-export default function Section({ id, full = false, children, bgClass = "bg-[#FDFDFD]", className = "" }) {
+export default function Section({ id, full = false, children, bgClass = "bg-[#ffffff]", className = "" }) {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,

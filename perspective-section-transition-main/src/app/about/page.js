@@ -19,14 +19,14 @@ export default function AboutPage() {
             marginLeft: '-50vw',
             marginRight: '-50vw',
             paddingLeft: 'clamp(8px,2vw,12px)',
-            paddingRight: 'clamp(8px,2vw,12px)'
+            paddingRight: 0
           }}
         >
-          <h1 className="leading-tight text-[clamp(2.6rem,8vw,5.5rem)]">
+          <h1 className="leading-tight text-[clamp(2.6rem,8vw,5.5rem)]" style={{ marginLeft: '0.2in' }}>
             <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }}>about</span>
           </h1>
           {/* Match Contact header divider */}
-          <div className="h-[2px] w-full bg-black/25"></div>
+          <div className="h-[2px] bg-black/25" style={{ width: 'calc(100% - 1in)', marginLeft: '0.2in' }}></div>
         </div>
       </section>
       <section className="section" style={{ marginTop: 0, paddingTop: 0, backgroundColor: '#ffffff' }}>
@@ -34,19 +34,15 @@ export default function AboutPage() {
           className="container"
           style={{
             maxWidth: 'none',
-            width: '100vw',
-            position: 'relative',
-            left: '50%',
-            right: '50%',
-            marginLeft: '-50vw',
-            marginRight: '-50vw',
-            paddingLeft: 'clamp(8px,2vw,12px)',
-            paddingRight: 'clamp(8px,2vw,12px)'
+            width: 'calc(100vw - 0.6in)',
+            margin: '0 auto',
+            paddingLeft: 'clamp(12px,2.2vw,20px)',
+            paddingRight: 0
           }}
         >
-          <div className="grid gap-2 md:grid-cols-2 items-start">
+          <div className="grid gap-6 md:grid-cols-2 items-start">
             {/* Mission card */}
-        <div className="relative grid gap-6 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)] text-center mt-[2in] overflow-hidden">
+        <div className="relative grid gap-6 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)] text-center mt-[0.35in] overflow-hidden" style={{ maxWidth: 'min(620px, 44vw)', margin: '0 auto' }}>
               <img src="/images/slider/slider-main-2.jpg" alt="Our Mission" className="absolute inset-0 z-0 h-full w-full object-cover opacity-60" />
               <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/10 to-black/30" aria-hidden="true"></div>
               <div className="relative z-20 grid gap-0">
@@ -64,16 +60,16 @@ export default function AboutPage() {
               <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)]">
                 <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.02em', fontSize: '1.12em', letterSpacing: '.01em' }}>Story</span>
               </h2>
-              <p className="text-[#374151] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
+              <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 We are a passionate team of innovators stepping boldly into the future of technology. As a young software startup, we are excited about the endless possibilities that the new era of artificial intelligence offers. Though we are new to the business, our vision is clear—to harness AI and creative technology to simplify everyday tasks and empower businesses and individuals alike.
               </p>
-              <p className="text-[#374151] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
+              <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 Our goal is to transform complex processes into seamless experiences, making technology more accessible, efficient, and impactful.
               </p>
-              <p className="text-[#374151] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
+              <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 We believe in innovation that serves a purpose—helping people focus less on tedious tasks and more on what truly matters. With a commitment to quality, creativity, and cutting-edge AI, we are on a mission to redefine how software supports life and work in the digital age.
               </p>
-              <p className="text-[#374151] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
+              <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 Join us on this exciting journey as we pioneer new ways to simplify the world through smart technology.
               </p>
             </div>
@@ -99,10 +95,10 @@ export default function AboutPage() {
                 <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.12em', fontSize: '1.12em', letterSpacing: '.01em' }}>Team</span>
               </h2>
             </div>
-            <p className="text-[#374151] text-[clamp(1.15rem,2vw,1.35rem)]">
+            <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)]">
               At Tapit, our passion fuels everything we do. We are a dedicated team driven by the belief that technology should empower businesses to unlock their full potential. United by a shared mission, we bridge the gap between bold, innovative ideas and practical, effective solutions. Together, we create digital experiences that inspire growth and lasting impact.
             </p>
-            <p className="text-[#374151] text-[clamp(1.15rem,2vw,1.35rem)]">
+            <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)]">
               Our commitment goes beyond projects — it’s about excellence, collaboration, and building strong, long-term partnerships. At Tapit, we don’t just contribute to digital transformation; we live and breathe it, helping businesses worldwide thrive in a connected future.
             </p>
           </div>
@@ -115,22 +111,17 @@ export default function AboutPage() {
         <div
           className="container"
           style={{
-            maxWidth: 'none',
-            width: '100vw',
-            position: 'relative',
-            left: '50%',
-            right: '50%',
-            marginLeft: '-50vw',
-            marginRight: '-50vw',
-            paddingLeft: 'clamp(16px,4vw,48px)',
-            paddingRight: 'clamp(16px,4vw,48px)'
+            width: 'min(1600px, calc(98vw - 1in))',
+            margin: '0 auto',
+            paddingLeft: 'clamp(12px,2.2vw,20px)',
+            paddingRight: 0
           }}
         >
           <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)]">
             <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.12em', fontSize: '1.12em', letterSpacing: '.01em' }}>Values</span>
           </h2>
           <div
-            className="grid gap-2 items-stretch grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+            className="grid gap-6 items-stretch grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
             style={{ marginTop: 0 }}
           >
             {/* Innovation */}

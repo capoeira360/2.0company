@@ -12,7 +12,7 @@ export default function Work() {
   const openModal = () => setOpenForm(true);
   const closeModal = () => setOpenForm(false);
   return (
-  <main className="relative h-[500vh] bg-[#EEEEE8]">
+  <main className="relative h-[500vh] bg-[#ffffff]">
       {/* First section: mount the image slider */}
       <Section id={1} full bgClass="bg-[#393939]">
         <div className="w-full px-4">
@@ -36,17 +36,17 @@ export default function Work() {
             </div>
 
             {/* Subtitle */}
-            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#3a3d42]">
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#111317]">
               “Crafting visually stunning, user-first websites.”
             </p>
 
             {/* Description */}
-            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#374151] max-w-none">
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#111317] max-w-none">
               Beautiful, responsive designs that convert visitors into customers. Tailored to your brand, optimized for all screens.
             </p>
 
             {/* Features */}
-            <ul className="grid gap-3 text-[#374151] text-[clamp(1.05rem,1.8vw,1.25rem)]">
+            <ul className="grid gap-3 text-[#111317] text-[clamp(1.05rem,1.8vw,1.25rem)]">
               <li>• Custom, pixel-perfect layouts</li>
               <li>• Mobile-first, responsive design</li>
               <li>• UI/UX best practices</li>
@@ -56,7 +56,7 @@ export default function Work() {
 
             {/* Tech Stack badges */}
             <div className="flex flex-wrap items-center gap-10">
-              <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
+              <div className="flex gap-8 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)]">
                 <span className="inline-flex items-center gap-2">
                   {/* Figma icon */}
                   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#fa6602"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
@@ -93,17 +93,17 @@ export default function Work() {
             </div>
 
             {/* Subtitle */}
-            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#3a3d42]">
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#111317]">
               “Intuitive, beautiful apps for every device.”
             </p>
 
             {/* Description */}
-            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#374151] max-w-none">
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#111317] max-w-none">
               We design engaging, seamless mobile experiences tailored to your users. From concept to prototype, our interfaces shine across iOS and Android.
             </p>
 
             {/* Features */}
-            <ul className="grid gap-3 text-[#374151] text-[clamp(1.05rem,1.8vw,1.25rem)]">
+            <ul className="grid gap-3 text-[#111317] text-[clamp(1.05rem,1.8vw,1.25rem)]">
               <li>• Custom app UI/UX for iOS & Android</li>
               <li>• Interactive prototypes & user flows</li>
               <li>• Platform guidelines (Material, Human Interface)</li>
@@ -113,7 +113,7 @@ export default function Work() {
 
             {/* Tech Stack badges (match Section 2 count) */}
             <div className="flex flex-wrap items-center gap-10">
-              <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
+              <div className="flex gap-8 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)]">
                 <span className="inline-flex items-center gap-2">
                   {/* Figma icon */}
                   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#fa6602"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
@@ -154,17 +154,17 @@ export default function Work() {
             </div>
 
             {/* Subtitle */}
-            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#3a3d42]">
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#111317]">
               “Intelligent solutions for tomorrow’s challenges.”
             </p>
 
             {/* Description */}
-            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#374151] max-w-none">
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#111317] max-w-none">
               We create smart, adaptive solutions powered by leading AI technologies. From automation to advanced analytics, we help you unlock new possibilities.
             </p>
 
             {/* Features */}
-            <ul className="grid gap-3 text-[#374151] text-[clamp(1.05rem,1.8vw,1.25rem)]">
+            <ul className="grid gap-3 text-[#111317] text-[clamp(1.05rem,1.8vw,1.25rem)]">
               <li>• Custom AI-powered applications</li>
               <li>• Machine learning models &amp; training</li>
               <li>• Natural language processing (NLP)</li>
@@ -174,7 +174,7 @@ export default function Work() {
 
             {/* Tech Stack badges */}
             <div className="flex flex-wrap items-center gap-10">
-              <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
+              <div className="flex gap-8 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)]">
                 <span>[Python]</span>
                 <span>[TensorFlow]</span>
                 <span>[OpenAI]</span>
@@ -213,15 +213,15 @@ export default function Work() {
             </div>
 
             {/* Subtitle */}
-            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#3a3d42]">Your website’s home on the internet.</p>
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#111317]">Your website’s home on the internet.</p>
 
             {/* Description */}
-            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#374151] max-w-none">
+            <p className="text-[clamp(1.1rem,2vw,1.35rem)] text-[#111317] max-w-none">
               Simple, reliable, and secure hosting with your custom domain—everything managed from one dashboard.
             </p>
 
             {/* Features */}
-            <ul className="grid gap-3 text-[#374151] text-[clamp(1.05rem,1.8vw,1.25rem)]">
+            <ul className="grid gap-3 text-[#111317] text-[clamp(1.05rem,1.8vw,1.25rem)]">
               <li>• Custom Domain Registration</li>
               <li>• Blazing-Fast Web Hosting</li>
               <li>• Free SSL Protection</li>
@@ -238,10 +238,10 @@ export default function Work() {
 
             {/* Tagline + Badge */}
             <div className="flex flex-wrap items-center gap-10">
-              <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
+              <div className="flex gap-8 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)]">
                 <span>Perfect for websites, blogs, startups, and businesses.</span>
               </div>
-              <span className="inline-flex items-center gap-2 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)] font-semibold bg-[#E0E5DE] px-3 py-2 rounded-md">
+              <span className="inline-flex items-center gap-2 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)] font-semibold bg-[#ffffff] px-3 py-2 rounded-md">
                 {/* Badge icon */}
                 <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z" fill="#fa6602"/></svg>
                 99.9% Uptime Guarantee

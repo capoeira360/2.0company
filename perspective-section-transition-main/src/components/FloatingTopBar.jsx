@@ -10,7 +10,7 @@ const barVariants = {
   open: {
     width: "768px",
     height: "820px",
-    backgroundColor: "#E0E5DE",
+    backgroundColor: "#ffffff",
     borderRadius: "0px",
     boxShadow: "0 20px 60px rgba(17,19,23,0.15)",
     transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.35 },
@@ -18,7 +18,7 @@ const barVariants = {
   closed: {
     width: "4in",
     height: "0.75in",
-    backgroundColor: "#E0E5DE",
+    backgroundColor: "#ffffff",
     borderRadius: "0px",
     boxShadow: "0 10px 30px rgba(17,19,23,0.12)",
     transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.3 },

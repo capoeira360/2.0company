@@ -94,10 +94,12 @@ export default function PaintReveal() {
     <section className={styles.section} id="paint-reveal">
       <div className="container">
         <h2 className={styles.title}>Paint Reveal</h2>
-        <div ref={containerRef} className={styles.stage} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+        <div className={styles.card}>
+          <div ref={containerRef} className={styles.stage} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
           <img src={`/images/abstract-background.gif?v=${gifBust}`} alt="Abstract background" className={styles.underlayImg} />
           <div className={styles.copy}>Modern interactions that feel alive.</div>
-          <canvas ref={canvasRef} className={styles.canvas} />
+            <canvas ref={canvasRef} className={styles.canvas} />
+          </div>
         </div>
       </div>
     </section>

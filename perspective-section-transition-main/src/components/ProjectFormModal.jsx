@@ -34,19 +34,19 @@ export default function ProjectFormModal({ open, onClose }) {
           <form className="grid gap-5" onSubmit={handleSubmit}>
             <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
             <div className="grid gap-2">
-              <label htmlFor="name" className="text-[#3a3d42]">Name</label>
+              <label htmlFor="name" className="text-[#111317]">Name</label>
               <input id="name" name="name" type="text" required maxLength={120} autoComplete="name" className="h-10 w-full rounded-md border border-black/20 px-3 outline-none" />
             </div>
             <div className="grid gap-2">
-              <label htmlFor="email" className="text-[#3a3d42]">Email</label>
+              <label htmlFor="email" className="text-[#111317]">Email</label>
               <input id="email" name="email" type="email" required autoComplete="email" className="h-10 w-full rounded-md border border-black/20 px-3 outline-none" />
             </div>
             <div className="grid gap-2">
-              <label htmlFor="subject" className="text-[#3a3d42]">Subject</label>
+              <label htmlFor="subject" className="text-[#111317]">Subject</label>
               <input id="subject" name="subject" type="text" maxLength={200} autoComplete="off" className="h-10 w-full rounded-md border border-black/20 px-3 outline-none" />
             </div>
             <div className="grid gap-2">
-              <label htmlFor="message" className="text-[#3a3d42]">Message</label>
+              <label htmlFor="message" className="text-[#111317]">Message</label>
               <textarea id="message" name="message" required maxLength={5000} className="min-h-[120px] w-full rounded-md border border-black/20 p-3 outline-none resize-y" />
             </div>
             <div className="flex items-center gap-3">
@@ -66,4 +66,3 @@ export default function ProjectFormModal({ open, onClose }) {
     </div>
   );
 }
-
