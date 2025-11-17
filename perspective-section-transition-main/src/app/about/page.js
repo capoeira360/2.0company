@@ -50,7 +50,7 @@ export default function AboutPage() {
               <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/10 to-black/30" aria-hidden="true"></div>
               <div className="relative z-20 grid gap-0">
                 <h2 className="leading-tight text-[clamp(2.4rem,7vw,5rem)] text-white" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.5), 0 0 24px rgba(255,255,255,0.35)" }}>
-                  <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.02em' }}>Our</span><span style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b', fontWeight: 700, fontStyle: 'italic', marginLeft: '-0.06em' }}>Mission</span>
+                  <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.02em', fontSize: '1.12em', letterSpacing: '.01em' }}>Mission</span>
                 </h2>
                 <p className="text-white text-[clamp(1.15rem,2vw,1.35rem)] text-center" style={{ textShadow: "0 3px 16px rgba(0,0,0,0.45), 0 0 18px rgba(255,255,255,0.3)" }}>
                   To empower businesses with innovative digital solutions that drive growth, enhance efficiency, and create meaningful connections with their customers.
@@ -61,7 +61,7 @@ export default function AboutPage() {
             {/* Our Story */}
             <div className="grid gap-1">
               <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)]">
-                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.02em' }}>Our</span><span style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b', fontWeight: 700, fontStyle: 'italic', marginLeft: '-0.06em' }}>Story</span>
+                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.02em', fontSize: '1.12em', letterSpacing: '.01em' }}>Story</span>
               </h2>
               <p className="text-[#374151] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 We are a passionate team of innovators stepping boldly into the future of technology. As a young software startup, we are excited about the endless possibilities that the new era of artificial intelligence offers. Though we are new to the business, our vision is clear—to harness AI and creative technology to simplify everyday tasks and empower businesses and individuals alike.
@@ -95,7 +95,7 @@ export default function AboutPage() {
                 <path d="M12 16c0-2.2 2-4 4.5-4s4.5 1.8 4.5 4" fill="none" stroke="#111317" strokeWidth="2" />
               </svg>
               <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)]">
-                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.02em' }}>Our</span><span style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b', fontWeight: 700, fontStyle: 'italic', marginLeft: '-0.06em' }}>Team</span>
+                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.12em', fontSize: '1.12em', letterSpacing: '.01em' }}>Team</span>
               </h2>
             </div>
             <p className="text-[#374151] text-[clamp(1.15rem,2vw,1.35rem)]">
@@ -126,7 +126,7 @@ export default function AboutPage() {
           }}
         >
           <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)]">
-            <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.02em' }}>Our</span><span style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b', fontWeight: 700, fontStyle: 'italic', marginLeft: '-0.06em' }}>Values</span>
+            <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.12em', fontSize: '1.12em', letterSpacing: '.01em' }}>Values</span>
           </h2>
           <div
             className="grid gap-2 items-stretch grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"

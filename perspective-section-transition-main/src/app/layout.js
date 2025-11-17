@@ -28,18 +28,18 @@ const artine = localFont({
   display: "swap",
 });
 
-const pfennig = localFont({
+const playfair = localFont({
   src: [
-    { path: "../../public/font/PPAcma-Book.ttf", weight: "400", style: "normal" },
+    { path: "../../public/font/PlayfairDisplaySemiboldItalic-YzEYO.ttf", weight: "600", style: "italic" },
   ],
-  variable: "--font-pfennig",
+  variable: "--font-playfair",
   display: "swap",
 });
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${artine.className} ${montalban.variable} ${artine.variable} ${pfennig.variable}`}>
+      <body className={`${artine.className} ${montalban.variable} ${artine.variable} ${playfair.variable}`}>
         <LenisRoot>
           <FloatingTopBar />
           {children}

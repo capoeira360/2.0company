@@ -31,7 +31,7 @@ export default function Work() {
               </svg>
               <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="Web" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
-                <HyperText text="Design" className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }} />
+                <HyperText text="Design" className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }} />
               </div>
             </div>
 
@@ -59,7 +59,7 @@ export default function Work() {
               <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
                 <span className="inline-flex items-center gap-2">
                   {/* Figma icon */}
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#f36e4b"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#fa6602"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
                   Figma
                 </span>
                 <span>[XD]</span>
@@ -88,7 +88,7 @@ export default function Work() {
               </svg>
               <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="Mobile" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
-                <HyperText text="Apps" className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }} />
+                <HyperText text="Apps" className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }} />
               </div>
             </div>
 
@@ -116,7 +116,7 @@ export default function Work() {
               <div className="flex gap-8 text-[#3a3d42] text-[clamp(0.95rem,1.3vw,1.1rem)]">
                 <span className="inline-flex items-center gap-2">
                   {/* Figma icon */}
-                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#f36e4b"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
+                  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="5" r="3" fill="#fa6602"/><circle cx="12" cy="11" r="3" fill="#ef4444"/><circle cx="12" cy="17" r="3" fill="#10b981"/></svg>
                   Figma
                 </span>
                 <span>[Flutter]</span>
@@ -143,13 +143,13 @@ export default function Work() {
                 <circle cx="12" cy="3" r="1" fill="#111317" />
                 <path d="M12 6 V4" stroke="#111317" strokeWidth="2" />
                 <rect x="5" y="6" width="14" height="12" rx="3" fill="none" stroke="#111317" strokeWidth="2" />
-                <circle cx="9" cy="12" r="1.5" fill="#f36e4b" />
-                <circle cx="15" cy="12" r="1.5" fill="#f36e4b" />
+                <circle cx="9" cy="12" r="1.5" fill="#fa6602" />
+                <circle cx="15" cy="12" r="1.5" fill="#fa6602" />
                 <rect x="9" y="16" width="6" height="2" rx="1" fill="#111317" />
               </svg>
               <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="AI" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
-                <HyperText text="Systems" className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }} />
+                <HyperText text="Systems" className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }} />
               </div>
             </div>
 
@@ -199,16 +199,16 @@ export default function Work() {
           <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
             <div className="flex items-center gap-4">
               <svg className="shrink-0" viewBox="0 0 64 64" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
-                <path d="M20 36c0-6.627 5.373-12 12-12 5.024 0 9.34 3.09 10.965 7.429C44.31 31.152 46.045 31 47.82 31 53.465 31 58 35.477 58 41s-4.535 10-10.18 10H22.5C16.701 51 12 46.299 12 40.5 12 34.701 16.701 30 22.5 30c.867 0 1.716.09 2.535.263A11.936 11.936 0 0 1 32 24c-6.627 0-12 5.373-12 12z" fill="#f36e4b" opacity="0.25" />
+                <path d="M20 36c0-6.627 5.373-12 12-12 5.024 0 9.34 3.09 10.965 7.429C44.31 31.152 46.045 31 47.82 31 53.465 31 58 35.477 58 41s-4.535 10-10.18 10H22.5C16.701 51 12 46.299 12 40.5 12 34.701 16.701 30 22.5 30c.867 0 1.716.09 2.535.263A11.936 11.936 0 0 1 32 24c-6.627 0-12 5.373-12 12z" fill="#fa6602" opacity="0.25" />
                 <rect x="12" y="18" width="40" height="10" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
                 <rect x="12" y="32" width="40" height="10" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
-                <circle cx="52" cy="23" r="1.5" fill="#f36e4b" />
-                <circle cx="52" cy="37" r="1.5" fill="#f36e4b" />
+                <circle cx="52" cy="23" r="1.5" fill="#fa6602" />
+                <circle cx="52" cy="37" r="1.5" fill="#fa6602" />
               </svg>
               <div className="leading-tight whitespace-nowrap text-[clamp(2.4rem,7vw,6rem)]">
                 <HyperText text="domain" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
-                <span className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }}>/</span>
-                <HyperText text="hosting" className="inline-block" style={{ fontFamily: 'var(--font-pfennig)', color: '#f36e4b' }} />
+                <span className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }}>/</span>
+                <HyperText text="hosting" className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }} />
               </div>
             </div>
 
@@ -243,7 +243,7 @@ export default function Work() {
               </div>
               <span className="inline-flex items-center gap-2 text-[#111317] text-[clamp(0.95rem,1.3vw,1.1rem)] font-semibold bg-[#E0E5DE] px-3 py-2 rounded-md">
                 {/* Badge icon */}
-                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z" fill="#f36e4b"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4 2 7L12 17l-6.5 3 2-7L2 9h7z" fill="#fa6602"/></svg>
                 99.9% Uptime Guarantee
               </span>
             </div>
