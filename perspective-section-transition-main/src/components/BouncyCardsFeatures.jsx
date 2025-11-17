@@ -88,9 +88,9 @@ function BounceCard({ className = "", imageUrl, imageAlt = "", children }) {
       className={`group relative min-h-[300px] cursor-pointer overflow-hidden rounded-2xl bg-slate-100 p-8 ${className}`}
     >
       {imageUrl && (
-        <img src={imageUrl} alt={imageAlt} className="absolute inset-0 z-0 h-full w-full object-cover opacity-50" />
+        <img src={imageUrl} alt={imageAlt} className="absolute inset-0 z-0 h-full w-full object-cover" style={{ filter: "brightness(0.95) contrast(0.95)" }} />
       )}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/25 to-black/45" aria-hidden="true"></div>
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/10 to-black/25" aria-hidden="true"></div>
       {children}
     </motion.div>
   );

@@ -9,6 +9,8 @@ export default function PaintReveal() {
   const containerRef = useRef(null);
   const lastPos = useRef({ x: null, y: null });
   const [size, setSize] = useState({ w: 800, h: 600 });
+  const [gifBust, setGifBust] = useState(Date.now());
+  const PAINT_IMAGE_URL = "/images/image-layer.jpg";
 
   useEffect(() => {
     const resize = () => {
@@ -28,13 +30,28 @@ export default function PaintReveal() {
     canvas.width = size.w;
     canvas.height = size.h;
     const ctx = canvas.getContext("2d");
-    ctx.save();
     ctx.globalCompositeOperation = "source-over";
-    ctx.fillStyle = "#111317";
-    ctx.fillRect(0, 0, size.w, size.h);
-    ctx.restore();
-    ctx.globalCompositeOperation = "destination-out";
+    const img = new Image();
+    img.src = `${PAINT_IMAGE_URL}?v=${Date.now()}`;
+    img.onload = () => {
+      ctx.save();
+      ctx.globalCompositeOperation = "source-over";
+      ctx.clearRect(0, 0, size.w, size.h);
+      ctx.drawImage(img, 0, 0, size.w, size.h);
+      ctx.restore();
+      ctx.globalCompositeOperation = "destination-out";
+    };
+    img.onerror = () => {
+      ctx.fillStyle = "#111317";
+      ctx.fillRect(0, 0, size.w, size.h);
+      ctx.globalCompositeOperation = "destination-out";
+    };
   }, [size]);
+
+  useEffect(() => {
+    const interval = setInterval(() => setGifBust(Date.now()), 9000);
+    return () => clearInterval(interval);
+  }, []);
 
   const draw = (x, y, r = 60) => {
     const canvas = canvasRef.current;
@@ -78,7 +95,7 @@ export default function PaintReveal() {
       <div className="container">
         <h2 className={styles.title}>Paint Reveal</h2>
         <div ref={containerRef} className={styles.stage} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
-          <div className={styles.underlay} />
+          <img src={`/images/abstract-background.gif?v=${gifBust}`} alt="Abstract background" className={styles.underlayImg} />
           <div className={styles.copy}>Modern interactions that feel alive.</div>
           <canvas ref={canvasRef} className={styles.canvas} />
         </div>
