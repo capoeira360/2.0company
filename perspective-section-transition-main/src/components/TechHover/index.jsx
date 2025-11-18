@@ -7,10 +7,12 @@ import styles from "./style.module.css";
 const techs = [
   { name: "Next.js", image: "/next.svg", width: 220, height: 110 },
   { name: "Vercel", image: "/vercel.svg", width: 220, height: 110 },
-  { name: "React", image: "/images/slider/img1.jpg" },
-  { name: "TailwindCSS", image: "/images/slider/img2.jpg" },
-  { name: "Node.js", image: "/images/slider/img3.jpg" },
-  { name: "TypeScript", image: "/images/slider/img4.jpg" },
+  { name: "React", image: "/images/tech/1033623_OKBX0W0-4.jpg" },
+  { name: "TailwindCSS", image: "/images/tech/1040640_OKP5E50-6.jpg" },
+  { name: "Node.js", image: "/images/tech/10504573_4485963-1.jpg" },
+  { name: "TypeScript", image: "/images/tech/11552697_20892632-3.jpg" },
+  { name: "Python", image: "/images/tech/11598896_4800214-5.jpg" },
+  { name: "AWS", image: "/images/tech/25644111_7036172-2.jpg" },
 ];
 
 export default function TechHover() {

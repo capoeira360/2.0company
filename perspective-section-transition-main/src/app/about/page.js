@@ -43,7 +43,7 @@ export default function AboutPage() {
           <div className="grid gap-6 lg:grid-cols-2 items-start about-first-grid">
             {/* Mission card */}
         <div className="relative grid gap-6 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)] text-center mt-[0.35in] overflow-hidden mission-card" style={{ maxWidth: 'min(620px, 44vw)', margin: '0 auto' }}>
-            <img src="/images/slider/slider-main-2.jpg" alt="Our Mission" className="absolute inset-0 z-0 h-full w-full object-cover" />
+            <img src="/images/our-mission.jpg" alt="Our Mission" className="absolute inset-0 z-0 h-full w-full object-cover" />
             <div className="relative z-20 grid gap-0 p-[clamp(16px,2vw,24px)] bg-black/40 rounded-2xl">
               <h2 className="leading-tight text-[clamp(2.4rem,7vw,5rem)] text-[#f3f4f6]" style={{ textShadow: "0 3px 12px rgba(0,0,0,0.45), 0 0 14px rgba(255,255,255,0.28)" }}>
                   <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.02em', fontSize: '1.12em', letterSpacing: '.01em' }}>Mission</span>
@@ -81,7 +81,7 @@ export default function AboutPage() {
           <div
             className="relative grid gap-1 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)] team-card overflow-hidden"
           >
-            <img src="/images/slider/slider-main-2.jpg" alt="Our Team" className="absolute inset-0 z-0 h-full w-full object-cover" />
+            <img src="/images/our-team.jpg" alt="Our Team" className="absolute inset-0 z-0 h-full w-full object-cover" />
             <div className="relative z-20 grid gap-3 p-[clamp(16px,2vw,24px)] bg-black/40 rounded-2xl team-content">
               <div className="flex items-center gap-4 team-header">
                 {/* Team icon */}

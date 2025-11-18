@@ -72,8 +72,8 @@ export default function Footer() {
         </div>
 
         <div className="new-footer-contact" aria-label="Contact information">
-          <a href="mailto:hello@tapit.studio">hello@tapit.studio</a>
-          <a href="tel:+11234567890">+1 123 456 7890</a>
+          <FlipAnchor href="mailto:hello@tapit.studio">hello@tapit.studio</FlipAnchor>
+          <FlipAnchor href="tel:+11234567890">+1 123 456 7890</FlipAnchor>
         </div>
         <div className="new-footer-contact-divider" aria-hidden="true"></div>
         <div className="new-footer-bottom">
