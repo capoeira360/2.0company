@@ -282,6 +282,11 @@ h2 { margin-bottom: 24px; }
   .about-page .our-story h2 { font-size: clamp(1.8rem, 5vw, 3.2rem); }
   .about-page .team-card { width: min(1600px, calc(98vw - 1in)); margin-left: auto; margin-right: auto; padding: clamp(12px, 1.8vw, 20px) !important; }
   .about-page .values-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-page .section-grid { grid-template-columns: 1fr !important; gap: clamp(24px, 4vw, 48px) !important; }
+  .contact-page .section-content { padding-left: 0 !important; margin-left: 0 !important; }
+  .contact-page .contact-header { gap: clamp(2px, 0.6vw, 6px) !important; }
+  .contact-page .contact-header { margin-top: clamp(24px, 6vw, 80px) !important; }
+  .contact-page .contact-header h2 { margin-bottom: 0 !important; }
 }
 
 @media (width: 1024px) and (height: 1366px) {
@@ -371,4 +376,8 @@ h2 { margin-bottom: 24px; }
 .about-page .team-card { width: 100%; margin-left: auto; margin-right: auto; }
 @media (min-width: 1024px) {
   .about-page .team-card { width: calc(100% + 2in); margin-left: -1in; margin-right: -1in; }
+}
+@media (min-width: 1024px) {
+  .contact-page .contact-header { margin-top: clamp(24px, 4vw, 80px) !important; gap: clamp(2px, 0.4vw, 6px) !important; }
+  .contact-page .contact-header h2 { margin-bottom: 0 !important; }
 }
