@@ -40,36 +40,35 @@ export default function AboutPage() {
             paddingRight: 0
           }}
         >
-          <div className="grid gap-6 md:grid-cols-2 items-start">
+          <div className="grid gap-6 lg:grid-cols-2 items-start about-first-grid">
             {/* Mission card */}
-        <div className="relative grid gap-6 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)] text-center mt-[0.35in] overflow-hidden" style={{ maxWidth: 'min(620px, 44vw)', margin: '0 auto' }}>
-              <img src="/images/slider/slider-main-2.jpg" alt="Our Mission" className="absolute inset-0 z-0 h-full w-full object-cover opacity-60" />
-              <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/10 to-black/30" aria-hidden="true"></div>
-              <div className="relative z-20 grid gap-0">
-                <h2 className="leading-tight text-[clamp(2.4rem,7vw,5rem)] text-white" style={{ textShadow: "0 4px 20px rgba(0,0,0,0.5), 0 0 24px rgba(255,255,255,0.35)" }}>
+        <div className="relative grid gap-6 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(20px,2.5vw,28px)] text-center mt-[0.35in] overflow-hidden mission-card" style={{ maxWidth: 'min(620px, 44vw)', margin: '0 auto' }}>
+            <img src="/images/slider/slider-main-2.jpg" alt="Our Mission" className="absolute inset-0 z-0 h-full w-full object-cover" />
+            <div className="relative z-20 grid gap-0 p-[clamp(16px,2vw,24px)] bg-black/40 rounded-2xl">
+              <h2 className="leading-tight text-[clamp(2.4rem,7vw,5rem)] text-[#f3f4f6]" style={{ textShadow: "0 3px 12px rgba(0,0,0,0.45), 0 0 14px rgba(255,255,255,0.28)" }}>
                   <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.02em', fontSize: '1.12em', letterSpacing: '.01em' }}>Mission</span>
                 </h2>
-                <p className="text-white text-[clamp(1.15rem,2vw,1.35rem)] text-center" style={{ textShadow: "0 3px 16px rgba(0,0,0,0.45), 0 0 18px rgba(255,255,255,0.3)" }}>
+                <p className="text-[#f3f4f6] text-[clamp(1.15rem,2vw,1.35rem)] text-center" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.4), 0 0 12px rgba(255,255,255,0.25)" }}>
                   To empower businesses with innovative digital solutions that drive growth, enhance efficiency, and create meaningful connections with their customers.
                 </p>
               </div>
             </div>
 
             {/* Our Story */}
-            <div className="grid gap-1">
+            <div className="grid gap-1 our-story">
               <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)]">
                 <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.02em', fontSize: '1.12em', letterSpacing: '.01em' }}>Story</span>
               </h2>
-              <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
+              <p className="text-[#006F73] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 We are a passionate team of innovators stepping boldly into the future of technology. As a young software startup, we are excited about the endless possibilities that the new era of artificial intelligence offers. Though we are new to the business, our vision is clear—to harness AI and creative technology to simplify everyday tasks and empower businesses and individuals alike.
               </p>
-              <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
+              <p className="text-[#006F73] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 Our goal is to transform complex processes into seamless experiences, making technology more accessible, efficient, and impactful.
               </p>
-              <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
+              <p className="text-[#006F73] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 We believe in innovation that serves a purpose—helping people focus less on tedious tasks and more on what truly matters. With a commitment to quality, creativity, and cutting-edge AI, we are on a mission to redefine how software supports life and work in the digital age.
               </p>
-              <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
+              <p className="text-[#006F73] text-[clamp(1.15rem,2vw,1.35rem)] text-center">
                 Join us on this exciting journey as we pioneer new ways to simplify the world through smart technology.
               </p>
             </div>
@@ -80,27 +79,29 @@ export default function AboutPage() {
       <section className="section" style={{ backgroundColor: '#ffffff' }}>
         <div className="container">
           <div
-        className="grid gap-1 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)]"
-            style={{ width: 'calc(100% + 2in)', marginLeft: '-1in', marginRight: '-1in' }}
+            className="relative grid gap-1 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,36px)] team-card overflow-hidden"
           >
-            <div className="flex items-center gap-4">
-              {/* Team icon */}
-              <svg className="shrink-0" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(72px,10vw,128px)', height: 'clamp(72px,10vw,128px)' }}>
-                <circle cx="8" cy="8" r="3" fill="none" stroke="#111317" strokeWidth="2" />
-                <circle cx="16" cy="7" r="2.5" fill="none" stroke="#111317" strokeWidth="2" />
-                <path d="M4 16c0-2.5 2.5-4.5 5.5-4.5S15 13.5 15 16" fill="none" stroke="#111317" strokeWidth="2" />
-                <path d="M12 16c0-2.2 2-4 4.5-4s4.5 1.8 4.5 4" fill="none" stroke="#111317" strokeWidth="2" />
-              </svg>
-              <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)]">
-                <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.12em', fontSize: '1.12em', letterSpacing: '.01em' }}>Team</span>
-              </h2>
+            <img src="/images/slider/slider-main-2.jpg" alt="Our Team" className="absolute inset-0 z-0 h-full w-full object-cover" />
+            <div className="relative z-20 grid gap-3 p-[clamp(16px,2vw,24px)] bg-black/40 rounded-2xl team-content">
+              <div className="flex items-center gap-4 team-header">
+                {/* Team icon */}
+                <svg className="shrink-0" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(72px,10vw,128px)', height: 'clamp(72px,10vw,128px)' }}>
+                  <circle cx="8" cy="8" r="3" fill="none" stroke="#111317" strokeWidth="2" />
+                  <circle cx="16" cy="7" r="2.5" fill="none" stroke="#111317" strokeWidth="2" />
+                  <path d="M4 16c0-2.5 2.5-4.5 5.5-4.5S15 13.5 15 16" fill="none" stroke="#111317" strokeWidth="2" />
+                  <path d="M12 16c0-2.2 2-4 4.5-4s4.5 1.8 4.5 4" fill="none" stroke="#111317" strokeWidth="2" />
+                </svg>
+                <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)] text-[#f3f4f6]" style={{ textShadow: '0 3px 12px rgba(0,0,0,0.45), 0 0 14px rgba(255,255,255,0.28)' }}>
+                  <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.12em', fontSize: '1.12em', letterSpacing: '.01em' }}>Team</span>
+                </h2>
+              </div>
+              <p className="text-[#f3f4f6] text-[clamp(1.15rem,2vw,1.35rem)]" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.4), 0 0 12px rgba(255,255,255,0.25)' }}>
+                At Tapit, our passion fuels everything we do. We are a dedicated team driven by the belief that technology should empower businesses to unlock their full potential. United by a shared mission, we bridge the gap between bold, innovative ideas and practical, effective solutions. Together, we create digital experiences that inspire growth and lasting impact.
+              </p>
+              <p className="text-[#f3f4f6] text-[clamp(1.15rem,2vw,1.35rem)]" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.4), 0 0 12px rgba(255,255,255,0.25)' }}>
+                Our commitment goes beyond projects — it’s about excellence, collaboration, and building strong, long-term partnerships. At Tapit, we don’t just contribute to digital transformation; we live and breathe it, helping businesses worldwide thrive in a connected future.
+              </p>
             </div>
-            <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)]">
-              At Tapit, our passion fuels everything we do. We are a dedicated team driven by the belief that technology should empower businesses to unlock their full potential. United by a shared mission, we bridge the gap between bold, innovative ideas and practical, effective solutions. Together, we create digital experiences that inspire growth and lasting impact.
-            </p>
-            <p className="text-[#111317] text-[clamp(1.15rem,2vw,1.35rem)]">
-              Our commitment goes beyond projects — it’s about excellence, collaboration, and building strong, long-term partnerships. At Tapit, we don’t just contribute to digital transformation; we live and breathe it, helping businesses worldwide thrive in a connected future.
-            </p>
           </div>
         </div>
       </section>
@@ -121,7 +122,7 @@ export default function AboutPage() {
             <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.12em', fontSize: '1.12em', letterSpacing: '.01em' }}>Values</span>
           </h2>
           <div
-            className="grid gap-6 items-stretch grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+            className="grid gap-6 items-stretch grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 values-grid"
             style={{ marginTop: 0 }}
           >
             {/* Innovation */}
