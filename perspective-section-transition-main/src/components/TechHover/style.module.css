@@ -25,3 +25,9 @@
   .list { gap: 2px; }
   .item { padding: 4px 6px; }
 }
+@media (width: 360px) and (height: 740px) {
+  .wrap { grid-template-columns: 1fr; gap: 12px; }
+  .preview { height: 280px; margin-top: 10px; }
+  .list { gap: 1px; }
+  .item { padding: 3px 5px; }
+}

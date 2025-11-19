@@ -99,7 +99,7 @@ export default function FloatingTopBar() {
       variants={visibilityVariants}
       initial="visible"
       animate={isBarVisible ? "visible" : "hidden"}
-      style={{ position: "fixed", top: 12, left: 0, right: 0, marginLeft: "auto", marginRight: "auto", zIndex: 1000, display: "flex", justifyContent: "center" }}
+      style={{ position: "fixed", top: "var(--floating-bar-top, 12px)", left: 0, right: 0, marginLeft: "auto", marginRight: "auto", zIndex: 1000, display: "flex", justifyContent: "center" }}
     >
       <motion.div
         className={`floating-top-bar ${isActive ? "open" : ""}`}

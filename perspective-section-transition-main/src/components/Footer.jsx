@@ -46,28 +46,28 @@ export default function Footer() {
 
         {/* Divider removed to avoid any visual separation */}
 
-          <div className="new-footer-sections" aria-label="Additional footer information">
-            <section className="new-footer-section">
-              <h4 className="footer-section-title">Services</h4>
-              <ul className="new-footer-services">
-                <li>Brand Design</li>
-                <li>UI/UX Design</li>
-                <li>Frontend Development</li>
-                <li>Prototyping</li>
-              </ul>
-            </section>
+        <div className="new-footer-sections" aria-label="Additional footer information">
+          <section className="new-footer-section">
+            <h4 className="footer-section-title">Services</h4>
+            <ul className="new-footer-services">
+              <li>Brand Design</li>
+              <li>UI/UX Design</li>
+              <li>Frontend Development</li>
+              <li>Prototyping</li>
+            </ul>
+          </section>
 
-            <section className="new-footer-section">
-              <h4 className="footer-section-title">Studio</h4>
-              <address className="new-footer-studio">
-                <span>San Francisco, CA</span>
-                <span>Mon–Fri, 9am–6pm PT</span>
-              </address>
-              <div className="new-footer-cta">
-                <InteractiveHoverButton text="Start a project" href="/contact" className="start-project-btn" />
-              </div>
-            </section>
-          </div>
+          <section className="new-footer-section">
+            <h4 className="footer-section-title">Studio</h4>
+            <address className="new-footer-studio">
+              <span>San Francisco, CA</span>
+              <span>Mon–Fri, 9am–6pm PT</span>
+            </address>
+            <div className="new-footer-cta">
+              <InteractiveHoverButton text="Start a project" href="/contact" className="start-project-btn" />
+            </div>
+          </section>
+        </div>
 
         </div>
 
@@ -75,6 +75,17 @@ export default function Footer() {
           <FlipAnchor href="mailto:hello@tapit.studio">hello@tapit.studio</FlipAnchor>
           <FlipAnchor href="tel:+11234567890">+1 123 456 7890</FlipAnchor>
         </div>
+        {/* Small devices: show Studio below contacts */}
+        <section className="new-footer-section new-footer-studio-mobile" aria-label="Studio (mobile below contacts)">
+          <h4 className="footer-section-title">Studio</h4>
+          <address className="new-footer-studio">
+            <span>San Francisco, CA</span>
+            <span>Mon–Fri, 9am–6pm PT</span>
+          </address>
+          <div className="new-footer-cta">
+            <InteractiveHoverButton text="Start a project" href="/contact" className="start-project-btn" />
+          </div>
+        </section>
         <div className="new-footer-contact-divider" aria-hidden="true"></div>
         <div className="new-footer-bottom">
           <div className="new-footer-policies">

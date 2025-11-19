@@ -61,3 +61,13 @@
   .mega { font-size: clamp(2.6rem, 8vw, 8rem); line-height: 0.98; }
   .sub { font-size: clamp(1rem, 2.8vw, 1.25rem); max-width: 52ch; }
 }
+
+@media (max-width: 768px) {
+  .wrapper :global(.container) {
+    width: 100svw;
+    margin-left: calc(50% - 50svw);
+    margin-right: calc(50% - 50svw);
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
