@@ -74,7 +74,7 @@ h2 { margin-bottom: 24px; }
 
 /* Small devices: Services heading should fit on screen */
 @media (max-width: 768px) {
-  .services-header { font-size: clamp(1.6rem, 7vw, 2.4rem) !important; line-height: 1.03; }
+  .services-header { font-size: clamp(1.6rem, 7vw, 2.4rem) !important; line-height: 1.03; padding-left: clamp(8px, 3vw, 18px) !important; }
   .services-accent { white-space: normal !important; font-size: 1.05em !important; }
 }
 
@@ -401,6 +401,11 @@ h2 { margin-bottom: 24px; }
   .infinity .container { width: 100vw !important; margin-left: calc(50% - 50vw) !important; margin-right: calc(50% - 50vw) !important; max-width: none !important; }
   /* Home services component renders its own Tailwind section; force full-bleed */
   .section.services > section { width: var(--vw) !important; margin-left: calc(50% - (var(--vw) / 2)) !important; margin-right: calc(50% - (var(--vw) / 2)) !important; padding-left: 0 !important; padding-right: 0 !important; max-width: none !important; }
+  /* Nudge home sections text slightly to the right on small devices */
+  .home-hero .container { padding-left: clamp(8px, 3vw, 18px) !important; }
+  .infinity .container { padding-left: clamp(8px, 3vw, 18px) !important; }
+  #tech .container { padding-left: clamp(8px, 3vw, 18px) !important; }
+  .section.services > section { padding-left: 0 !important; }
   /* Tailwind utility overrides to prevent nested max-width/padding on small devices */
   .mx-auto { margin-left: 0 !important; margin-right: 0 !important; }
   .max-w-7xl { max-width: none !important; }

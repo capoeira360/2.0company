@@ -12,24 +12,24 @@ const barVariants = {
     height: `${Math.min(820, vh - 24)}px`,
     backgroundColor: "#8BC7DB",
     borderRadius: "0px",
-    boxShadow: "0 20px 60px rgba(17,19,23,0.15)",
-    transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.35 },
+    boxShadow: "0 20px 60px rgba(17,19,23,0.12)",
+    transition: { type: "tween", ease: [0.2, 0, 0.2, 1], duration: 0.2 },
   }),
   closed: ({ vw }) => ({
     width: `${Math.min(384, vw - 24)}px`,
     height: "72px",
     backgroundColor: "#8BC7DB",
     borderRadius: "0px",
-    boxShadow: "0 10px 30px rgba(17,19,23,0.12)",
-    transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.3 },
+    boxShadow: "0 10px 30px rgba(17,19,23,0.1)",
+    transition: { type: "tween", ease: [0.2, 0, 0.2, 1], duration: 0.18 },
   }),
 };
 
 // Header stabilized via layout-tween to avoid bounce
 
 const contentVariants = {
-  open: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 200, damping: 24 } },
-  closed: { opacity: 0, y: -6, transition: { type: "spring", stiffness: 200, damping: 24 } },
+  open: { opacity: 1, y: 0, transition: { type: "tween", duration: 0.16 } },
+  closed: { opacity: 0, y: -4, transition: { type: "tween", duration: 0.14 } },
 };
 
 export default function FloatingTopBar() {
@@ -122,7 +122,7 @@ export default function FloatingTopBar() {
         style={{ display: "flex", flexDirection: "column" }}
       >
         <div className="floating-top-bar-header">
-          <Link href="/" prefetch={false} className="floating-top-bar-logo" aria-label="Go to Home">
+          <Link href="/" className="floating-top-bar-logo" aria-label="Go to Home">
           {/* Exact footer logo SVG, scaled for the floating bar */}
           <svg
             version="1.0"

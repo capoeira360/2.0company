@@ -1,8 +1,5 @@
 .section { padding-top: 40px; }
-.section :global(.container) { width: 100svw; margin-left: calc(50% - 50svw); margin-right: calc(50% - 50svw); padding: 0; max-width: none; }
-@supports not (width: 100svw) {
-  .section :global(.container) { width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
-}
+.section :global(.container) { width: var(--vw); margin-left: calc(50% - (var(--vw)/2)); margin-right: calc(50% - (var(--vw)/2)); padding: 0; max-width: none; }
 .title { width: min(1100px, 92vw); margin: 0 auto 12px; }
 .card { width: calc(100svw - 0.6in); margin: 0 auto; background: #FFFFFA; border-radius: 20px; box-shadow: 0 14px 40px rgba(17, 19, 23, 0.08); border: 1px solid rgba(0,0,0,0.06); overflow: hidden; box-sizing: border-box; }
 .stage { position: relative; width: 100%; margin: 0; box-sizing: border-box; height: clamp(360px, 48vw, 640px); border-radius: 0; overflow: hidden; border: 0; box-shadow: none; }
@@ -11,5 +8,5 @@
 .canvas { position: absolute; inset: 0; display: block; width: 100%; height: 100%; z-index: 10; }
 
 @media (max-width: 768px) {
-  .card { width: 100%; border-radius: 0; }
+  .card { width: var(--vw); border-radius: 0; }
 }

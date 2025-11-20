@@ -6,7 +6,7 @@ export const links = [
 ];
 
 export const footerLinks = [
-  { title: "LinkedIn", href: "https://www.linkedin.com/" },
+  { title: "Facebook", href: "https://www.facebook.com/" },
   { title: "GitHub", href: "https://github.com/" },
   { title: "Instagram", href: "https://www.instagram.com/" },
   { title: "Twitter", href: "https://twitter.com/" },

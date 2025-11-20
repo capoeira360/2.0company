@@ -10,6 +10,7 @@ export default function PaintReveal() {
   const lastPos = useRef({ x: null, y: null });
   const [size, setSize] = useState({ w: 800, h: 600 });
   const [gifBust, setGifBust] = useState(0);
+  const [interacting, setInteracting] = useState(false);
   const PAINT_IMAGE_URL = "/images/image-layer.jpg";
 
   useEffect(() => {
@@ -64,6 +65,7 @@ export default function PaintReveal() {
   };
 
   const onPointerMove = (e) => {
+    if (!interacting) return;
     const el = canvasRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
@@ -89,14 +91,17 @@ export default function PaintReveal() {
 
   const onPointerLeave = () => {
     lastPos.current = { x: null, y: null };
+    setInteracting(false);
   };
+
+  const onPointerDown = () => setInteracting(true);
+  const onPointerUp = () => setInteracting(false);
 
   return (
     <section className={styles.section} id="paint-reveal">
       <div className="container">
-        <h2 className={styles.title}>Paint Reveal</h2>
         <div className={styles.card}>
-          <div ref={containerRef} className={styles.stage} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
+          <div ref={containerRef} className={styles.stage} onPointerDown={onPointerDown} onPointerUp={onPointerUp} onPointerMove={onPointerMove} onPointerLeave={onPointerLeave}>
           <img src={`/images/abstract-background.gif?v=${gifBust}`} alt="Abstract background" className={styles.underlayImg} />
           <div className={styles.copy}>Modern interactions that feel alive.</div>
             <canvas ref={canvasRef} className={styles.canvas} />

@@ -65,8 +65,16 @@ export default function ContactForm() {
         </div>
       </div>
       <div className="grid gap-2">
-        <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 text-[#111] underline">
-          {status === "sending" ? "Sending..." : "Send"}
+        <button type="submit" disabled={status === "sending"} aria-busy={status === "sending"}
+          className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-white bg-[#269292] shadow-sm transition-transform duration-150 active:scale-95 disabled:opacity-60">
+          {status === "sending" ? (
+            <span className="inline-flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="animate-spin"><circle cx="12" cy="12" r="10" stroke="currentColor" opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+              <span>Sending...</span>
+            </span>
+          ) : (
+            <span>Send</span>
+          )}
         </button>
         {status === "sent" && (
           <p className="text-[#0f5132] bg-[#d1e7dd] border border-[#badbcc] rounded-md px-3 py-2 text-[clamp(0.95rem,1.5vw,1.05rem)]">Thanks for reaching out — we’ll get back to you shortly.</p>

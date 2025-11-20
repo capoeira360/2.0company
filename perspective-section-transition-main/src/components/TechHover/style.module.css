@@ -15,7 +15,11 @@
 .title { margin: 0 0 12px; font-size: clamp(2rem, 6vw, 4rem); line-height: 1; letter-spacing: 0.02em; }
 .note { margin: 4px 0 0; color: #111317; }
 .dim { filter: blur(2px); opacity: 0.4; }
-@media (max-width: 768px) { .wrap { grid-template-columns: 1fr; } .preview { height: 320px; transform: none; } .wrap > div:first-child { transform: none; } }
+@media (max-width: 768px) {
+  .wrap { grid-template-columns: 1fr; }
+  .preview { height: 320px; transform: none; position: relative; left: clamp(-8px, -3vw, -18px); margin-left: auto; margin-right: auto; }
+  .wrap > div:first-child { transform: none; }
+}
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .wrap { grid-template-columns: 1fr 1fr; gap: 18px; }
