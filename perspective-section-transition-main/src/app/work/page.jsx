@@ -12,7 +12,7 @@ export default function Work() {
   const openModal = () => setOpenForm(true);
   const closeModal = () => setOpenForm(false);
   return (
-  <main className="relative h-[500vh] bg-[#ffffff]">
+  <main className="relative bg-[#ffffff] work-page">
       {/* First section: mount the image slider */}
       <Section id={1} full bgClass="bg-[#393939]">
         <div className="w-full px-4">
@@ -21,15 +21,15 @@ export default function Work() {
       </Section>
       {/* Section 2: Web Design Service Card */}
       <Section id={2} bgClass="bg-[#86AF7F]">
-        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)]">
-  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
+        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)] work-wrap">
+  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh] overflow-hidden work-card" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
               <svg className="shrink-0" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
                 <rect x="3" y="4" width="18" height="12" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
                 <rect x="9" y="18" width="6" height="2" rx="1" fill="#111317" />
               </svg>
-              <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
+              <div className="leading-tight text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="Web" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
                 <HyperText text="Design" className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }} />
               </div>
@@ -78,15 +78,15 @@ export default function Work() {
 
       {/* Section 3: Mobile App Design Service Card */}
       <Section id={3} bgClass="bg-[#8A6742]">
-        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)]">
-  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
+        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)] work-wrap">
+  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh] overflow-hidden work-card" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
               <svg className="shrink-0" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
                 <rect x="6" y="2" width="12" height="20" rx="2" fill="none" stroke="#111317" strokeWidth="2" />
                 <circle cx="12" cy="19" r="1" fill="#111317" />
               </svg>
-              <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
+              <div className="leading-tight text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="Mobile" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
                 <HyperText text="Apps" className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }} />
               </div>
@@ -135,8 +135,8 @@ export default function Work() {
 
       {/* Section 4: AI Systems Development Service Card */}
       <Section id={4} bgClass="bg-[#BB4B32]">
-        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)]">
-  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
+        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)] work-wrap">
+  <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh] overflow-hidden work-card" style={{ backgroundColor: '#ffffff' }}>
             {/* Icon + Title */}
             <div className="flex items-center gap-4">
               <svg className="shrink-0" viewBox="0 0 24 24" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
@@ -147,7 +147,7 @@ export default function Work() {
                 <circle cx="15" cy="12" r="1.5" fill="#fa6602" />
                 <rect x="9" y="16" width="6" height="2" rx="1" fill="#111317" />
               </svg>
-              <div className="leading-tight whitespace-nowrap text-[clamp(2.8rem,8vw,7rem)]">
+              <div className="leading-tight text-[clamp(2.8rem,8vw,7rem)]">
                 <HyperText text="AI" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
                 <HyperText text="Systems" className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }} />
               </div>
@@ -195,8 +195,8 @@ export default function Work() {
       <Section id={5} bgClass="bg-[#6F8A4D]">
 
         
-        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)]">
-          <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh]" style={{ backgroundColor: '#ffffff' }}>
+        <div className="mx-auto my-[0.5in] w-[min(95vw,1496px)] work-wrap">
+          <div className="grid gap-8 rounded-3xl border border-black/10 bg-white shadow-xl ring-1 ring-black/5 p-[clamp(24px,3vw,48px)] min-h-[85vh] overflow-hidden work-card" style={{ backgroundColor: '#ffffff' }}>
             <div className="flex items-center gap-4">
               <svg className="shrink-0" viewBox="0 0 64 64" aria-hidden="true" style={{ width: 'clamp(96px,12vw,192px)', height: 'clamp(96px,12vw,192px)' }}>
                 <path d="M20 36c0-6.627 5.373-12 12-12 5.024 0 9.34 3.09 10.965 7.429C44.31 31.152 46.045 31 47.82 31 53.465 31 58 35.477 58 41s-4.535 10-10.18 10H22.5C16.701 51 12 46.299 12 40.5 12 34.701 16.701 30 22.5 30c.867 0 1.716.09 2.535.263A11.936 11.936 0 0 1 32 24c-6.627 0-12 5.373-12 12z" fill="#fa6602" opacity="0.25" />
@@ -205,7 +205,7 @@ export default function Work() {
                 <circle cx="52" cy="23" r="1.5" fill="#fa6602" />
                 <circle cx="52" cy="37" r="1.5" fill="#fa6602" />
               </svg>
-              <div className="leading-tight whitespace-nowrap text-[clamp(2.4rem,7vw,6rem)]">
+              <div className="leading-tight text-[clamp(2.4rem,7vw,6rem)]">
                 <HyperText text="domain" className="inline-block" style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.04em' }} />
                 <span className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }}>/</span>
                 <HyperText text="hosting" className="inline-block" style={{ fontFamily: 'var(--font-playfair)', fontWeight: 600, fontStyle: 'italic', color: '#fa6602', fontSize: '1.12em' }} />

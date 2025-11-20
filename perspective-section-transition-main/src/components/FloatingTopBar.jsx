@@ -7,22 +7,22 @@ import Button from "./Header/Button";
 import Nav from "./Header/Nav";
 
 const barVariants = {
-  open: {
-    width: "768px",
-    height: "820px",
+  open: ({ vw, vh }) => ({
+    width: `${Math.min(768, vw - 24)}px`,
+    height: `${Math.min(820, vh - 24)}px`,
     backgroundColor: "#8BC7DB",
     borderRadius: "0px",
     boxShadow: "0 20px 60px rgba(17,19,23,0.15)",
     transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.35 },
-  },
-  closed: {
-    width: "4in",
-    height: "0.75in",
+  }),
+  closed: ({ vw }) => ({
+    width: `${Math.min(384, vw - 24)}px`,
+    height: "72px",
     backgroundColor: "#8BC7DB",
     borderRadius: "0px",
     boxShadow: "0 10px 30px rgba(17,19,23,0.12)",
     transition: { type: "tween", ease: [0.4, 0, 0.2, 1], duration: 0.3 },
-  },
+  }),
 };
 
 // Header stabilized via layout-tween to avoid bounce
@@ -38,6 +38,8 @@ export default function FloatingTopBar() {
   const [isAtTopOrHero, setIsAtTopOrHero] = useState(true);
   const idleTimer = useRef(null);
   const pathname = usePathname();
+  const [vw, setVw] = useState(1024);
+  const [vh, setVh] = useState(768);
 
   useEffect(() => {
     setIsActive(false);
@@ -61,6 +63,16 @@ export default function FloatingTopBar() {
         idleTimer.current = null;
       }
     };
+  }, []);
+
+  useEffect(() => {
+    const update = () => {
+      setVw(window.innerWidth || 1024);
+      setVh(window.innerHeight || 768);
+    };
+    update();
+    window.addEventListener("resize", update, { passive: true });
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   useEffect(() => {
@@ -106,6 +118,7 @@ export default function FloatingTopBar() {
         variants={barVariants}
         animate={isActive ? "open" : "closed"}
         initial="closed"
+        custom={{ vw, vh }}
         style={{ display: "flex", flexDirection: "column" }}
       >
         <div className="floating-top-bar-header">

@@ -9,7 +9,7 @@ export default function PaintReveal() {
   const containerRef = useRef(null);
   const lastPos = useRef({ x: null, y: null });
   const [size, setSize] = useState({ w: 800, h: 600 });
-  const [gifBust, setGifBust] = useState(Date.now());
+  const [gifBust, setGifBust] = useState(0);
   const PAINT_IMAGE_URL = "/images/image-layer.jpg";
 
   useEffect(() => {
@@ -49,6 +49,7 @@ export default function PaintReveal() {
   }, [size]);
 
   useEffect(() => {
+    setGifBust(Date.now());
     const interval = setInterval(() => setGifBust(Date.now()), 9000);
     return () => clearInterval(interval);
   }, []);

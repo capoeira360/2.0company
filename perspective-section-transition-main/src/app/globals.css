@@ -469,12 +469,16 @@ h2 { margin-bottom: 24px; }
 @media (width: 440px) and (height: 956px) {
   .new-footer-sections .new-footer-section:nth-child(2) { display: none !important; }
   .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.6in; }
+  .work-page .work-wrap { margin-top: 0 !important; margin-bottom: 0 !important; }
+  .work-page .work-card { padding: clamp(8px, 2.5vw, 12px) !important; }
 }
 
 /* General small devices: 412×914 and below */
 @media screen and (max-width: 412px) and (max-height: 915px) {
   .new-footer-sections .new-footer-section:nth-child(2) { display: none !important; }
   .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.6in; }
+  .work-page .work-wrap { margin-top: 0 !important; margin-bottom: 0 !important; }
+  .work-page .work-card { padding: clamp(6px, 2.2vw, 10px) !important; }
 }
 /* Small devices: robust full-bleed variable */
 :root { --vw: 100vw; }
@@ -492,4 +496,15 @@ h2 { margin-bottom: 24px; }
     margin-left: calc(50% - (var(--vw) / 2)) !important;
     margin-right: calc(50% - (var(--vw) / 2)) !important;
   }
+  /* Work page cards: reduce padding, allow wrapping, avoid overflow */
+  .work-wrap { width: var(--vw) !important; margin-left: calc(50% - (var(--vw) / 2)) !important; margin-right: calc(50% - (var(--vw) / 2)) !important; margin-top: 0 !important; margin-bottom: 0 !important; }
+  .work-card { padding: clamp(10px, 3vw, 14px) !important; min-height: auto !important; border-radius: 12px !important; }
+  .work-card .leading-tight { white-space: normal !important; }
+  .work-card p, .work-card ul, .work-card span { overflow-wrap: anywhere; word-wrap: break-word; }
+  /* Further compact spacing to prevent visual connection between sections */
+  .work-page .work-card { gap: clamp(8px, 2vw, 12px) !important; border-radius: 10px !important; }
+  .work-page .work-card .leading-tight { font-size: clamp(2rem, 6vw, 3.6rem) !important; }
+  .work-page .work-card p { font-size: clamp(0.95rem, 2.6vw, 1.15rem) !important; }
+  .work-page .work-card ul { gap: clamp(2px, 1.2vw, 6px) !important; }
+  .work-page .work-card .flex { gap: clamp(6px, 2vw, 10px) !important; }
 }
