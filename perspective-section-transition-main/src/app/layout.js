@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import LenisRoot from "./lenis-root";
 import FloatingTopBar from "@/components/FloatingTopBar";
 import Footer from "@/components/Footer";
+import DevLogFilter from "./DevLogFilter";
 
 export const metadata = {
   title: "Create Next App",
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${artine.className} ${montalban.variable} ${artine.variable} ${playfair.variable}`}>
+        <DevLogFilter />
         <LenisRoot>
           <FloatingTopBar />
           {children}

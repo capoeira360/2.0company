@@ -1,28 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { sendSubmission } from "@/lib/emailClient";
 
 export default function ProjectFormModal({ open, onClose }) {
   const [status, setStatus] = useState(null);
+
+  useEffect(() => {
+    if (!open) setStatus(null);
+  }, [open]);
 
   if (!open) return null;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    try {
-      const res = await fetch("/api/contact", { method: "POST", body: formData });
-      // Redirects happen on server; we treat 200/303 as success
-      setStatus("success");
-    } catch (err) {
-      setStatus("error");
+    setStatus("sending");
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    if ((formData.get("company") || "").toString().trim()) { setStatus(null); return; }
+    const params = {
+      form_type: "Work",
+      name: formData.get("name") || "",
+      email: formData.get("email") || "",
+      subject: formData.get("subject") || "",
+      message: formData.get("message") || "",
+    };
+    await sendSubmission(params);
+    setStatus("success");
+    if (form && typeof form.reset === "function") {
+      form.reset();
     }
+  };
+
+  const handleClose = () => {
+    setStatus(null);
+    onClose();
   };
 
   return (
     <div className="fixed inset-0 z-[200] grid place-items-center bg-black/50">
       <div className="relative w-[min(92vw,720px)] rounded-2xl bg-white shadow-2xl ring-1 ring-black/10">
-        <button onClick={onClose} aria-label="Close" className="absolute right-4 top-4 rounded-md border border-black/10 bg-white px-2 py-1 text-sm">Close</button>
+        <button onClick={handleClose} aria-label="Close" className="absolute right-4 top-4 rounded-md border border-black/10 bg-white px-2 py-1 text-sm">Close</button>
         <div className="grid gap-6 p-6">
           <h3 className="text-2xl font-semibold">Start a project</h3>
           {status === "success" && (
@@ -58,7 +76,7 @@ export default function ProjectFormModal({ open, onClose }) {
                 </div>
                 <div className="absolute z-0 left-[20%] top-[40%] h-2 w-2 scale-[1] rounded-lg bg-[#269292] opacity-0 transition-all duration-300 group-hover:left-[0%] group-hover:top-[0%] group-hover:h-full group-hover:w-full group-hover:scale-[1.8] group-hover:bg-[#269292] group-hover:opacity-100"></div>
               </button>
-              <button type="button" onClick={onClose} className="rounded-full border border-black/20 px-4 py-2 text-sm">Cancel</button>
+              <button type="button" onClick={handleClose} className="rounded-full border border-black/20 px-4 py-2 text-sm">Cancel</button>
             </div>
           </form>
         </div>

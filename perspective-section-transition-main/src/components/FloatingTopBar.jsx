@@ -122,7 +122,7 @@ export default function FloatingTopBar() {
         style={{ display: "flex", flexDirection: "column" }}
       >
         <div className="floating-top-bar-header">
-          <Link href="/" className="floating-top-bar-logo" aria-label="Go to Home">
+          <Link href="/" prefetch={false} className="floating-top-bar-logo" aria-label="Go to Home">
           {/* Exact footer logo SVG, scaled for the floating bar */}
           <svg
             version="1.0"

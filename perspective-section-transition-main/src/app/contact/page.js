@@ -2,6 +2,8 @@ export const metadata = {
   title: "TAPit — Contact",
 };
 
+import ContactForm from "./ContactForm";
+
 export default function ContactPage({ searchParams }) {
   return (
     <main className="relative bg-[#ffffff] contact-page">
@@ -24,38 +26,8 @@ export default function ContactPage({ searchParams }) {
             <div>
               <h3 className="text-[clamp(1.4rem,3.5vw,2rem)]">share your mind</h3>
             </div>
-            <form className="grid gap-[clamp(20px,3vw,32px)] md:pl-[320px] md:ml-0 section-content" method="POST" action="/api/contact">
-              {/* Honeypot field (bots may fill; humans won't see) */}
-              <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
-              <div className="grid gap-3">
-                <label htmlFor="name" className="text-[#111317]">Name</label>
-                <div className="border-b border-black/20">
-                  <input id="name" name="name" type="text" required maxLength={120} autoComplete="name" className="h-[28px] w-full bg-transparent outline-none" />
-                </div>
-              </div>
-              <div className="grid gap-3">
-                <label htmlFor="email" className="text-[#111317]">Email</label>
-                <div className="border-b border-black/20">
-                  <input id="email" name="email" type="email" required autoComplete="email" className="h-[28px] w-full bg-transparent outline-none" />
-                </div>
-              </div>
-              <div className="grid gap-3">
-                <label htmlFor="subject" className="text-[#111317]">Subject</label>
-                <div className="border-b border-black/20">
-                  <input id="subject" name="subject" type="text" maxLength={200} autoComplete="off" className="h-[28px] w-full bg-transparent outline-none" />
-                </div>
-              </div>
-              <div className="grid gap-3">
-                <label htmlFor="message" className="text-[#111317]">Message</label>
-                <div className="border-b border-black/20">
-                  <textarea id="message" name="message" required maxLength={5000} className="w-full h-[96px] bg-transparent outline-none resize-none" />
-                </div>
-              </div>
-              <div>
-                <button type="submit" className="inline-flex items-center gap-2 text-[#111] underline">Send</button>
-              </div>
-              <p className="text-[#6b7280] text-[clamp(0.9rem,1.4vw,1rem)]">Tip: Email <a href="mailto:info@tapitsoftwares.tech" className="underline">info@tapitsoftwares.tech</a> — replies within 24h.</p>
-            </form>
+            {/* Client-side EmailJS form */}
+            <ContactForm />
           </div>
 
           {/* Address – responsive order */}
