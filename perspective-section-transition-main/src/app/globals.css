@@ -471,6 +471,7 @@ h2 { margin-bottom: 24px; }
   .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.6in; }
   .work-page .work-wrap { margin-top: 0 !important; margin-bottom: 0 !important; }
   .work-page .work-card { padding: clamp(8px, 2.5vw, 12px) !important; }
+  .contact-page .contact-header { margin-top: clamp(52px, 12vw, 120px) !important; }
 }
 
 /* General small devices: 412×914 and below */
@@ -479,6 +480,7 @@ h2 { margin-bottom: 24px; }
   .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.6in; }
   .work-page .work-wrap { margin-top: 0 !important; margin-bottom: 0 !important; }
   .work-page .work-card { padding: clamp(6px, 2.2vw, 10px) !important; }
+  .contact-page .contact-header { margin-top: clamp(56px, 14vw, 128px) !important; }
 }
 /* Small devices: robust full-bleed variable */
 :root { --vw: 100vw; }
@@ -507,4 +509,27 @@ h2 { margin-bottom: 24px; }
   .work-page .work-card p { font-size: clamp(0.95rem, 2.6vw, 1.15rem) !important; }
   .work-page .work-card ul { gap: clamp(2px, 1.2vw, 6px) !important; }
   .work-page .work-card .flex { gap: clamp(6px, 2vw, 10px) !important; }
+
+  /* About page: small-device layout and spacing */
+  .about-page section { padding-top: clamp(12px, 4vw, 20px) !important; padding-bottom: clamp(12px, 4vw, 20px) !important; }
+  .about-page .container { width: var(--vw) !important; margin-left: calc(50% - (var(--vw) / 2)) !important; margin-right: calc(50% - (var(--vw) / 2)) !important; padding-left: 0 !important; padding-right: 0 !important; max-width: none !important; }
+  .about-page .about-first-grid { grid-template-columns: 1fr !important; gap: clamp(10px, 3vw, 16px) !important; }
+  .about-page .mission-card { max-width: calc(100vw - 0.5in) !important; padding: clamp(12px, 3.5vw, 18px) !important; border-radius: 12px !important; margin-top: clamp(8px, 2vw, 12px) !important; }
+  .about-page .mission-card h2 { font-size: clamp(1.8rem, 6.2vw, 3rem) !important; }
+  .about-page .mission-card p { font-size: clamp(1rem, 2.6vw, 1.2rem) !important; }
+  .about-page .our-story { gap: clamp(8px, 2.5vw, 14px) !important; }
+  .about-page .our-story h2 { font-size: clamp(1.6rem, 5.8vw, 2.8rem) !important; }
+  .about-page .our-story p { font-size: clamp(0.98rem, 2.5vw, 1.15rem) !important; text-align: left !important; margin-left: auto; margin-right: auto; max-width: 80ch; }
+  .about-page .our-story h2, .about-page .values-header { padding-left: clamp(8px, 3vw, 18px) !important; }
+  .about-page .team-card { width: calc(100vw - 0.5in) !important; padding: clamp(10px, 3vw, 16px) !important; border-radius: 12px !important; }
+  .about-page .team-card { width: var(--vw) !important; margin-left: calc(50% - (var(--vw) / 2)) !important; margin-right: calc(50% - (var(--vw) / 2)) !important; border-radius: 0 !important; }
+  .about-page .team-card .team-content { gap: clamp(8px, 2.5vw, 14px) !important; }
+  .about-page .team-card .team-content .team-header svg { width: clamp(56px, 9vw, 96px) !important; height: clamp(56px, 9vw, 96px) !important; }
+  .about-page section:first-of-type { padding-top: clamp(48px, 12vw, 96px) !important; }
+  .about-page h1 { margin-top: clamp(24px, 8vw, 64px) !important; }
+  .about-page .team-card .team-content h2 { font-size: clamp(1.6rem, 5.8vw, 2.8rem) !important; }
+  .about-page .team-card .team-content p { font-size: clamp(0.98rem, 2.5vw, 1.15rem) !important; }
+  .about-page .values-grid { grid-template-columns: 1fr !important; gap: clamp(10px, 3vw, 16px) !important; }
+  .about-page .values-grid > .grid { padding: clamp(12px, 3vw, 16px) !important; border-radius: 12px !important; }
+  .contact-page section > div { padding-left: clamp(8px, 3vw, 18px) !important; }
 }

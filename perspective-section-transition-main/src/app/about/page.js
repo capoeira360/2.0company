@@ -118,7 +118,7 @@ export default function AboutPage() {
             paddingRight: 0
           }}
         >
-          <h2 className="leading-tight text-[clamp(2rem,6vw,4rem)]">
+          <h2 className="values-header leading-tight text-[clamp(2rem,6vw,4rem)]">
             <span style={{ fontFamily: 'var(--font-montalban)', letterSpacing: '.01em' }}>Our</span><span style={{ fontFamily: 'var(--font-playfair)', color: '#fa6602', fontWeight: 600, fontStyle: 'italic', marginLeft: '-0.12em', fontSize: '1.12em', letterSpacing: '.01em' }}>Values</span>
           </h2>
           <div
