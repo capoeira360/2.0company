@@ -451,7 +451,7 @@ h2 { margin-bottom: 24px; }
   .new-footer-sections .new-footer-section:first-child { margin-left: 0; transform: none; }
   /* Hide original Studio section on mobile; it will be shown below contact */
   .new-footer-sections .new-footer-section:nth-child(2) { display: none !important; }
-  .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.6in; }
+  .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.42in; }
   .new-footer-contact { transform: none; align-items: flex-start; }
   .new-footer-bottom { justify-content: flex-start; gap: 8px; }
   .new-footer-bottom .new-footer-policies { flex-wrap: wrap; margin-left: 0; }
@@ -468,19 +468,75 @@ h2 { margin-bottom: 24px; }
 /* iPhone‑class small device (440×956): move Studio below contacts and hide duplicate next to Services */
 @media (width: 440px) and (height: 956px) {
   .new-footer-sections .new-footer-section:nth-child(2) { display: none !important; }
-  .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.6in; }
+  .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.42in; }
   .work-page .work-wrap { margin-top: 0 !important; margin-bottom: 0 !important; }
   .work-page .work-card { padding: clamp(8px, 2.5vw, 12px) !important; }
   .contact-page .contact-header { margin-top: clamp(52px, 12vw, 120px) !important; }
+  /* Footer: nudge nav + sections slightly left; keep logo, contact, bottom unchanged */
+  .footer-card .new-footer-nav { margin-left: 0 !important; padding-left: clamp(12px, 3.2vw, 20px) !important; }
+  .footer-card .new-footer-sections { margin-left: 0 !important; padding-left: clamp(12px, 3.2vw, 20px) !important; }
+  .footer-card .new-footer-sections .new-footer-section { padding-left: clamp(12px, 3.2vw, 20px) !important; }
+  .footer-card .new-footer-services { padding-left: clamp(12px, 3.2vw, 20px) !important; }
+  .footer-card .new-footer-studio { padding-left: clamp(12px, 3.2vw, 20px) !important; }
+  /* Footer: nudge social links and studio (mobile) slightly left */
+  .footer-card .new-footer-social-text { margin-left: clamp(-16px, -3.6vw, -24px) !important; transform: translateX(-12px) !important; }
+  .footer-card .new-footer-studio-mobile { margin-left: 0 !important; padding-left: clamp(12px, 3.2vw, 20px) !important; transform: translateY(-10px) !important; }
+  .footer-card .new-footer-social { margin-left: clamp(-18px, -4vw, -28px) !important; transform: translateX(-18px) !important; }
+  /* Footer: move contacts and bottom contents slightly right */
+  .footer-card .new-footer-contact { margin-left: clamp(10px, 3vw, 22px) !important; }
+  .footer-card .new-footer-bottom { padding-left: clamp(8px, 2.6vw, 16px) !important; }
+  .new-footer-contact { margin-top: clamp(12px, 3.4vw, 24px) !important; }
+  /* Footer: move navigation, services and studio slightly right */
+  .footer-card .new-footer-nav,
+  .footer-card .new-footer-sections .new-footer-section { transform: translateX(6px) !important; }
+  .footer-card .new-footer-studio-mobile { transform: translate(6px, -10px) !important; }
+  /* Footer: align nav/services left edge to match contacts */
+  .footer-card .new-footer-nav { margin-left: clamp(10px, 3vw, 22px) !important; padding-left: 0 !important; }
+  .footer-card .new-footer-sections { margin-left: clamp(10px, 3vw, 22px) !important; padding-left: 0 !important; }
+  .footer-card .new-footer-sections .new-footer-section { margin-left: 0 !important; padding-left: 0 !important; }
+  .footer-card .new-footer-services, .footer-card .new-footer-studio { margin-left: 0 !important; padding-left: 0 !important; }
 }
 
 /* General small devices: 412×914 and below */
-@media screen and (max-width: 412px) and (max-height: 915px) {
+@media screen and (max-width: 412px) and (max-height: 916px) {
   .new-footer-sections .new-footer-section:nth-child(2) { display: none !important; }
   .new-footer-studio-mobile { display: block !important; width: 100%; margin-top: 0.6in; }
   .work-page .work-wrap { margin-top: 0 !important; margin-bottom: 0 !important; }
   .work-page .work-card { padding: clamp(6px, 2.2vw, 10px) !important; }
   .contact-page .contact-header { margin-top: clamp(56px, 14vw, 128px) !important; }
+  /* Footer card: full‑bleed on 412×915 and below */
+  .footer-card {
+    width: var(--vw) !important;
+    margin-left: calc(50% - (var(--vw) / 2)) !important;
+    margin-right: calc(50% - (var(--vw) / 2)) !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .new-footer, .new-footer-grid {
+    width: var(--vw) !important;
+    margin-left: calc(50% - (var(--vw) / 2)) !important;
+    margin-right: calc(50% - (var(--vw) / 2)) !important;
+  }
+  .footer-card .new-footer-grid,
+  .footer-card .new-footer-top,
+  .footer-card .new-footer-sections,
+  .footer-card .new-footer-bottom { margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+  /* Footer: nudge social links and studio (mobile) slightly left */
+  .footer-card .new-footer-social-text { margin-left: clamp(-16px, -3.6vw, -24px) !important; transform: translateX(-12px) !important; }
+  .footer-card .new-footer-studio-mobile { margin-left: 0 !important; padding-left: clamp(12px, 3.2vw, 20px) !important; transform: translateY(-12px) !important; }
+  .footer-card .new-footer-social { margin-left: clamp(-18px, -4vw, -28px) !important; transform: translateX(-18px) !important; }
+  /* Footer: move navigation, services and studio slightly right */
+  .footer-card .new-footer-nav,
+  .footer-card .new-footer-sections .new-footer-section { transform: translateX(6px) !important; }
+  .footer-card .new-footer-studio-mobile { transform: translate(6px, -12px) !important; }
+  .new-footer-contact { margin-top: clamp(14px, 4vw, 28px) !important; }
+  /* Footer: align nav/services left edge to match contacts */
+  .footer-card .new-footer-contact { margin-left: clamp(12px, 3.4vw, 24px) !important; }
+  .footer-card .new-footer-nav { margin-left: clamp(12px, 3.4vw, 24px) !important; padding-left: 0 !important; }
+  .footer-card .new-footer-sections { margin-left: clamp(12px, 3.4vw, 24px) !important; padding-left: 0 !important; }
+  .footer-card .new-footer-sections .new-footer-section { margin-left: 0 !important; padding-left: 0 !important; }
+  .footer-card .new-footer-services, .footer-card .new-footer-studio { margin-left: 0 !important; padding-left: 0 !important; }
 }
 /* Small devices: robust full-bleed variable */
 :root { --vw: 100vw; }
@@ -532,4 +588,34 @@ h2 { margin-bottom: 24px; }
   .about-page .values-grid { grid-template-columns: 1fr !important; gap: clamp(10px, 3vw, 16px) !important; }
   .about-page .values-grid > .grid { padding: clamp(12px, 3vw, 16px) !important; border-radius: 12px !important; }
   .contact-page section > div { padding-left: clamp(8px, 3vw, 18px) !important; }
+  /* Footer card: small devices slight inset from edges */
+  .footer-card { width: calc(var(--vw) - 0.35in) !important; margin-left: auto !important; margin-right: auto !important; border-radius: 14px !important; }
+  .footer-card .new-footer-grid { width: 100% !important; margin-left: 0 !important; margin-right: 0 !important; }
+  /* Footer: center logo at top; place nav left and social right below */
+  .new-footer-grid { display: block !important; }
+  .new-footer-logo { display: block !important; justify-self: center !important; text-align: center !important; margin-top: clamp(8px, 3vw, 16px) !important; }
+  .new-footer-main { width: 100% !important; }
+  .new-footer-top { display: grid !important; grid-template-columns: 1fr 1fr !important; align-items: start !important; gap: clamp(8px, 3vw, 16px) !important; }
+  .new-footer-nav { justify-self: start !important; }
+  .new-footer-social-text, .new-footer-social { justify-self: end !important; }
+}
+
+/* Ensure footer full‑bleed wins on ≤412×916 by placing override after general small rules */
+@media screen and (max-width: 412px) and (max-height: 916px) {
+  .footer-card {
+    width: var(--vw) !important;
+    margin-left: calc(50% - (var(--vw) / 2)) !important;
+    margin-right: calc(50% - (var(--vw) / 2)) !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .new-footer, .new-footer-grid {
+    width: var(--vw) !important;
+    margin-left: calc(50% - (var(--vw) / 2)) !important;
+    margin-right: calc(50% - (var(--vw) / 2)) !important;
+  }
+  /* Footer: move contacts and bottom contents slightly right */
+  .footer-card .new-footer-contact { margin-left: clamp(12px, 3.4vw, 24px) !important; }
+  .footer-card .new-footer-bottom { padding-left: clamp(10px, 3vw, 18px) !important; }
 }
