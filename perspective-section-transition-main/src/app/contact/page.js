@@ -54,7 +54,7 @@ export default function ContactPage({ searchParams }) {
               <div>
                 <button type="submit" className="inline-flex items-center gap-2 text-[#111] underline">Send</button>
               </div>
-              <p className="text-[#6b7280] text-[clamp(0.9rem,1.4vw,1rem)]">Tip: Email <a href="mailto:hello@tapit.studio" className="underline">hello@tapit.studio</a> — replies within 24h.</p>
+              <p className="text-[#6b7280] text-[clamp(0.9rem,1.4vw,1rem)]">Tip: Email <a href="mailto:info@tapitsoftwares.tech" className="underline">info@tapitsoftwares.tech</a> — replies within 24h.</p>
             </form>
           </div>
 
@@ -65,10 +65,10 @@ export default function ContactPage({ searchParams }) {
             </div>
             <div className="md:pl-[320px] md:ml-0 grid gap-[clamp(16px,2.5vw,28px)] section-content">
               <address className="not-italic text-[#111317] text-[clamp(1rem,1.6vw,1.15rem)] grid gap-[clamp(6px,1.2vw,12px)]">
-                <div>TAPit Studio</div>
-                <div>123 Market Street</div>
-                <div>San Francisco, CA 94103</div>
-                <div>United States</div>
+                <div>TAPit Softwares</div>
+                <div>P.O Box 6057</div>
+                <div>Sanawari, Arusha</div>
+                <div>Tanzania</div>
               </address>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function ContactPage({ searchParams }) {
               <h3 className="text-[clamp(1.2rem,3vw,1.6rem)]">Location</h3>
             </div>
             <div className="md:pl-[320px] md:ml-0 grid gap-[clamp(20px,3vw,32px)] section-content">
-              <p className="text-[#111317] text-[clamp(1rem,1.6vw,1.15rem)]">San Francisco, CA</p>
+              <p className="text-[#111317] text-[clamp(1rem,1.6vw,1.15rem)]">Sanawari, Arusha, Tanzania</p>
               <div className="mt-2 h-[140px] rounded-xl bg-[#ffffff] border border-black/10 grid place-items-center text-[#6b7280] text-sm">Map placeholder</div>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function ContactPage({ searchParams }) {
             </div>
             <div className="md:pl-[320px] md:ml-0 grid gap-[clamp(16px,2.5vw,28px)] section-content">
               <ul className="text-[#111317] text-[clamp(1rem,1.6vw,1.15rem)] grid gap-[clamp(10px,1.8vw,18px)]">
-                <li>Mon–Fri: 9:00am – 6:00pm PT</li>
+                <li>Mon–Fri: 9:00am – 5:00pm EAT</li>
                 <li>Sat: By appointment</li>
                 <li>Sun: Closed</li>
               </ul>

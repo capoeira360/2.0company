@@ -577,6 +577,9 @@ h2 { margin-bottom: 24px; }
   .about-page .our-story h2 { font-size: clamp(1.6rem, 5.8vw, 2.8rem) !important; }
   .about-page .our-story p { font-size: clamp(0.98rem, 2.5vw, 1.15rem) !important; text-align: left !important; margin-left: auto; margin-right: auto; max-width: 80ch; }
   .about-page .our-story h2, .about-page .values-header { padding-left: clamp(8px, 3vw, 18px) !important; }
+  /* Center legal pages cards */
+  .privacy-page .mx-auto,
+  .terms-page .mx-auto { margin-left: auto !important; margin-right: auto !important; }
   .about-page .team-card { width: calc(100vw - 0.5in) !important; padding: clamp(10px, 3vw, 16px) !important; border-radius: 12px !important; }
   .about-page .team-card { width: var(--vw) !important; margin-left: calc(50% - (var(--vw) / 2)) !important; margin-right: calc(50% - (var(--vw) / 2)) !important; border-radius: 0 !important; }
   .about-page .team-card .team-content { gap: clamp(8px, 2.5vw, 14px) !important; }

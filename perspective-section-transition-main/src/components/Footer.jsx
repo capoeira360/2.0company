@@ -60,8 +60,8 @@ export default function Footer() {
           <section className="new-footer-section">
             <h4 className="footer-section-title">Studio</h4>
             <address className="new-footer-studio">
-              <span>San Francisco, CA</span>
-              <span>Mon–Fri, 9am–6pm PT</span>
+              <span>Sanawari, Arusha, Tanzania</span>
+              <span>Mon–Fri, 9am–5pm EAT</span>
             </address>
             <div className="new-footer-cta">
               <InteractiveHoverButton text="Start a project" href="/contact" className="start-project-btn" />
@@ -72,15 +72,15 @@ export default function Footer() {
         </div>
 
         <div className="new-footer-contact" aria-label="Contact information">
-          <FlipAnchor href="mailto:hello@tapit.studio">hello@tapit.studio</FlipAnchor>
-          <FlipAnchor href="tel:+11234567890">+1 123 456 7890</FlipAnchor>
+          <FlipAnchor href="mailto:info@tapitsoftwares.tech">info@tapitsoftwares.tech</FlipAnchor>
+          <FlipAnchor href="tel:+255740577877">+255 740 577 877</FlipAnchor>
         </div>
         {/* Small devices: show Studio below contacts */}
         <section className="new-footer-section new-footer-studio-mobile" aria-label="Studio (mobile below contacts)">
           <h4 className="footer-section-title">Studio</h4>
           <address className="new-footer-studio">
-            <span>San Francisco, CA</span>
-            <span>Mon–Fri, 9am–6pm PT</span>
+            <span>Sanawari, Arusha, Tanzania</span>
+            <span>Mon–Fri, 9am–5pm EAT</span>
           </address>
           <div className="new-footer-cta">
             <InteractiveHoverButton text="Start a project" href="/contact" className="start-project-btn" />
@@ -91,7 +91,6 @@ export default function Footer() {
           <div className="new-footer-policies">
             <FlipAnchor href="/privacy">Privacy Policy</FlipAnchor>
             <FlipAnchor href="/terms">Terms of Service</FlipAnchor>
-            <FlipAnchor href="/cookies">Cookies</FlipAnchor>
           </div>
           <div className="new-footer-note">© TAPit Studio. Crafted with design and code.</div>
         </div>
